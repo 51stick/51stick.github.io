@@ -1,0 +1,1129 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="baidu-site-verification" content="0VMkfXgUzl" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小猪突然地" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/site_favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="最近在工作中需使用配置中心，将配置文件集中起来，做统一的管理，于是打算先研究一下百度的disconf，看看能否引入项目中过来使用，首先，在安装disconf时，需要使用到nginx，于是准备在linux上先把nginx装上。以前也装上nginx研究过，感觉安装还是比较的简单，所以也就没做笔记。这回借这个机会，顺便把安装笔也一同给补上，作为以后学习回顾的记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx安装攻略">
+<meta property="og:url" content="/2017/02/15/nginx-install-on-centos/index.html">
+<meta property="og:site_name" content="小猪突然地">
+<meta property="og:description" content="最近在工作中需使用配置中心，将配置文件集中起来，做统一的管理，于是打算先研究一下百度的disconf，看看能否引入项目中过来使用，首先，在安装disconf时，需要使用到nginx，于是准备在linux上先把nginx装上。以前也装上nginx研究过，感觉安装还是比较的简单，所以也就没做笔记。这回借这个机会，顺便把安装笔也一同给补上，作为以后学习回顾的记录。">
+<meta property="og:image" content="http://i1.piimg.com/1949/f9bce752a3999037.png">
+<meta property="og:image" content="http://p1.bpimg.com/1949/1cde0025231d46e8.png">
+<meta property="og:updated_time" content="2017-02-26T07:28:18.522Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nginx安装攻略">
+<meta name="twitter:description" content="最近在工作中需使用配置中心，将配置文件集中起来，做统一的管理，于是打算先研究一下百度的disconf，看看能否引入项目中过来使用，首先，在安装disconf时，需要使用到nginx，于是准备在linux上先把nginx装上。以前也装上nginx研究过，感觉安装还是比较的简单，所以也就没做笔记。这回借这个机会，顺便把安装笔也一同给补上，作为以后学习回顾的记录。">
+<meta name="twitter:image" content="http://i1.piimg.com/1949/f9bce752a3999037.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/2017/02/15/nginx-install-on-centos/"/>
+
+
+
+
+
+  <title> nginx安装攻略 | 小猪突然地 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1863892ff6d04eea1892c8b906242685";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小猪突然地</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/2017/02/15/nginx-install-on-centos/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="小猪突然地">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://p1.bqimg.com/1949/66949c38ecfce4cf.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="小猪突然地">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="小猪突然地" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                nginx安装攻略
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-15T22:38:48+08:00">
+                2017-02-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/15/nginx-install-on-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/15/nginx-install-on-centos/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/02/15/nginx-install-on-centos/" class="leancloud_visitors" data-flag-title="nginx安装攻略">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://i1.piimg.com/1949/f9bce752a3999037.png" style="float:right;margin-top:10px;margin-left:15px;"></p>
+<p>最近在工作中需使用配置中心，将配置文件集中起来，做统一的管理，于是打算先研究一下百度的<code>disconf</code>，看看能否引入项目中过来使用，首先，在安装<code>disconf</code>时，需要使用到<code>nginx</code>，于是准备在linux上先把nginx装上。以前也装上<code>nginx</code>研究过，感觉安装还是比较的简单，所以也就没做笔记。这回借这个机会，顺便把安装笔也一同给补上，作为以后学习回顾的记录。<br><a id="more"></a></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><code>nginx</code>是用C语言开发的，推荐安装在linux环境上运行，所以本文的linux使用的是centos7，当然window上也能安装，一键式安装，相对来说更简单。好了，下面就将安装的过程及顺序记录下来(不同的linux版本安装顺序大致相同，由于系统自带的工具不同，可能安装相对来说有点出入，但需要的依赖环境和组件是相同的)。</p>
+<h3 id="安装GNU编译器套件-gcc"><a href="#安装GNU编译器套件-gcc" class="headerlink" title="安装GNU编译器套件(gcc)"></a>安装GNU编译器套件(gcc)</h3><p>作用是用来编译<code>nginx</code>源代码的，不多说了，想要了解更多的，请自行google或<a href="https://www.baidu.com/" target="_blank" rel="external">百度一下</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install gcc-c++</div></pre></td></tr></table></figure></p>
+<p>正常情况下，如果看到如下信息，则表示<code>gcc-c++</code>成功安装完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Installed:</div><div class="line">  gcc-c++.x86_64 0:4.8.5-11.el7                                                 </div><div class="line"></div><div class="line">Dependency Installed:</div><div class="line">  libstdc++-devel.x86_64 0:4.8.5-11.el7                                         </div><div class="line"></div><div class="line">Dependency Updated:</div><div class="line">  cpp.x86_64 0:4.8.5-11.el7               gcc.x86_64 0:4.8.5-11.el7            </div><div class="line">  libgcc.x86_64 0:4.8.5-11.el7            libgomp.x86_64 0:4.8.5-11.el7        </div><div class="line">  libstdc++.x86_64 0:4.8.5-11.el7        </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<h3 id="安装-PCRE-pcre-devel"><a href="#安装-PCRE-pcre-devel" class="headerlink" title="安装 PCRE pcre-devel"></a>安装 PCRE pcre-devel</h3><p>PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用的是<code>pcre</code>来解析正则表达式，所以需要在 linux上安装<code>pcre</code>库，<code>pcre-devel</code>是使用 <code>pcre</code>的一个二次开发库。nginx也需要此依赖库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y pcre pcre-devel</div></pre></td></tr></table></figure></p>
+<p>正常情况下，如果看到如下信息，则表示<code>PCRE pcre-devel</code>成功安装完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Total                                              657 kB/s | 899 kB  00:01     </div><div class="line">Running transaction check</div><div class="line">Running transaction test</div><div class="line">Transaction test succeeded</div><div class="line">Running transaction</div><div class="line">  Updating   : pcre-8.32-15.el7_2.1.x86_64                                  1/3 </div><div class="line">  Installing : pcre-devel-8.32-15.el7_2.1.x86_64                            2/3 </div><div class="line">  Cleanup    : pcre-8.32-15.el7.x86_64                                      3/3 </div><div class="line">  Verifying  : pcre-8.32-15.el7_2.1.x86_64                                  1/3 </div><div class="line">  Verifying  : pcre-devel-8.32-15.el7_2.1.x86_64                            2/3 </div><div class="line">  Verifying  : pcre-8.32-15.el7.x86_64                                      3/3 </div><div class="line"></div><div class="line">Installed:</div><div class="line">  pcre-devel.x86_64 0:8.32-15.el7_2.1                                           </div><div class="line"></div><div class="line">Updated:</div><div class="line">  pcre.x86_64 0:8.32-15.el7_2.1                                                 </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<h3 id="安装zlib"><a href="#安装zlib" class="headerlink" title="安装zlib"></a>安装zlib</h3><p><code>zlib</code>库提供了很多种压缩和解压缩的方式,nginx使用<code>zlib</code>对http包的内容进行gzip，所以需要在Centos上需要安装此依赖库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y zlib zlib-devel</div></pre></td></tr></table></figure></p>
+<p>正常情况下，如果看到如下信息，则表示<code>zlib</code>成功安装完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Total                                              182 kB/s | 140 kB  00:00     </div><div class="line">Running transaction check</div><div class="line">Running transaction test</div><div class="line">Transaction test succeeded</div><div class="line">Running transaction</div><div class="line">  Updating   : zlib-1.2.7-17.el7.x86_64                                     1/3 </div><div class="line">  Installing : zlib-devel-1.2.7-17.el7.x86_64                               2/3 </div><div class="line">  Cleanup    : zlib-1.2.7-15.el7.x86_64                                     3/3 </div><div class="line">  Verifying  : zlib-devel-1.2.7-17.el7.x86_64                               1/3 </div><div class="line">  Verifying  : zlib-1.2.7-17.el7.x86_64                                     2/3 </div><div class="line">  Verifying  : zlib-1.2.7-15.el7.x86_64                                     3/3 </div><div class="line"></div><div class="line">Installed:</div><div class="line">  zlib-devel.x86_64 0:1.2.7-17.el7                                              </div><div class="line"></div><div class="line">Updated:</div><div class="line">  zlib.x86_64 0:1.2.7-17.el7                                                    </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<h3 id="安装OpenSSL"><a href="#安装OpenSSL" class="headerlink" title="安装OpenSSL"></a>安装OpenSSL</h3><p><code>OpenSSL</code>是一个强大的安全套接字层密码库，包括主要的密码算法、常用的密钥和证书封装管理功能以及SSL协议。nginx不仅支持http协议，还支持 https（即在ssl协议上传输http），所以需要在Centos安装此依赖库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y openssl openssl-devel</div></pre></td></tr></table></figure></p>
+<p>正常情况下，如果看到如下信息，则表示<code>OpenSSL</code>成功安装完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">Total                                              827 kB/s | 8.7 MB  00:10     </div><div class="line">Running transaction check</div><div class="line">Running transaction test</div><div class="line">Transaction test succeeded</div><div class="line">Running transaction</div><div class="line">  Updating   : libcom_err-1.42.9-9.el7.x86_64                              1/42 </div><div class="line">  Updating   : libsepol-2.5-6.el7.x86_64                                   2/42 </div><div class="line">  Updating   : libselinux-2.5-6.el7.x86_64                                 3/42 </div><div class="line">  ......                     </div><div class="line">  Verifying  : systemd-python-219-19.el7.x86_64                           40/42 </div><div class="line">  Verifying  : libselinux-2.2.2-6.el7.x86_64                              41/42 </div><div class="line">  Verifying  : 1:openssl-1.0.1e-42.el7.9.x86_64                           42/42 </div><div class="line"></div><div class="line">Installed:</div><div class="line">  openssl-devel.x86_64 1:1.0.1e-60.el7_3.1                                      </div><div class="line"></div><div class="line">Dependency Installed:</div><div class="line">  keyutils-libs-devel.x86_64 0:1.5.8-3.el7  krb5-devel.x86_64 0:1.14.1-27.el7_3 </div><div class="line">  libcom_err-devel.x86_64 0:1.42.9-9.el7    libkadm5.x86_64 0:1.14.1-27.el7_3   </div><div class="line">  libselinux-devel.x86_64 0:2.5-6.el7       libsepol-devel.x86_64 0:2.5-6.el7   </div><div class="line">  libverto-devel.x86_64 0:0.2.5-4.el7      </div><div class="line"></div><div class="line">Updated:</div><div class="line">  openssl.x86_64 1:1.0.1e-60.el7_3.1       systemd.x86_64 0:219-30.el7_3.6      </div><div class="line"></div><div class="line">Dependency Updated:</div><div class="line">  e2fsprogs.x86_64 0:1.42.9-9.el7                                               </div><div class="line">  e2fsprogs-libs.x86_64 0:1.42.9-9.el7                                          </div><div class="line">  krb5-libs.x86_64 0:1.14.1-27.el7_3                                            </div><div class="line">  krb5-workstation.x86_64 0:1.14.1-27.el7_3                                     </div><div class="line">  libcom_err.x86_64 0:1.42.9-9.el7                                              </div><div class="line">  libgudev1.x86_64 0:219-30.el7_3.6                                             </div><div class="line">  libselinux.x86_64 0:2.5-6.el7                                                 </div><div class="line">  libselinux-python.x86_64 0:2.5-6.el7                                          </div><div class="line">  libselinux-utils.x86_64 0:2.5-6.el7                                           </div><div class="line">  libsepol.x86_64 0:2.5-6.el7                                                   </div><div class="line">  libss.x86_64 0:1.42.9-9.el7                                                   </div><div class="line">  openssl-libs.x86_64 1:1.0.1e-60.el7_3.1                                       </div><div class="line">  systemd-libs.x86_64 0:219-30.el7_3.6                                          </div><div class="line">  systemd-python.x86_64 0:219-30.el7_3.6                                        </div><div class="line">  systemd-sysv.x86_64 0:219-30.el7_3.6                                          </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<h3 id="下载nginx"><a href="#下载nginx" class="headerlink" title="下载nginx"></a>下载nginx</h3><p>1.官网下载：<a href="https://nginx.org/en/download.html" target="_blank" rel="external">https://nginx.org/en/download.html</a><br>2.使用wget命令下:wget -c <a href="https://nginx.org/download/nginx-1.10.1.tar.gz" target="_blank" rel="external">https://nginx.org/download/nginx-1.10.1.tar.gz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@localhost opt]# wget -c https://nginx.org/download/nginx-1.10.1.tar.gz</div><div class="line">--2017-02-24 06:11:12--  https://nginx.org/download/nginx-1.10.1.tar.gz</div><div class="line">Resolving nginx.org (nginx.org)... 206.251.255.63, 95.211.80.227, 2001:1af8:4060:a004:21::e3, ...</div><div class="line">Connecting to nginx.org (nginx.org)|206.251.255.63|:443... connected.</div><div class="line">ERROR: cannot verify nginx.org&apos;s certificate, issued by ‘/C=EN/CN=Sample CA 2’:</div><div class="line">  Unable to locally verify the issuer&apos;s authority.</div><div class="line">To connect to nginx.org insecurely, use `--no-check-certificate&apos;.</div></pre></td></tr></table></figure>
+<p>如果看到如上的提示信息，说明<code>nginx.com</code>证书验证失败，提示使用无证书下载，即加上提示中的<code>--no-check-certificate</code>参数。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# cd /opt</div><div class="line">[root@localhost opt]# wget -c --no-check-certificate https://nginx.org/download/nginx-1.10.1.tar.gz</div></pre></td></tr></table></figure>
+<h3 id="解压nginx"><a href="#解压nginx" class="headerlink" title="解压nginx"></a>解压nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost opt]# tar -zxvf nginx-1.10.1</div></pre></td></tr></table></figure>
+<h3 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h3><p>进入nginx的解压目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost opt]# cd nginx-1.10.1/</div><div class="line">[root@localhost nginx-1.10.1]# ./configure</div></pre></td></tr></table></figure></p>
+<p>说明：<code>./configure</code>命令使用的是nginx默认的配置方式。其默认的相关配置会在配置完成后显示出来，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Configuration summary</div><div class="line">  + using system PCRE library</div><div class="line">  + OpenSSL library is not used</div><div class="line">  + md5: using system crypto library</div><div class="line">  + sha1: using system crypto library</div><div class="line">  + using system zlib library</div><div class="line"></div><div class="line">  nginx path prefix: &quot;/usr/local/nginx&quot;</div><div class="line">  nginx binary file: &quot;/usr/local/nginx/sbin/nginx&quot;</div><div class="line">  nginx modules path: &quot;/usr/local/nginx/modules&quot;</div><div class="line">  nginx configuration prefix: &quot;/usr/local/nginx/conf&quot;</div><div class="line">  nginx configuration file: &quot;/usr/local/nginx/conf/nginx.conf&quot;</div><div class="line">  nginx pid file: &quot;/usr/local/nginx/logs/nginx.pid&quot;</div><div class="line">  nginx error log file: &quot;/usr/local/nginx/logs/error.log&quot;</div><div class="line">  nginx http access log file: &quot;/usr/local/nginx/logs/access.log&quot;</div><div class="line">  nginx http client request body temporary files: &quot;client_body_temp&quot;</div><div class="line">  nginx http proxy temporary files: &quot;proxy_temp&quot;</div><div class="line">  nginx http fastcgi temporary files: &quot;fastcgi_temp&quot;</div><div class="line">  nginx http uwsgi temporary files: &quot;uwsgi_temp&quot;</div><div class="line">  nginx http scgi temporary files: &quot;scgi_temp&quot;</div></pre></td></tr></table></figure></p>
+<p>当然，也可以自定义配置安装，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">./configure \</div><div class="line">--prefix=/usr/local/nginx \</div><div class="line">--conf-path=/usr/local/nginx/conf/nginx.conf \</div><div class="line">--pid-path=/usr/local/nginx/conf/nginx.pid \</div><div class="line">--lock-path=/var/lock/nginx.lock \</div><div class="line">--error-log-path=/var/log/nginx/error.log \</div><div class="line">--http-log-path=/var/log/nginx/access.log \</div><div class="line">--with-http_gzip_static_module \</div><div class="line">--http-client-body-temp-path=/var/temp/nginx/client \</div><div class="line">--http-proxy-temp-path=/var/temp/nginx/proxy \</div><div class="line">--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \</div><div class="line">--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \</div><div class="line">--http-scgi-temp-path=/var/temp/nginx/scgi</div></pre></td></tr></table></figure></p>
+<p>这里我就使用默认的配置安装。</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@localhost nginx-1.10.1]# make &amp; make install</div><div class="line">......</div><div class="line">test -d &apos;/usr/local/nginx/logs&apos; \</div><div class="line">	|| mkdir -p &apos;/usr/local/nginx/logs&apos;</div><div class="line">test -d &apos;/usr/local/nginx/html&apos; \</div><div class="line">	|| cp -R html &apos;/usr/local/nginx&apos;</div><div class="line">test -d &apos;/usr/local/nginx/logs&apos; \</div><div class="line">	|| mkdir -p &apos;/usr/local/nginx/logs&apos;</div><div class="line">make[1]: Leaving directory `/opt/nginx-1.10.1&apos;</div><div class="line">[1]+  Done                    make</div></pre></td></tr></table></figure>
+<p>看到如上信息，表示<code>nginx</code>安装成功。</p>
+<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><p>1.首先查找默认配置中安装的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost nginx-1.10.1]# whereis nginx</div><div class="line">nginx: /usr/local/nginx</div></pre></td></tr></table></figure></p>
+<p>2.启动nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost nginx-1.10.1]# cd /usr/local/nginx</div><div class="line">[root@localhost nginx]# cd sbin/</div><div class="line">[root@localhost sbin]# ./nginx</div></pre></td></tr></table></figure></p>
+<p>然后在浏览器访问<code>http://localhost</code>，正常情况下就能看到如下页面信息。</p>
+<p><img src="http://p1.bpimg.com/1949/1cde0025231d46e8.png" alt="Nginx首界面"><br>到此，nginx就安装成功了。</p>
+<p><code>注意</code>：ngxin安装好，默认监听的是本机的<code>80端口</code>，如果是安装在虚拟机中，有可能本地实体机无法访问到虚拟机中的nginx主界面，原因可能是<code>80端口</code>被防火墙屏蔽了，解决办法是暴露<code>80端口</code>即可。如：“<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<p>3.其他相关命令<br>3.1 <code>/nginx -s stop</code>：强制关闭，会先查询到nginx的进程id，然后再使用kill命令杀死进程。<br>3.2 <code>/nginx -s quit</code>：待nginx进程处理完所有任务安全的进行停止。<br>3.3 <code>/nginx -s reload</code>：平滑的重新加载配置文件，即执行完当前正在处理的任务，然后再重新加载修改后的配文件。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/15/redis-install-on-linux/" rel="next" title="redis安装攻略">
+                <i class="fa fa-chevron-left"></i> redis安装攻略
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/04/drools-simple-example/" rel="prev" title="Drools简单示例">
+                Drools简单示例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/02/15/nginx-install-on-centos/"
+     data-title="nginx安装攻略"
+     data-content=""
+     data-url="/2017/02/15/nginx-install-on-centos/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/15/nginx-install-on-centos/"
+           data-title="nginx安装攻略" data-url="/2017/02/15/nginx-install-on-centos/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://p1.bqimg.com/1949/66949c38ecfce4cf.png"
+               alt="小猪突然地" />
+          <p class="site-author-name" itemprop="name">小猪突然地</p>
+           
+              <p class="site-description motion-element" itemprop="description">学习与实践是自我提升的唯一途径</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2826016400" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装GNU编译器套件-gcc"><span class="nav-number">2.</span> <span class="nav-text">安装GNU编译器套件(gcc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-PCRE-pcre-devel"><span class="nav-number">3.</span> <span class="nav-text">安装 PCRE pcre-devel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装zlib"><span class="nav-number">4.</span> <span class="nav-text">安装zlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装OpenSSL"><span class="nav-number">5.</span> <span class="nav-text">安装OpenSSL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载nginx"><span class="nav-number">6.</span> <span class="nav-text">下载nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压nginx"><span class="nav-number">7.</span> <span class="nav-text">解压nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置nginx"><span class="nav-number">8.</span> <span class="nav-text">配置nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装"><span class="nav-number">9.</span> <span class="nav-text">编译安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动nginx"><span class="nav-number">10.</span> <span class="nav-text">启动nginx</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小猪突然地</span>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?1863892ff6d04eea1892c8b906242685";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+  </script>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"51stick"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("mDTVDRc79w24i4q7sjMqblUo-gzGzoHsz", "1Fa8fnoPs18E9DVggCBzg6nD");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
