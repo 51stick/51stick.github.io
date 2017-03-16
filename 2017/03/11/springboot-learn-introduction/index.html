@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="zookeeper," />
+  <meta name="keywords" content="springboot," />
 
 
 
@@ -108,18 +108,19 @@
 
 
 
-<meta name="description" content="最近工作中使用到了zookeeper，于是决定着手研究一下zookeeper的原理、使用场景、搭建方式等，本文主要讲解zookeeper的安装（先把环境搭好运行起来再说别的）。后面后时间在具体分析zookeeper相关知识。zookeeper有三种运行模式，分别是集群模式、伪集群模式、单机模式，本文主要搭建的是集群模式，也是工作中使用的模式，所以也推荐直接搭建zookeeper的集群模式。">
+<meta name="description" content="本文主要通过一个简单的项目演示springboot的基本搭建工作，介绍了springboot的基本使用和配置。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zookeeper集群搭建攻略">
-<meta property="og:url" content="/2016/11/12/zookeeper-cluster-install-guide/index.html">
+<meta property="og:title" content="spring-boot入门示例">
+<meta property="og:url" content="/2017/03/11/springboot-learn-introduction/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="最近工作中使用到了zookeeper，于是决定着手研究一下zookeeper的原理、使用场景、搭建方式等，本文主要讲解zookeeper的安装（先把环境搭好运行起来再说别的）。后面后时间在具体分析zookeeper相关知识。zookeeper有三种运行模式，分别是集群模式、伪集群模式、单机模式，本文主要搭建的是集群模式，也是工作中使用的模式，所以也推荐直接搭建zookeeper的集群模式。">
-<meta property="og:image" content="http://p1.bqimg.com/1949/e72f4b926e408381.png">
-<meta property="og:updated_time" content="2017-02-26T07:26:45.435Z">
+<meta property="og:description" content="本文主要通过一个简单的项目演示springboot的基本搭建工作，介绍了springboot的基本使用和配置。">
+<meta property="og:image" content="http://p1.bqimg.com/1949/47e4fbad8450f2e8.png">
+<meta property="og:image" content="http://p1.bqimg.com/1949/42242d4aa29b8d61.png">
+<meta property="og:updated_time" content="2017-03-16T13:58:10.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zookeeper集群搭建攻略">
-<meta name="twitter:description" content="最近工作中使用到了zookeeper，于是决定着手研究一下zookeeper的原理、使用场景、搭建方式等，本文主要讲解zookeeper的安装（先把环境搭好运行起来再说别的）。后面后时间在具体分析zookeeper相关知识。zookeeper有三种运行模式，分别是集群模式、伪集群模式、单机模式，本文主要搭建的是集群模式，也是工作中使用的模式，所以也推荐直接搭建zookeeper的集群模式。">
-<meta name="twitter:image" content="http://p1.bqimg.com/1949/e72f4b926e408381.png">
+<meta name="twitter:title" content="spring-boot入门示例">
+<meta name="twitter:description" content="本文主要通过一个简单的项目演示springboot的基本搭建工作，介绍了springboot的基本使用和配置。">
+<meta name="twitter:image" content="http://p1.bqimg.com/1949/47e4fbad8450f2e8.png">
 
 
 
@@ -147,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="/2016/11/12/zookeeper-cluster-install-guide/"/>
+  <link rel="canonical" href="/2017/03/11/springboot-learn-introduction/"/>
 
 
 
 
 
-  <title> zookeeper集群搭建攻略 | 小猪突然地 </title>
+  <title> spring-boot入门示例 | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -333,7 +334,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2016/11/12/zookeeper-cluster-install-guide/">
+  <link itemprop="mainEntityOfPage" href="/2017/03/11/springboot-learn-introduction/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -357,7 +358,7 @@
             
             
               
-                zookeeper集群搭建攻略
+                spring-boot入门示例
               
             
           </h1>
@@ -372,8 +373,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-12T20:00:14+08:00">
-                2016-11-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T21:37:08+08:00">
+                2017-03-11
               </time>
             
 
@@ -395,8 +396,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/zookeeper/" itemprop="url" rel="index">
-                    <span itemprop="name">zookeeper</span>
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
                   </a>
                 </span>
 
@@ -413,8 +414,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/12/zookeeper-cluster-install-guide/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/zookeeper-cluster-install-guide/" itemprop="commentCount"></span>
+                <a href="/2017/03/11/springboot-learn-introduction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/springboot-learn-introduction/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +423,7 @@
 
           
           
-             <span id="/2016/11/12/zookeeper-cluster-install-guide/" class="leancloud_visitors" data-flag-title="zookeeper集群搭建攻略">
+             <span id="/2017/03/11/springboot-learn-introduction/" class="leancloud_visitors" data-flag-title="spring-boot入门示例">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -451,32 +452,36 @@
       
 
       
-        <p><img src="http://p1.bqimg.com/1949/e72f4b926e408381.png" style="float:right;margin-top:10px;margin-left:15px;height:150px;"></p>
-<p>最近工作中使用到了<code>zookeeper</code>，于是决定着手研究一下<code>zookeeper</code>的原理、使用场景、搭建方式等，本文主要讲解<code>zookeeper</code>的安装（先把环境搭好运行起来再说别的）。后面后时间在具体分析<code>zookeeper</code>相关知识。<code>zookeeper</code>有三种运行模式，分别是<code>集群模式</code>、<code>伪集群模式</code>、<code>单机模式</code>，本文主要搭建的是集群模式，也是工作中使用的模式，所以也推荐直接搭建<code>zookeeper</code>的集群模式。<br><a id="more"></a></p>
-<h3 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h3><h4 id="准备linux环境"><a href="#准备linux环境" class="headerlink" title="准备linux环境"></a>准备linux环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">虚拟机环境centos 7</div></pre></td></tr></table></figure>
-<h4 id="准备jdk环境"><a href="#准备jdk环境" class="headerlink" title="准备jdk环境"></a>准备jdk环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]# java -version</div><div class="line">java version &quot;1.7.0_75&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.7.0_75-b13)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 24.75-b04, mixed mode)</div></pre></td></tr></table></figure>
-<h4 id="准备zookeper"><a href="#准备zookeper" class="headerlink" title="准备zookeper"></a>准备zookeper</h4><p>下载地址：<a href="http://www.apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz" target="_blank" rel="external">zookeeper-3.4.6.tar.gz</a></p>
-<h3 id="开始安装zookeeper"><a href="#开始安装zookeeper" class="headerlink" title="开始安装zookeeper"></a>开始安装zookeeper</h3><h4 id="集群模式"><a href="#集群模式" class="headerlink" title="集群模式"></a>集群模式</h4><p>集群模式就是在多个服务节点上安装<code>zookeeper</code>，然后通过相关配置关联起来，形成一个集群。下面开始<code>zookeeper</code>的集群模式的搭建。<br>1.将下载好的<code>zookeeper-3.4.6.tar.gz</code>文件放置在<code>/opt</code>目录下并解压。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost opt]# tar -zxvf zookeeper-3.4.6.tar.gz </div><div class="line">[root@localhost opt]# ls</div><div class="line">zookeeper-3.4.6  zookeeper-3.4.6.tar.gz</div></pre></td></tr></table></figure></p>
-<p>2.重命名解压包。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost opt]# mv zookeeper-3.4.6 zookeeper</div><div class="line">[root@localhost opt]# ls</div><div class="line">zookeeper  zookeeper-3.4.6.tar.gz</div></pre></td></tr></table></figure></p>
-<p>3 配置zookeeper，进入到zookeeper/conf目录下，拷贝配置文件示例<code>zoo_sample.cfg</code>得到<code>zoo.cfg</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost conf]# cp zoo_sample.cfg zoo.cfg</div><div class="line">[root@localhost conf]# ls</div><div class="line">configuration.xsl  log4j.properties  zoo.cfg  zoo_sample.cfg</div></pre></td></tr></table></figure></p>
-<p>4 编辑配置文件zoo.cfg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"># The number of milliseconds of each tick</div><div class="line">tickTime=2000</div><div class="line"># The number of ticks that the initial</div><div class="line"># synchronization phase can take</div><div class="line">initLimit=10</div><div class="line"># The number of ticks that can pass between</div><div class="line"># sending a request and getting an acknowledgement</div><div class="line">syncLimit=5</div><div class="line"># the directory where the snapshot is stored.</div><div class="line"># do not use /tmp for storage, /tmp here is just</div><div class="line"># example sakes.</div><div class="line">dataDir=/var/zookeeper</div><div class="line"># the port at which the clients will connect</div><div class="line">clientPort=2181</div><div class="line"># the maximum number of client connections.</div><div class="line"># increase this if you need to handle more clients</div><div class="line">#maxClientCnxns=60</div><div class="line">#</div><div class="line"># Be sure to read the maintenance section of the</div><div class="line"># administrator guide before turning on autopurge.</div><div class="line">#</div><div class="line"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</div><div class="line">#</div><div class="line"># The number of snapshots to retain in dataDir</div><div class="line">#autopurge.snapRetainCount=3</div><div class="line"># Purge task interval in hours</div><div class="line"># Set to &quot;0&quot; to disable auto purge feature</div><div class="line">#autopurge.purgeInterval=1</div><div class="line"></div><div class="line">server.1=192.168.254.130:2888:3888</div><div class="line">server.2=192.168.254.131:2888:3888</div><div class="line">server.3=192.168.254.132:2888:3888</div></pre></td></tr></table></figure></p>
-<p><code>注意:</code><br>1.配置数据节点，<code>dataDir=/var/zookeeper</code>，该位置可以自定义。<br>2.添加服务节点配置，格式为<code>server.id=ip：port：port</code>，id被称为Server ID，范围在1~255。</p>
-<p>5 配置myid文件。在数据节点指定的目录中，添加<code>myid</code>配置文件，id编号和zoo.cfg中的服务节点ip对应。该配置文件只有一行内容，并且是数字，对应服务器节点的Server ID。</p>
-<p>6 其他机器节点做如上相应配置，对应的myid配置，参考zoo.cfg文件。</p>
-<hr>
-<h4 id="伪集群模式"><a href="#伪集群模式" class="headerlink" title="伪集群模式"></a>伪集群模式</h4><p>所谓伪集群，简单点说，集群所有服务节点都在一台机器上，但是还是以集群的方式对位提供服务。部分配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server.1=192.168.254.130:2888:3888</div><div class="line">server.2=192.168.254.130:2889:3889</div><div class="line">server.3=192.168.254.130:2890:3890</div></pre></td></tr></table></figure></p>
-<h4 id="单机模式"><a href="#单机模式" class="headerlink" title="单机模式"></a>单机模式</h4><p>单机模式只是一种特殊的集群模式，为便于理解，可以粗略地认为集群中只有一个服务节点的集群。单机模式的部署步骤和集群模式的部署步骤基本一致，只是在zoo.cfg配置文件上有点差异，只配置本机服务节点即可。部分配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server.1=192.168.254.130:2888:3888</div></pre></td></tr></table></figure></p>
-<h3 id="安装总结"><a href="#安装总结" class="headerlink" title="安装总结"></a>安装总结</h3><p>通常来说，不管是企业还是个人研究，都已集群模式为主，伪集群和单机模式用的较少。</p>
-<h3 id="启动zookeeper"><a href="#启动zookeeper" class="headerlink" title="启动zookeeper"></a>启动zookeeper</h3><p>1.进入zk的bin目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost conf]# cd /opt/zookeeper/bin/</div><div class="line">[root@localhost bin]# ls</div><div class="line">README.txt  zkCleanup.sh  zkCli.cmd  zkCli.sh  zkEnv.cmd  zkEnv.sh  zkServer.cmd  zkServer.sh  zookeeper.out</div><div class="line">[root@localhost bin]#</div></pre></td></tr></table></figure></p>
-<p>2.启动zookeeper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]# ./zkServer.sh start</div><div class="line">JMX enabled by default</div><div class="line">Using config: /opt/zookeeper/bin/../conf/zoo.cfg</div><div class="line">Starting zookeeper ... STARTED</div><div class="line">[root@localhost bin]#</div></pre></td></tr></table></figure></p>
-<p>启动全部的<code>zookeeper</code>服务节点，只要节点成功启动超过半数，即存活的<code>zookeeper</code>节点超过半数，<code>zooLeeper</code>集群就能正常工作。</p>
-<p>接下来可以通过相关命令来查看<code>zookeeper</code>的相关信息：<br>1.<code>./zkServer.sh status</code>：查看是否是领导者还是跟随者。<br>2.通过telnet工具来查看客户端是否成功启动。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]# telnet 192.168.211.128 2181</div><div class="line">Trying 192.168.211.128...</div><div class="line">Connected to 192.168.211.128.</div><div class="line">Escape character is &apos;^]&apos;.</div></pre></td></tr></table></figure></p>
-<p>注意：如果没有安装telnet，可以使用如下命令来安装:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install telnet</div></pre></td></tr></table></figure></p>
-<p>然后使用stat命令来查看集群的启动信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]# telnet 192.168.211.128 2181</div><div class="line">Trying 192.168.211.128...</div><div class="line">Connected to 192.168.211.128.</div><div class="line">Escape character is &apos;^]&apos;.</div><div class="line">stat</div><div class="line">Zookeeper version: 3.4.6-1569965, built on 02/20/2014 09:09 GMT</div><div class="line">Clients:</div><div class="line"> /192.168.211.128:47573[0](queued=0,recved=1,sent=0)</div><div class="line"></div><div class="line">Latency min/avg/max: 0/0/0</div><div class="line">Received: 1</div><div class="line">Sent: 0</div><div class="line">Connections: 1</div><div class="line">Outstanding: 0</div><div class="line">Zxid: 0x0</div><div class="line">Mode: follower</div><div class="line">Node count: 4</div><div class="line">Connection closed by foreign host.</div></pre></td></tr></table></figure></p>
-<p><code>注意:</code>有可能在输入stat命令是报如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]# telnet 192.168.211.128 2181</div><div class="line">Trying 192.168.211.128...</div><div class="line">Connected to 192.168.211.128.</div><div class="line">Escape character is &apos;^]&apos;.</div><div class="line">stat</div><div class="line">This ZooKeeper instance is not currently serving requests</div><div class="line">Connection closed by foreign host.</div></pre></td></tr></table></figure>
-<p>以上错误原因有一下两点：<br>1.集群没有选出来leader，当集群里的结点只剩下一台，或者不足半数时，集群进入崩溃恢复阶段，该阶集群不对外提供服务，就会出现这个错误提示。<br>2.集群配置的端口被防火墙屏蔽，解决方法是暴露集群端口。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]# firewall-cmd --zone=public --add-port=2181/tcp --permanent</div><div class="line">[root@localhost bin]# firewall-cmd --zone=public --add-port=2888/tcp --permanent</div><div class="line">[root@localhost bin]# firewall-cmd --zone=public --add-port=3888/tcp --permanent</div><div class="line">[root@localhost bin]# firewall-cmd --reload</div></pre></td></tr></table></figure></p>
-<p>然后关闭集群，重启启动，OK，解决问题，集群成功启动起来，客户端访问正常，到此，<code>zookeeper</code>集群的简单搭建也就完成了，接下来就可以直接在服务器上学习和使用其相关命令，也可以使用程序来连接兵与其通信。</p>
+        <p>本文主要通过一个简单的项目演示<code>springboot</code>的基本搭建工作，介绍了<code>springboot</code>的基本使用和配置。<br><a id="more"></a></p>
+<h3 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h3><ol>
+<li>本文使用maven快速构建项目。</li>
+<li>springboot官方推荐使用gradle来构建springboot项目。</li>
+<li><a href="http://docs.spring.io/spring-boot/docs/1.4.2.RELEASE/reference/htmlsingle/" target="_blank" rel="external">SpringBoot 1.4.2.RELEASE官文档</a></li>
+</ol>
+<h3 id="pom依赖配置"><a href="#pom依赖配置" class="headerlink" title="pom依赖配置"></a>pom依赖配置</h3><p>当前的pom.xml内容如下，仅引入了两个模块：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.springboot.learn<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springboot-day01<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>springboot-day01<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>说明</code>：</p>
+<ol>
+<li>spring-boot-starter：springboot的核心模块，添加jar包依赖下载springboot的自动配置、日志和YAML等。</li>
+<li>spring-boot-starter-web：springboot的web模块。</li>
+<li>spring-boot-starter-test：springboot的测试模块，包括JUnit、Hamcrest、Mockito等。</li>
+</ol>
+<h3 id="项目基本结构"><a href="#项目基本结构" class="headerlink" title="项目基本结构"></a>项目基本结构</h3><p><img src="http://p1.bqimg.com/1949/47e4fbad8450f2e8.png" alt="项目结构"></p>
+<p><code>注意：</code></p>
+<ol>
+<li><code>src/main/java</code>符合maven项目的标准结构，这下面是java源代码。</li>
+<li><code>src/main/resources</code>该目录下存放的是java项目的资源文件。本项目中存放的是springboot的默认配置文件<code>application.properties</code></li>
+<li><code>src/test/java</code>存放java测试代码。</li>
+<li>访问springboot默认启动地址<code>http://localhost:8089/</code>，结果如下</li>
+<li><img src="http://p1.bqimg.com/1949/42242d4aa29b8d61.png" alt="运行结果"><br><a href="http://p1.bqimg.com/1949/42242d4aa29b8d61.png" target="_blank" rel="external">http://p1.bqimg.com/1949/42242d4aa29b8d61.png</a><br>该界面是springboot的默认访问界面,到此springboot算是正常启动起来了。</li>
+</ol>
+<h3 id="编写第一个controller服务类"><a href="#编写第一个controller服务类" class="headerlink" title="编写第一个controller服务类"></a>编写第一个controller服务类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.springboot.learn.web;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"></div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Hello World"</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>启动主程序，打开浏览器访问<code>http://localhost:8089/hello</code>，可以看到页面输出内容为：Hello World</p>
+<h3 id="编写单元测试用例"><a href="#编写单元测试用例" class="headerlink" title="编写单元测试用例"></a>编写单元测试用例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.springboot.learn;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.springboot.learn.web.HelloController;</div><div class="line"><span class="keyword">import</span> org.junit.Before;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</div><div class="line"><span class="keyword">import</span> org.springframework.http.MediaType;</div><div class="line"><span class="keyword">import</span> org.springframework.mock.web.MockServletContext;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringRunner;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.web.WebAppConfiguration;</div><div class="line"><span class="keyword">import</span> org.springframework.test.web.servlet.MockMvc;</div><div class="line"><span class="keyword">import</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders;</div><div class="line"><span class="keyword">import</span> org.springframework.test.web.servlet.setup.MockMvcBuilders;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.hamcrest.CoreMatchers.equalTo;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;</div><div class="line"></div><div class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</div><div class="line"><span class="meta">@ContextConfiguration</span>(classes = MockServletContext.class)</div><div class="line"><span class="comment">//@SpringBootTest</span></div><div class="line"><span class="meta">@WebAppConfiguration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> MockMvc mvc;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        mvc = MockMvcBuilders.standaloneSetup(<span class="keyword">new</span> HelloController()).build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHello</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        mvc.perform(MockMvcRequestBuilders.get(<span class="string">"/hello"</span>).accept(MediaType.APPLICATION_JSON))</div><div class="line">                .andExpect(status().isOk())</div><div class="line">                .andExpect(content().string(equalTo(<span class="string">"Hello World"</span>)));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明：</p>
+<ol>
+<li>使用<code>MockServletContext</code>来构建一个空的<code>WebApplicationContext</code>，这样我们创建的<code>HelloController</code>就可以在<code>@Before</code>函数中创建并传递到<code>MockMvcBuilders.standaloneSetup（）</code>函数中。</li>
+</ol>
+<p>到此，通过maven构建springboot基础项目已经完成。</p>
 
       
     </div>
@@ -500,7 +505,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/zookeeper/" rel="tag"># zookeeper</a>
+            <a href="/tags/springboot/" rel="tag"># springboot</a>
           
         </div>
       
@@ -513,8 +518,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/15/git-branch-common-command/" rel="next" title="git branch 常用命令">
-                <i class="fa fa-chevron-left"></i> git branch 常用命令
+              <a href="/2017/03/06/drools-rule-file-attribute/" rel="next" title="drools drl 规则文件属性介绍">
+                <i class="fa fa-chevron-left"></i> drools drl 规则文件属性介绍
               </a>
             
           </div>
@@ -522,10 +527,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/15/redis-install-on-linux/" rel="prev" title="redis安装攻略">
-                redis安装攻略 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,10 +541,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/11/12/zookeeper-cluster-install-guide/"
-     data-title="zookeeper集群搭建攻略"
+        <div class="ds-share flat" data-thread-key="2017/03/11/springboot-learn-introduction/"
+     data-title="spring-boot入门示例"
      data-content=""
-     data-url="/2016/11/12/zookeeper-cluster-install-guide/">
+     data-url="/2017/03/11/springboot-learn-introduction/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -570,8 +571,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/12/zookeeper-cluster-install-guide/"
-           data-title="zookeeper集群搭建攻略" data-url="/2016/11/12/zookeeper-cluster-install-guide/">
+      <div class="ds-thread" data-thread-key="2017/03/11/springboot-learn-introduction/"
+           data-title="spring-boot入门示例" data-url="/2017/03/11/springboot-learn-introduction/">
       </div>
     
   </div>
@@ -700,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装前的准备"><span class="nav-number">1.</span> <span class="nav-text">安装前的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备linux环境"><span class="nav-number">1.1.</span> <span class="nav-text">准备linux环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#准备jdk环境"><span class="nav-number">1.2.</span> <span class="nav-text">准备jdk环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#准备zookeper"><span class="nav-number">1.3.</span> <span class="nav-text">准备zookeper</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始安装zookeeper"><span class="nav-number">2.</span> <span class="nav-text">开始安装zookeeper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#集群模式"><span class="nav-number">2.1.</span> <span class="nav-text">集群模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪集群模式"><span class="nav-number">2.2.</span> <span class="nav-text">伪集群模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单机模式"><span class="nav-number">2.3.</span> <span class="nav-text">单机模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装总结"><span class="nav-number">3.</span> <span class="nav-text">安装总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动zookeeper"><span class="nav-number">4.</span> <span class="nav-text">启动zookeeper</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关介绍"><span class="nav-number">1.</span> <span class="nav-text">相关介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pom依赖配置"><span class="nav-number">2.</span> <span class="nav-text">pom依赖配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目基本结构"><span class="nav-number">3.</span> <span class="nav-text">项目基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写第一个controller服务类"><span class="nav-number">4.</span> <span class="nav-text">编写第一个controller服务类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写单元测试用例"><span class="nav-number">5.</span> <span class="nav-text">编写单元测试用例</span></a></li></ol></div>
             
 
           </div>

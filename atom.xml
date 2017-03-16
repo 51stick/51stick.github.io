@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-03-06T14:52:30.061Z</updated>
+  <updated>2017-03-16T13:58:10.779Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring-boot入门示例</title>
+    <link href="/2017/03/11/springboot-learn-introduction/"/>
+    <id>/2017/03/11/springboot-learn-introduction/</id>
+    <published>2017-03-11T13:37:08.000Z</published>
+    <updated>2017-03-16T13:58:10.779Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要通过一个简单的项目演示&lt;code&gt;springboot&lt;/code&gt;的基本搭建工作，介绍了&lt;code&gt;springboot&lt;/code&gt;的基本使用和配置。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="springboot" scheme="/categories/springboot/"/>
+    
+    
+      <category term="springboot" scheme="/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>drools drl 规则文件属性介绍</title>
