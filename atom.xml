@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-03-18T05:22:47.490Z</updated>
+  <updated>2017-03-18T13:50:28.398Z</updated>
   <id>/</id>
   
   <author>
@@ -16,11 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>spring-boot入门示例</title>
+    <title>springboot 配置详解</title>
+    <link href="/2017/03/12/springboot-configuration-load/"/>
+    <id>/2017/03/12/springboot-configuration-load/</id>
+    <published>2017-03-12T10:27:57.000Z</published>
+    <updated>2017-03-18T13:50:28.398Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要探索springboot中配置文件加载的几种方式，以及有哪些方式可以从springboot配置文件中获取配置项。最后总结了在获取配置文件配置项时，如果有相同配置项，那么这些具有相同的配置项，最终到底使用那种方式加载的配置文件中的内容，即配置文件配置项使用的优先既关系。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="springboot" scheme="/categories/springboot/"/>
+    
+    
+      <category term="springboot" scheme="/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>spring-boot 快速入门</title>
     <link href="/2017/03/11/springboot-learn-introduction/"/>
     <id>/2017/03/11/springboot-learn-introduction/</id>
     <published>2017-03-11T13:37:08.000Z</published>
-    <updated>2017-03-18T05:22:47.490Z</updated>
+    <updated>2017-03-18T10:29:33.443Z</updated>
     
     <summary type="html">
     

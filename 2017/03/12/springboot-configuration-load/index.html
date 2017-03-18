@@ -1,0 +1,1149 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="baidu-site-verification" content="0VMkfXgUzl" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="springboot," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小猪突然地" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/site_favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文主要探索springboot中配置文件加载的几种方式，以及有哪些方式可以从springboot配置文件中获取配置项。最后总结了在获取配置文件配置项时，如果有相同配置项，那么这些具有相同的配置项，最终到底使用那种方式加载的配置文件中的内容，即配置文件配置项使用的优先既关系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springboot 配置详解">
+<meta property="og:url" content="/2017/03/12/springboot-configuration-load/index.html">
+<meta property="og:site_name" content="小猪突然地">
+<meta property="og:description" content="本文主要探索springboot中配置文件加载的几种方式，以及有哪些方式可以从springboot配置文件中获取配置项。最后总结了在获取配置文件配置项时，如果有相同配置项，那么这些具有相同的配置项，最终到底使用那种方式加载的配置文件中的内容，即配置文件配置项使用的优先既关系。">
+<meta property="og:image" content="http://p1.bpimg.com/1949/7b4b77134a5b9518.png">
+<meta property="og:updated_time" content="2017-03-18T13:50:28.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="springboot 配置详解">
+<meta name="twitter:description" content="本文主要探索springboot中配置文件加载的几种方式，以及有哪些方式可以从springboot配置文件中获取配置项。最后总结了在获取配置文件配置项时，如果有相同配置项，那么这些具有相同的配置项，最终到底使用那种方式加载的配置文件中的内容，即配置文件配置项使用的优先既关系。">
+<meta name="twitter:image" content="http://p1.bpimg.com/1949/7b4b77134a5b9518.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/2017/03/12/springboot-configuration-load/"/>
+
+
+
+
+
+  <title> springboot 配置详解 | 小猪突然地 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1863892ff6d04eea1892c8b906242685";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小猪突然地</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/2017/03/12/springboot-configuration-load/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="小猪突然地">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://p1.bqimg.com/1949/66949c38ecfce4cf.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="小猪突然地">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="小猪突然地" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                springboot 配置详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:27:57+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/12/springboot-configuration-load/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/12/springboot-configuration-load/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/12/springboot-configuration-load/" class="leancloud_visitors" data-flag-title="springboot 配置详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要探索springboot中配置文件加载的几种方式，以及有哪些方式可以从springboot配置文件中获取配置项。最后总结了在获取配置文件配置项时，如果有相同配置项，那么这些具有相同的配置项，最终到底使用那种方式加载的配置文件中的内容，即配置文件配置项使用的优先既关系。<br><a id="more"></a></p>
+<h3 id="默认配置文件名"><a href="#默认配置文件名" class="headerlink" title="默认配置文件名"></a>默认配置文件名</h3><p>springboot中默认的配置文件名如下：</p>
+<ol>
+<li>application.properties，application-default.properties</li>
+<li>application.yml，application-default.yml</li>
+</ol>
+<h3 id="默认配置文件路径"><a href="#默认配置文件路径" class="headerlink" title="默认配置文件路径"></a>默认配置文件路径</h3><ol>
+<li>classpath 根目录</li>
+<li>classpath:/config</li>
+</ol>
+<h3 id="自定义配置文件加载"><a href="#自定义配置文件加载" class="headerlink" title="自定义配置文件加载"></a>自定义配置文件加载</h3><h4 id="程序启动参数中指定配置文件"><a href="#程序启动参数中指定配置文件" class="headerlink" title="程序启动参数中指定配置文件"></a>程序启动参数中指定配置文件</h4><p>使用程序启动参数加载配置文件有两种方式，一种是加载类路径配置文件，另一种是加载文件系统配置文件</p>
+<p>1.在启动参数中使用<code>--spring.config.name</code>加载自定义配置文件，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--spring.config.name=jdbc</div></pre></td></tr></table></figure>
+<p><code>提示：</code><br>    <code>jdbc</code>可以是<code>jdbc.properties</code>或<code>jdbc.yml</code>，</p>
+<p>2.在启动参数中使用<code>--spring.config.location</code>加载自定义配置文件，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--spring.config.location=classpath:jdbc.yml,file:D:/jdbc2.properties</div></pre></td></tr></table></figure>
+<p><img src="http://p1.bpimg.com/1949/7b4b77134a5b9518.png" alt=""></p>
+<p><code>提示:</code></p>
+<p>a) 使用这种方式加载配置文件，必须指定配置文件的全路径名。<br>b) 这种方式可以指指定多个配置文件，使用<code>逗号</code>分隔。</p>
+<h4 id="使用spring注解加载配置文件"><a href="#使用spring注解加载配置文件" class="headerlink" title="使用spring注解加载配置文件"></a>使用spring注解加载配置文件</h4><p>1.使用<code>@PropertySource</code>加载自定义配置文件，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:application.properties"</span>)</div><div class="line"><span class="meta">@PropertySource</span>(<span class="string">"file:/e:/tmp/application2.properties"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomConfigLoad</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>提示:</code></p>
+<p>a) 使用<code>@PropertySource</code>可以同时加载<code>类路径(classpath:)</code>和<code>系统文件路径（file:）</code>配置文件。<br>b) 使用此注解如果要在配置类中加载多个配置文件，只须注解多次即可。</p>
+<p>2.使用<code>@PropertySources</code>加载自定义配置文件，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@PropertySources</span>(&#123;</div><div class="line">        <span class="meta">@PropertySource</span>(<span class="string">"classpath:application2.properties"</span>),</div><div class="line">        <span class="meta">@PropertySource</span>(<span class="string">"file:/e:/tmp/application2.properties"</span>)</div><div class="line">&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomConfigLoad</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>提示:</code></p>
+<p>a) 使用<code>@PropertySources</code>和使用<code>@PropertySource</code>效果一样。</p>
+<h4 id="使用EnvironmentPostProcessor实现类加载配置文件"><a href="#使用EnvironmentPostProcessor实现类加载配置文件" class="headerlink" title="使用EnvironmentPostProcessor实现类加载配置文件"></a>使用<code>EnvironmentPostProcessor</code>实现类加载配置文件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.springboo.learn;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.env.EnvironmentPostProcessor;</div><div class="line"><span class="keyword">import</span> org.springframework.core.env.ConfigurableEnvironment;</div><div class="line"><span class="keyword">import</span> org.springframework.core.env.PropertiesPropertySource;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"></div><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CunstomEnvironmentPostProcessor</span> <span class="keyword">implements</span> <span class="title">EnvironmentPostProcessor</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postProcessEnvironment</span><span class="params">(ConfigurableEnvironment environment, SpringApplication application)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> (InputStream input = <span class="keyword">new</span> FileInputStream(<span class="string">"D:/application.properties"</span>)) &#123;</div><div class="line">            Properties source = <span class="keyword">new</span> Properties();</div><div class="line">            source.load(input);</div><div class="line">            PropertiesPropertySource propertySource = <span class="keyword">new</span> PropertiesPropertySource(<span class="string">"my"</span>, source);</div><div class="line">            environment.getPropertySources().addLast(propertySource);</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>注意:</code></p>
+<p>a) 使用这种方式必在<code>META-INF/spring.factories</code>中以键值对的形式指定该类，源码是这样说的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.core.env.ConfigurableEnvironment;</div><div class="line"><span class="keyword">import</span> org.springframework.core.env.Environment;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Allows for customization of the application's &#123;<span class="doctag">@link</span> Environment&#125; prior to the</div><div class="line"> * application context being refreshed.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * EnvironmentPostProcessor implementations have to be registered in</div><div class="line"> * &#123;<span class="doctag">@code</span> META-INF/spring.factories&#125;, using the fully qualified name of this class as the</div><div class="line"> * key.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * &#123;<span class="doctag">@code</span> EnvironmentPostProcessor&#125; processors are encouraged to detect whether Spring's</div><div class="line"> * &#123;<span class="doctag">@link</span> org.springframework.core.Ordered Ordered&#125; interface has been implemented or if</div><div class="line"> * the @&#123;<span class="doctag">@link</span> org.springframework.core.annotation.Order Order&#125; annotation is present and</div><div class="line"> * to sort instances accordingly if so prior to invocation.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@author</span> Andy Wilkinson</div><div class="line"> * <span class="doctag">@author</span> Stephane Nicoll</div><div class="line"> * <span class="doctag">@since</span> 1.3.0</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EnvironmentPostProcessor</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * Post-process the given &#123;<span class="doctag">@code</span> environment&#125;.</div><div class="line">	 * <span class="doctag">@param</span> environment the environment to post-process</div><div class="line">	 * <span class="doctag">@param</span> application the application to which the environment belongs</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">postProcessEnvironment</span><span class="params">(ConfigurableEnvironment environment, SpringApplication application)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>所我们在<code>META-INF/spring.factories</code>中作如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org.springframework.boot.env.EnvironmentPostProcessor=com.springboo.learn.CunstomEnvironmentPostProcessor</div></pre></td></tr></table></figure>
+<p>这样，就可以在springboot启动的时候，去读取上述示例中的<code>D:/application.properties</code>文件。</p>
+<p>b) 与<code>@PropertySource</code>和<code>@PropertySources</code>不同的是，使用此种方式，不仅可以加载文件路径中的配置文件，也可以加载并读取远程配置中心的配置文件。原理从上述示例中可以看出，该方式是在启动的时候，动态的向spring容器中注册配置文件中的配置项。</p>
+<h3 id="如何获取配置项"><a href="#如何获取配置项" class="headerlink" title="如何获取配置项"></a>如何获取配置项</h3><p>假如有一个配置文件叫<code>application.properties</code>，其配置内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">local.port=8080</div><div class="line"></div><div class="line">local.hosts[0]=192.168.1.101</div><div class="line">local.hosts[1]=192.168.1.102</div><div class="line">local.hosts[2]=192.168.1.103</div></pre></td></tr></table></figure>
+<h4 id="使用注解获取配置项"><a href="#使用注解获取配置项" class="headerlink" title="使用注解获取配置项"></a>使用注解获取配置项</h4><p>使用<code>@Vaule</code>注解获取spring配置项，这也是项目中使用最多的方式，如：</p>
+<p>在类中的获取方式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;local.port:8080&#125;"</span>)</div><div class="line"><span class="keyword">private</span> Integer port;</div></pre></td></tr></table></figure>
+<p><code>注意：</code><br>1.该种方式不用写<code>setter</code>和<code>getter</code>方法，且spring会自动适配配置项的数据类型。<br>2.上述示例中的<code>local.port:8080</code>表示，如果没有获取到配置文件各种的配置(不指定默认配置项会报异常)，则使用默认的8080端口。</p>
+<h4 id="使用spring环境变量对象获取配置项"><a href="#使用spring环境变量对象获取配置项" class="headerlink" title="使用spring环境变量对象获取配置项"></a>使用spring环境变量对象获取配置项</h4><p>除了上述方式外，在springboot中还可以使用spring核心包中的<code>Environment</code>对象来获取配置文件中的未配置项，如：</p>
+<p>在类中的获取方式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Autowired</span></div><div class="line"><span class="keyword">private</span> Environment env;</div><div class="line"></div><div class="line">String ip = env.getProperty(<span class="string">"local.port"</span>, Integer.class)</div></pre></td></tr></table></figure>
+<p><code>注意:</code><br>这种方式如可以显示的指定配置文件的数据类型，并且，如果配置文件中没有指定的配置项也不会报错，只是获取的配置内容为<code>null</code>。</p>
+<p>以上两种方式是spring中获取配置文件通过的方法。下面介绍的方式是springboot中获取配置的特性方式。</p>
+<h4 id="使用-ConfigurationProperties获取配置项"><a href="#使用-ConfigurationProperties获取配置项" class="headerlink" title="使用@ConfigurationProperties获取配置项"></a>使用@ConfigurationProperties获取配置项</h4><p>依然使用上述的<code>application.properties</code>文件为例，在类中可以这样获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"local"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigurationPropertiesTest</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> List&lt;String&gt; hosts;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Integer port;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getHosts</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> hosts;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHosts</span><span class="params">(List&lt;String&gt; hosts)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.hosts = hosts;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getPort</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> port;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPort</span><span class="params">(Integer port)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.port = port;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>上述方法只要配置项前缀一样，就可以在类中简化获取配置的代码。<br>使用<code>@ConfigurationProperties</code>除了作用在类的申明上，也可以直接商用在配置类<code>bean</code>的创建方法上，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfiguration</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"local"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> ConfigurationProperties <span class="title">createConfigurationPropertiesTest</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ConfigurationProperties();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>到此，2中spring通用获取配置项和1中springboot新特性获取配置项的方式就介绍完了。</p>
+<h4 id="配置项使用的优先级关系"><a href="#配置项使用的优先级关系" class="headerlink" title="配置项使用的优先级关系"></a>配置项使用的优先级关系</h4><p>开始我们介绍了springboot中配置文件的加载方式，有默认加载<code>classpath</code>中的<code>application.properties</code>等，有自定义加载<code>classpath</code>中的其他配置文件，还有有加载<code>文件系统</code>和<code>远程配置</code>的配置文件。那么此时我们可以思考一个问题，如果这些配置文件中有相同的配置项时，那么最终使用那种配置文件加载方式中的配置项呢？这里我做了一个如下的总结：<br>1.优先使用<code>classpath</code>下默认的<code>application.properties</code>文件中的配置项。<br>2.其次使用<code>classpath</code>自定义配置文件中的配置项。<br>3.最后使用文件系统和远程配置中的自定义配置项。</p>
+<p>以上内容就是关于springboot相关配置加载的相干内容，如有总结得不对的地方还请指正。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/springboot/" rel="tag"># springboot</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/11/springboot-learn-introduction/" rel="next" title="spring-boot 快速入门">
+                <i class="fa fa-chevron-left"></i> spring-boot 快速入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/12/springboot-configuration-load/"
+     data-title="springboot 配置详解"
+     data-content=""
+     data-url="/2017/03/12/springboot-configuration-load/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/12/springboot-configuration-load/"
+           data-title="springboot 配置详解" data-url="/2017/03/12/springboot-configuration-load/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://p1.bqimg.com/1949/66949c38ecfce4cf.png"
+               alt="小猪突然地" />
+          <p class="site-author-name" itemprop="name">小猪突然地</p>
+           
+              <p class="site-description motion-element" itemprop="description">学习与实践是自我提升的唯一途径</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2826016400" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认配置文件名"><span class="nav-number">1.</span> <span class="nav-text">默认配置文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认配置文件路径"><span class="nav-number">2.</span> <span class="nav-text">默认配置文件路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置文件加载"><span class="nav-number">3.</span> <span class="nav-text">自定义配置文件加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#程序启动参数中指定配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">程序启动参数中指定配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用spring注解加载配置文件"><span class="nav-number">3.2.</span> <span class="nav-text">使用spring注解加载配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用EnvironmentPostProcessor实现类加载配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">使用EnvironmentPostProcessor实现类加载配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何获取配置项"><span class="nav-number">4.</span> <span class="nav-text">如何获取配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用注解获取配置项"><span class="nav-number">4.1.</span> <span class="nav-text">使用注解获取配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用spring环境变量对象获取配置项"><span class="nav-number">4.2.</span> <span class="nav-text">使用spring环境变量对象获取配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-ConfigurationProperties获取配置项"><span class="nav-number">4.3.</span> <span class="nav-text">使用@ConfigurationProperties获取配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置项使用的优先级关系"><span class="nav-number">4.4.</span> <span class="nav-text">配置项使用的优先级关系</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小猪突然地</span>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?1863892ff6d04eea1892c8b906242685";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+  </script>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"51stick"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("mDTVDRc79w24i4q7sjMqblUo-gzGzoHsz", "1Fa8fnoPs18E9DVggCBzg6nD");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
