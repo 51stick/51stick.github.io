@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="drools," />
+  <meta name="keywords" content="springboot," />
 
 
 
@@ -108,16 +108,18 @@
 
 
 
-<meta name="description" content="本文主要介绍drools中的kmodule.xml文件的相关配置的含义。">
+<meta name="description" content="在实际工作中，往往会面临一个问题，那就是多环境配置问题，分别是开发环境，测试环境，生产环境。本文要介绍的就是springboot中的profiles的使用，指定不同环境的配置等实践问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="drools中kmodule.xml文件介绍">
-<meta property="og:url" content="/2017/03/05/drools-kmodule/index.html">
+<meta property="og:title" content="springboot中profiles配置及使用">
+<meta property="og:url" content="/2017/03/17/springboot-configruation-profiles/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="本文主要介绍drools中的kmodule.xml文件的相关配置的含义。">
-<meta property="og:updated_time" content="2017-03-06T14:45:30.841Z">
+<meta property="og:description" content="在实际工作中，往往会面临一个问题，那就是多环境配置问题，分别是开发环境，测试环境，生产环境。本文要介绍的就是springboot中的profiles的使用，指定不同环境的配置等实践问题。">
+<meta property="og:image" content="http://p1.bqimg.com/1949/552dcb53f1260a26.png">
+<meta property="og:updated_time" content="2017-03-18T15:21:39.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="drools中kmodule.xml文件介绍">
-<meta name="twitter:description" content="本文主要介绍drools中的kmodule.xml文件的相关配置的含义。">
+<meta name="twitter:title" content="springboot中profiles配置及使用">
+<meta name="twitter:description" content="在实际工作中，往往会面临一个问题，那就是多环境配置问题，分别是开发环境，测试环境，生产环境。本文要介绍的就是springboot中的profiles的使用，指定不同环境的配置等实践问题。">
+<meta name="twitter:image" content="http://p1.bqimg.com/1949/552dcb53f1260a26.png">
 
 
 
@@ -145,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="/2017/03/05/drools-kmodule/"/>
+  <link rel="canonical" href="/2017/03/17/springboot-configruation-profiles/"/>
 
 
 
 
 
-  <title> drools中kmodule.xml文件介绍 | 小猪突然地 </title>
+  <title> springboot中profiles配置及使用 | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -331,7 +333,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/03/05/drools-kmodule/">
+  <link itemprop="mainEntityOfPage" href="/2017/03/17/springboot-configruation-profiles/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -355,7 +357,7 @@
             
             
               
-                drools中kmodule.xml文件介绍
+                springboot中profiles配置及使用
               
             
           </h1>
@@ -370,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-05T22:21:13+08:00">
-                2017-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T22:05:18+08:00">
+                2017-03-17
               </time>
             
 
@@ -393,8 +395,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/drools/" itemprop="url" rel="index">
-                    <span itemprop="name">drools</span>
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
                   </a>
                 </span>
 
@@ -411,8 +413,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/05/drools-kmodule/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/05/drools-kmodule/" itemprop="commentCount"></span>
+                <a href="/2017/03/17/springboot-configruation-profiles/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/springboot-configruation-profiles/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -420,7 +422,7 @@
 
           
           
-             <span id="/2017/03/05/drools-kmodule/" class="leancloud_visitors" data-flag-title="drools中kmodule.xml文件介绍">
+             <span id="/2017/03/17/springboot-configruation-profiles/" class="leancloud_visitors" data-flag-title="springboot中profiles配置及使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,106 +451,43 @@
       
 
       
-        <p>本文主要介绍drools中的kmodule.xml文件的相关配置的含义。<br><a id="more"></a></p>
-<h3 id="kmodule-xml文件"><a href="#kmodule-xml文件" class="headerlink" title="kmodule.xml文件"></a>kmodule.xml文件</h3><p>要想使用drools规则引擎，首先要在项目的<code>resources/META-INF</code>路径下添加<code>kmodule.xml</code>文件。如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">kmodule</span> <span class="attr">xmlns</span>=<span class="string">"http://jboss.org/kie/6.0.0/kmodule"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- kbase是一个应用程序知识的定义的仓库，里面包含要使用的规则 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">kbase</span> <span class="attr">name</span>=<span class="string">"rules"</span> <span class="attr">packages</span>=<span class="string">"com.drools.examples.mine"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ksession</span> <span class="attr">name</span>=<span class="string">"ksession-rules"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">kbase</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">kmodule</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>后面我们将介绍一下<code>kmodule.xml</code>文件中的相关配置的含义。</p>
-<h3 id="kbase-属性介绍"><a href="#kbase-属性介绍" class="headerlink" title="kbase 属性介绍"></a>kbase 属性介绍</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">缺省值</th>
-<th style="text-align:center">允许值</th>
-<th style="text-align:left">含义解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">name</td>
-<td style="text-align:center">无</td>
-<td style="text-align:center">任何</td>
-<td style="text-align:left">用于从KieContainer中检索KieBase，必须的属性。</td>
-</tr>
-<tr>
-<td style="text-align:center">includes</td>
-<td style="text-align:center">无</td>
-<td style="text-align:center">以逗号分割的KieBase列表</td>
-<td style="text-align:left">用于将当前kmodule中的其他KieBases包含到当前的KieBase中。</td>
-</tr>
-<tr>
-<td style="text-align:center">packages</td>
-<td style="text-align:center">所有</td>
-<td style="text-align:center">以逗号分割的KieBase列表</td>
-<td style="text-align:left">默认将resources下的所有文件夹下得drl包含到当前KieBase，用来限制编译那些drl属于当前KieBase。</td>
-</tr>
-<tr>
-<td style="text-align:center">default</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">true，false</td>
-<td style="text-align:left">定义是否为kmodule默认的KieBase，如果是，那么当从KieContainer中创建KieBase时，可以不用指定KieBase的name值。一个kmodule中最多只能有一个默认的KieBase。</td>
-</tr>
-<tr>
-<td style="text-align:center">equalsBehavior</td>
-<td style="text-align:center">identity</td>
-<td style="text-align:center">identity，equality</td>
-<td style="text-align:left">定义Drools事实(fact)查询到工作内存(Working Memory)的行为，identity:不管当前工作内存中是否存在该事实，都创建一个FactHandle事实；equality：当工作内存中不存在当前事实时才创建。</td>
-</tr>
-<tr>
-<td style="text-align:center">eventProcessingMode</td>
-<td style="text-align:center">cloud</td>
-<td style="text-align:center">cloud, stream</td>
-<td style="text-align:left">当以cloud模式编译时，KieBase被当成是一个普通的事实对待；而当以stream模式编译时，KieBase允许对它进行时间推理。</td>
-</tr>
-<tr>
-<td style="text-align:center">declarativeAgenda</td>
-<td style="text-align:center">disabled</td>
-<td style="text-align:center">disabled, enabled</td>
-<td style="text-align:left">定义是否启用声明式议程</td>
-</tr>
-</tbody>
-</table>
-<h3 id="ksession-属性介绍"><a href="#ksession-属性介绍" class="headerlink" title="ksession 属性介绍"></a>ksession 属性介绍</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">缺省值</th>
-<th style="text-align:center">允许值</th>
-<th style="text-align:left">含义解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">name</td>
-<td style="text-align:center">无</td>
-<td style="text-align:center">任何</td>
-<td style="text-align:left">名字具有唯一性，用于从KieContainer中获取KieSession，必须的属性。</td>
-</tr>
-<tr>
-<td style="text-align:center">type</td>
-<td style="text-align:center">stateful</td>
-<td style="text-align:center">stateful, stateless</td>
-<td style="text-align:left">stateful:允许在工作内存中循环执行； stateless：对于工作内存中提供的数据集，只能执行一次。</td>
-</tr>
-<tr>
-<td style="text-align:center">default</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">true, false</td>
-<td style="text-align:left">定义是否为kmodule默认的kieSession，如果是，那么从KieContainer中创建KieSession时，可以不用指定KieSession的name值，一个kmodule中，对于每一种type，最多只能有一个默认的KieBase。</td>
-</tr>
-<tr>
-<td style="text-align:center">clockType</td>
-<td style="text-align:center">realtime</td>
-<td style="text-align:center">realtime, pseudo</td>
-<td style="text-align:left">定义事件的时间戳是由系统时钟还是应用程序的伪时钟决定。该lock在对时间规则进行单元测时非常有用。</td>
-</tr>
-<tr>
-<td style="text-align:center">beliefSystem</td>
-<td style="text-align:center">simple</td>
-<td style="text-align:center">simple, jtms, defeasible</td>
-<td style="text-align:left">通过当前KieSession的此属性值来定义belief system的类型。</td>
-</tr>
-</tbody>
-</table>
-<p><code>注意</code>：上述是关于kbase和ksession的属性的基本介绍，如有描述不当的地方，请指正。</p>
+        <p>在实际工作中，往往会面临一个问题，那就是多环境配置问题，分别是开发环境，测试环境，生产环境。本文要介绍的就是springboot中的profiles的使用，指定不同环境的配置等实践问题。<br><a id="more"></a></p>
+<h3 id="profiles的配置方式"><a href="#profiles的配置方式" class="headerlink" title="profiles的配置方式"></a>profiles的配置方式</h3><p>在springboot启动的时候，有两种指定profiles的方式，分别是启动参数指定和编程式指定，下面来详细介绍一下。</p>
+<p>首先准备本文中需要使用到的配置文件。</p>
+<p>１.application.properties配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jdbc.username = user name</div><div class="line">jdbc.password = password</div></pre></td></tr></table></figure>
+<p>2.application-default.properties配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jdbc.username = defaultuser name</div><div class="line">jdbc.password = default password</div></pre></td></tr></table></figure>
+<p>3.application-dev.properties配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jdbc.username = dev user name</div><div class="line">jdbc.password = dev password</div></pre></td></tr></table></figure></p>
+<p>3.application-test.properties配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jdbc.username = test user name</div></pre></td></tr></table></figure></p>
+<h4 id="正常情况下配置项的使用情况"><a href="#正常情况下配置项的使用情况" class="headerlink" title="正常情况下配置项的使用情况"></a>正常情况下配置项的使用情况</h4><p>springboot启动入口类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    	</div><div class="line">    	ConfigurableApplicationContext context = SpringApplication.run(App.class, args);</div><div class="line">    	</div><div class="line">    	System.out.println(context.getEnvironment().getProperty(<span class="string">"jdbc.username"</span>));</div><div class="line">    	System.out.println(context.getEnvironment().getProperty(<span class="string">"jdbc.password"</span>));</div><div class="line"></div><div class="line">    	context.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>启用springboot程序，运行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">default user name</div><div class="line">default password</div></pre></td></tr></table></figure>
+<p>由此我们可以看出，正常情况下，在配置项使用的优先级上<code>application-default.properties</code>比<code>application.properties</code>高。</p>
+<p>下面我们来看看如何在spingboot中使用profiles来控制配置文件的使用。</p>
+<h3 id="springbot中profiles的启用方式"><a href="#springbot中profiles的启用方式" class="headerlink" title="springbot中profiles的启用方式"></a>springbot中profiles的启用方式</h3><h4 id="在启动参数中配置profiles"><a href="#在启动参数中配置profiles" class="headerlink" title="在启动参数中配置profiles"></a>在启动参数中配置profiles</h4><p>在启动参数中配置<code>--spring.profiles.active</code>参数项指定profiles，如图：</p>
+<p><img src="http://p1.bqimg.com/1949/552dcb53f1260a26.png" alt=""></p>
+<p>在运行上述主程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    	</div><div class="line">    	ConfigurableApplicationContext context = SpringApplication.run(App.class, args);</div><div class="line">    	</div><div class="line">    	System.out.println(context.getEnvironment().getProperty(<span class="string">"jdbc.username"</span>));</div><div class="line">    	System.out.println(context.getEnvironment().getProperty(<span class="string">"jdbc.password"</span>));</div><div class="line"></div><div class="line">    	context.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">test user name</div><div class="line">password</div></pre></td></tr></table></figure>
+<p>通过结果，我们发现，username使用的是<code>application-test.properties</code>中的配置项，而password由于在<code>application-test.properties</code>中由于没有配置，则使用的是<code>application.properties</code>中的配置项。那么需要注意的问题来了，文章开头不是说<code>application-default.properties</code>比<code>application.properties</code>配置项的优先级高么？为什么这里用的是后者的配置项，而不是前者<code>application-default.properties</code>的配置项？其实，原因是，在指定了<code>profiles</code>的情况下，<code>application-default.properties</code>文件不会被springboot加载，因此，这里使用的是<code>application.properties</code>中的password的配置。所以这是我们需要注意的一个小细节的地方。</p>
+<h4 id="在程序中配置profiles"><a href="#在程序中配置profiles" class="headerlink" title="在程序中配置profiles"></a>在程序中配置profiles</h4><p>稍微改动一点启动的主程序代码，然后在主程序中配置profiles，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    	</div><div class="line">    	SpringApplication app = <span class="keyword">new</span> SpringApplication(App.class);</div><div class="line"></div><div class="line">		<span class="comment">// 指定profiles</span></div><div class="line">    	app.setAdditionalProfiles(<span class="string">"dev"</span>);</div><div class="line"></div><div class="line">    	ConfigurableApplicationContext context = app.run(args);</div><div class="line">		</div><div class="line">    	System.out.println(context.getEnvironment().getProperty(<span class="string">"jdbc.username"</span>));</div><div class="line">    	System.out.println(context.getEnvironment().getProperty(<span class="string">"jdbc.password"</span>));</div><div class="line"></div><div class="line">    	context.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dev user name</div><div class="line">dev password</div></pre></td></tr></table></figure>
+<p>从运行结果我们可以看到，这里使用的是<code>application-dev.properties</code>配置文件中的配置项。</p>
+<p><code>总结：</code><br>1.在没有设置<code>profiles</code>时，<code>application-default.properties</code>和<code>application.properties</code>都会被springboot加载，且<code>application-default.properties</code>配置的优先级高于<code>application.properties</code>。<br>2.如果设置了<code>profiles</code>，会首先在<code>profiles</code>指定的配置文件中查找需要的配置项。但是由于在这种情况下，<code>application-default.properties</code>不会被springboot加载，如果有没有找到的相关配置项，那么之后会去<code>application.properties</code>配置文件中继续去查找相关的配置项并启动该配置项。</p>
+<h3 id="使用-Profile注解"><a href="#使用-Profile注解" class="headerlink" title="使用@Profile注解"></a>使用@Profile注解</h3><p>上面讲了<code>profiles</code>指定配置文件使用的情况，在程序中，我们也可以使用<code>@Profile</code>注解来根据<code>profiles</code>启动相关的bean。如：</p>
+<p>有如下配置类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfiguration</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Bean</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Runnable <span class="title">createRunnable</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"===== normal ====="</span>);</div><div class="line">		<span class="keyword">return</span> () -&gt; &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Bean</span></div><div class="line">	<span class="meta">@Profile</span>(<span class="string">"test"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> Runnable <span class="title">createRunnableTest</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"===== test ====="</span>);</div><div class="line">		<span class="keyword">return</span> () -&gt; &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Bean</span></div><div class="line">	<span class="meta">@Profile</span>(<span class="string">"dev"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> Runnable <span class="title">createRunnableDev</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"===== dev ====="</span>);</div><div class="line">		<span class="keyword">return</span> () -&gt; &#123;&#125;;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主程序如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">    	SpringApplication app = <span class="keyword">new</span> SpringApplication(App.class);</div><div class="line"></div><div class="line">		<span class="comment">//编程的方式指定生效的profile</span></div><div class="line">    	app.setAdditionalProfiles(<span class="string">"dev"</span>);</div><div class="line"></div><div class="line">    	ConfigurableApplicationContext context = app.run(args);</div><div class="line"></div><div class="line">		context.getBean(MyConfiguration.class);</div><div class="line"></div><div class="line">		context.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>启动程序，运行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">===== normal =====</div><div class="line">===== dev =====</div></pre></td></tr></table></figure>
+<p>1.从结果我们可以看到，<code>@Profile(&quot;test&quot;)</code>指定的bean没有被spring容器初始化。也就是说，在配置类中，没有指定<code>@Profile</code>注解的Bean方法会也会被spring容器初始化，同时对应的<code>@Profile(&quot;dev&quot;)</code>也会被实例化，而其他的<code>@Profile</code>指定的bean则不会被实例化。</p>
+<p>2.其实<code>@Profile</code>也可以注解在配置类上，表示只有与<code>profiles</code>吻合时，<code>@Profile</code>注解的配置类中的<code>@Bean</code>才会被spring初始化并纳入spring容器中管理起来。</p>
 
       
     </div>
@@ -572,7 +511,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/drools/" rel="tag"># drools</a>
+            <a href="/tags/springboot/" rel="tag"># springboot</a>
           
         </div>
       
@@ -585,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/04/drools-simple-example/" rel="next" title="Drools简单示例">
-                <i class="fa fa-chevron-left"></i> Drools简单示例
+              <a href="/2017/03/12/springboot-configuration-load/" rel="next" title="springboot 配置详解">
+                <i class="fa fa-chevron-left"></i> springboot 配置详解
               </a>
             
           </div>
@@ -594,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/06/drools-rule-file-attribute/" rel="prev" title="drools drl 规则文件属性介绍">
-                drools drl 规则文件属性介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -612,10 +547,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/05/drools-kmodule/"
-     data-title="drools中kmodule.xml文件介绍"
+        <div class="ds-share flat" data-thread-key="2017/03/17/springboot-configruation-profiles/"
+     data-title="springboot中profiles配置及使用"
      data-content=""
-     data-url="/2017/03/05/drools-kmodule/">
+     data-url="/2017/03/17/springboot-configruation-profiles/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -642,8 +577,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/05/drools-kmodule/"
-           data-title="drools中kmodule.xml文件介绍" data-url="/2017/03/05/drools-kmodule/">
+      <div class="ds-thread" data-thread-key="2017/03/17/springboot-configruation-profiles/"
+           data-title="springboot中profiles配置及使用" data-url="/2017/03/17/springboot-configruation-profiles/">
       </div>
     
   </div>
@@ -772,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kmodule-xml文件"><span class="nav-number">1.</span> <span class="nav-text">kmodule.xml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kbase-属性介绍"><span class="nav-number">2.</span> <span class="nav-text">kbase 属性介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ksession-属性介绍"><span class="nav-number">3.</span> <span class="nav-text">ksession 属性介绍</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#profiles的配置方式"><span class="nav-number">1.</span> <span class="nav-text">profiles的配置方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正常情况下配置项的使用情况"><span class="nav-number">1.1.</span> <span class="nav-text">正常情况下配置项的使用情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#springbot中profiles的启用方式"><span class="nav-number">2.</span> <span class="nav-text">springbot中profiles的启用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在启动参数中配置profiles"><span class="nav-number">2.1.</span> <span class="nav-text">在启动参数中配置profiles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在程序中配置profiles"><span class="nav-number">2.2.</span> <span class="nav-text">在程序中配置profiles</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Profile注解"><span class="nav-number">3.</span> <span class="nav-text">使用@Profile注解</span></a></li></ol></div>
             
 
           </div>

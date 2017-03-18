@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-03-18T14:03:44.168Z</updated>
+  <updated>2017-03-18T15:21:39.429Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot中profiles配置及使用</title>
+    <link href="/2017/03/17/springboot-configruation-profiles/"/>
+    <id>/2017/03/17/springboot-configruation-profiles/</id>
+    <published>2017-03-17T14:05:18.000Z</published>
+    <updated>2017-03-18T15:21:39.429Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在实际工作中，往往会面临一个问题，那就是多环境配置问题，分别是开发环境，测试环境，生产环境。本文要介绍的就是springboot中的profiles的使用，指定不同环境的配置等实践问题。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="springboot" scheme="/categories/springboot/"/>
+    
+    
+      <category term="springboot" scheme="/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>springboot 配置详解</title>
