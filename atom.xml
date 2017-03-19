@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-03-18T15:27:55.334Z</updated>
+  <updated>2017-03-19T06:12:52.634Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot的日志配置</title>
+    <link href="/2017/03/19/springboot-log/"/>
+    <id>/2017/03/19/springboot-log/</id>
+    <published>2017-03-19T05:24:28.000Z</published>
+    <updated>2017-03-19T06:12:52.634Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="springboot" scheme="/categories/springboot/"/>
+    
+    
+      <category term="springboot" scheme="/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>springboot中profiles配置及使用</title>
