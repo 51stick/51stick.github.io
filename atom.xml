@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-03-19T06:21:20.325Z</updated>
+  <updated>2017-03-26T06:20:55.052Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot自动配置原理</title>
+    <link href="/2017/03/25/springboot-auto-configuration-principle/"/>
+    <id>/2017/03/25/springboot-auto-configuration-principle/</id>
+    <published>2017-03-25T02:05:18.000Z</published>
+    <updated>2017-03-26T06:20:55.052Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;了解过springboot的朋友都知道，springboot是建立在spring的基础之上，并且springboot最大的好处就是减少了开发的配置，这也是springboot最大的特点，也正是因为这个特点使得springboot中很多组件可以做到开箱即用。本文将要探索的就是springboot自动配置的原理。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="springboot" scheme="/categories/springboot/"/>
+    
+    
+      <category term="springboot" scheme="/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>springboot的日志配置</title>
