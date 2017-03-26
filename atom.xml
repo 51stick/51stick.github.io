@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-03-26T06:20:55.052Z</updated>
+  <updated>2017-03-26T13:57:47.453Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot自动配置扩展</title>
+    <link href="/2017/03/26/springboot-auto-configuration-extend/"/>
+    <id>/2017/03/26/springboot-auto-configuration-extend/</id>
+    <published>2017-03-26T12:05:34.000Z</published>
+    <updated>2017-03-26T13:57:47.453Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一篇文章介绍了springboot的自动配置原理，大致分析了其内部实现的机制，本文将进一步介绍springboot自动配置中的几个重要类，跟深入的理解其自动配置的实现。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="springboot" scheme="/categories/springboot/"/>
+    
+    
+      <category term="springboot" scheme="/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>springboot自动配置原理</title>
