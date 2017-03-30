@@ -4,6 +4,34 @@
   
     
     <entry>
+      <title><![CDATA[git服务迁移]]></title>
+      <url>/2017/03/29/git-server-transfer/</url>
+      <content type="html"><![CDATA[<p>本文要讲的是一个git的小知识点，即git服务迁移的问题。在遇到原有远程服务迁移时，正确的做法是，先移除本地与之前远程git服务的管理关系，然后重新关联新的git服务地址，最后将本地代码推送至远端。这里说的迁移是指重新搭建一个新的git服务，代码需要重新上传，这也是我最近工作中遇到的一个小问题，在此也做一个小的总结。<br><a id="more"></a></p>
+<h3 id="第一步：删除原始服务关联关系"><a href="#第一步：删除原始服务关联关系" class="headerlink" title="第一步：删除原始服务关联关系"></a>第一步：删除原始服务关联关系</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote rm origin</div></pre></td></tr></table></figure>
+<p>因为要迁移服务，所以之前本地仓库与原来的git服务之间的关联关系必须要删除。</p>
+<h3 id="第二步：关联新服务地址"><a href="#第二步：关联新服务地址" class="headerlink" title="第二步：关联新服务地址"></a>第二步：关联新服务地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin xxx.git</div></pre></td></tr></table></figure>
+<p>在删除原有服务地址关联关系后，需要关联新的项目服务地址。</p>
+<h3 id="第三部：推送代码到服务上"><a href="#第三部：推送代码到服务上" class="headerlink" title="第三部：推送代码到服务上"></a>第三部：推送代码到服务上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin *</div></pre></td></tr></table></figure>
+<p>上面的命令会将本地所有分支及其<code>tag</code>都推送到新git服务地址所对应的项目中。</p>
+<p>总结：虽然本文将的并不是重要知识点且也不具有什么技术含量，在工作中用也不常用，但是这几条命令在遇到git服务迁移时却非常的实用，所以这里本着对自我提升的态度，对自己的工作做个小小的总结。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> git </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[springboot自动配置扩展]]></title>
       <url>/2017/03/26/springboot-auto-configuration-extend/</url>
       <content type="html"><![CDATA[<p>上一篇文章介绍了springboot的自动配置原理，大致分析了其内部实现的机制，本文将进一步介绍springboot自动配置中的几个重要类，跟深入的理解其自动配置的实现。<br><a id="more"></a></p>
@@ -648,8 +676,7 @@
     <entry>
       <title><![CDATA[git branch 常用命令]]></title>
       <url>/2016/10/15/git-branch-common-command/</url>
-      <content type="html"><![CDATA[<p>众所周知，git是现在主流的版本控制软件，工作中使用的也是比较多，本文列出了本人工作中用得比较多的几个命令，一方面作为笔记查看，其次也是个人的一个小小汇总。</p>
-<a id="more"></a>
+      <content type="html"><![CDATA[<p>众所周知，git是现在主流的版本控制软件，工作中使用的也是比较多，本文列出了本人工作中用得比较多的几个命令，一方面作为笔记查看，其次也是个人的一个小小汇总。<br><a id="more"></a></p>
 <h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><p><code>git branch</code> : 只能查看本地分支。<br><code>git branch -r</code> : 只能查看远程分支。<br><code>git branch -a</code> : 查看所有分支，包括本地和远程服务骑上的分支。</p>
 <hr>
 <h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><p><code>git branch [branch-name]</code> : 创建本地分支，并停留在当前分支中。<br><code>git branch -b [branch-name]</code> : 创建本地分支，并切换到新建分支中。<br><code>git checkout [branch-name]</code> :  切换分支，在切换分支前，确保当前分支已经<code>commit</code>  。<br><code>git push origin [branch-name]</code> :  将本地分支推送到远端服务器。</p>

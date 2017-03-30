@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/2017/03/29/git-server-transfer/</loc>
+    
+    <lastmod>2017-03-30T11:59:29.281Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/2016/10/15/git-branch-common-command/</loc>
+    
+    <lastmod>2017-03-30T11:41:25.620Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>/2017/03/26/springboot-auto-configuration-extend/</loc>
     
     <lastmod>2017-03-26T13:57:47.453Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>/2016/11/12/zookeeper-cluster-install-guide/</loc>
     
     <lastmod>2017-02-26T07:26:45.435Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>/2016/10/15/git-branch-common-command/</loc>
-    
-    <lastmod>2017-02-25T12:14:16.716Z</lastmod>
     
   </url>
   
