@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="drools," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -108,16 +108,18 @@
 
 
 
-<meta name="description" content="本文主要介绍drools规则文件中的相关属性，只有在充分了解规则文件属性含义，使用drools开发时才能得心应手，用得自信，用得放心，开发省心。">
+<meta name="description" content="本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="drools drl 规则文件属性介绍">
-<meta property="og:url" content="/2017/03/06/drools-rule-file-attribute/index.html">
+<meta property="og:title" content="从零开始构建 centos+jdk8+tomcat8 Docker镜像">
+<meta property="og:url" content="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="本文主要介绍drools规则文件中的相关属性，只有在充分了解规则文件属性含义，使用drools开发时才能得心应手，用得自信，用得放心，开发省心。">
-<meta property="og:updated_time" content="2017-03-06T14:52:30.061Z">
+<meta property="og:description" content="本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。">
+<meta property="og:image" content="http://i4.buimg.com/1949/3cf760a6f497891b.png">
+<meta property="og:updated_time" content="2017-05-06T15:03:03.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="drools drl 规则文件属性介绍">
-<meta name="twitter:description" content="本文主要介绍drools规则文件中的相关属性，只有在充分了解规则文件属性含义，使用drools开发时才能得心应手，用得自信，用得放心，开发省心。">
+<meta name="twitter:title" content="从零开始构建 centos+jdk8+tomcat8 Docker镜像">
+<meta name="twitter:description" content="本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。">
+<meta name="twitter:image" content="http://i4.buimg.com/1949/3cf760a6f497891b.png">
 
 
 
@@ -145,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="/2017/03/06/drools-rule-file-attribute/"/>
+  <link rel="canonical" href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/"/>
 
 
 
 
 
-  <title> drools drl 规则文件属性介绍 | 小猪突然地 </title>
+  <title> 从零开始构建 centos+jdk8+tomcat8 Docker镜像 | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -331,7 +333,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/03/06/drools-rule-file-attribute/">
+  <link itemprop="mainEntityOfPage" href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -355,7 +357,7 @@
             
             
               
-                drools drl 规则文件属性介绍
+                从零开始构建 centos+jdk8+tomcat8 Docker镜像
               
             
           </h1>
@@ -370,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T22:29:44+08:00">
-                2017-03-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-23T19:20:14+08:00">
+                2017-04-23
               </time>
             
 
@@ -393,8 +395,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/drools/" itemprop="url" rel="index">
-                    <span itemprop="name">drools</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -411,8 +413,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/06/drools-rule-file-attribute/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/06/drools-rule-file-attribute/" itemprop="commentCount"></span>
+                <a href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/23/docker-build-image-with-centos-jdk-tomcat/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -420,7 +422,7 @@
 
           
           
-             <span id="/2017/03/06/drools-rule-file-attribute/" class="leancloud_visitors" data-flag-title="drools drl 规则文件属性介绍">
+             <span id="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/" class="leancloud_visitors" data-flag-title="从零开始构建 centos+jdk8+tomcat8 Docker镜像">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,23 +451,33 @@
       
 
       
-        <p>本文主要介绍drools规则文件中的相关属性，只有在充分了解规则文件属性含义，使用drools开发时才能得心应手，用得自信，用得放心，开发省心。<br><a id="more"></a></p>
-<h3 id="属性概要介绍"><a href="#属性概要介绍" class="headerlink" title="属性概要介绍"></a>属性概要介绍</h3><p><code>规则属性</code>是用来控制规则执行的重要工具，在drools中目前有如下规则属性，分别是：activation-group、agenda-group、<br>auto-focus、date-effective、date-expires、dialect、duration、enabled、lock-on-active、no-loop、ruleflow-group、salience、when，这些属性分别适用于不同的场景，下面我们就来分别介绍这些属性的含义及用法。</p>
-<h3 id="属性详细介绍"><a href="#属性详细介绍" class="headerlink" title="属性详细介绍"></a>属性详细介绍</h3><h4 id="salience"><a href="#salience" class="headerlink" title="salience"></a>salience</h4><p>用来设置规则执行的优先级，salience 属性的值是一个整形数字，数字越大表示规则执行的优先级越高。同时它的值可以是一个负数。ssalience 的缺省值为0，如果未设置该属性值，规则的执行顺序是随机的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">rule &quot;rule-01&quot;</div><div class="line">    salience 1</div><div class="line">    when</div><div class="line">        $messageFact : Message($status : status == Message.HELLO, $newMessage : message);</div><div class="line">    then</div><div class="line">        System.out.println(&quot;rule-01. Begin to chagne message of fact&quot;);</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<h4 id="no-loop"><a href="#no-loop" class="headerlink" title="no-loop"></a>no-loop</h4><p>该属性为布尔类型，可选值为true|false，缺省值是 false。其作用是控制已经执行过的规则当条件再次满足时是否再次执行。因为当规则引擎内部的<code>Working Memory</code>的Fact 更新时会引起引擎再次启动规则检查，并处罚规则的执行。如果no-loop设置为true，那么当规则再次执行时，引擎会忽略掉所有no-loop为true的规则，也就是说，执行过的规则不会因为Fact的更新再次执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">rule &quot;rule-01&quot;</div><div class="line">    salience 1</div><div class="line">    no-loop  true</div><div class="line">    when</div><div class="line">        $messageFact : Message($status : status == Message.HELLO, $newMessage : message);</div><div class="line">    then</div><div class="line">        System.out.println(&quot;rule-01. Begin to chagne message of fact&quot;);</div><div class="line">        $messageFact.setMessage(&quot;New message&quot;);</div><div class="line">        update($messageFact)</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<p>上述示例，只会执行一次，如果no-loop设置为false，或则不设置该属性，那么该规则会陷入循环执行中，造成规则死循环。</p>
-<h4 id="date-effective"><a href="#date-effective" class="headerlink" title="date-effective"></a>date-effective</h4><p>规则执行的有效时间，缺省状态下规则随时都可以执行，如果该属性设置了时间，那么只有当<code>系统时间</code> &gt;= date-effective设置的时间时才会执行。默认情况下date-effective的格式为<code>dd-MMM-yyyy</code>，即英文操作系统中为<code>25-Sep-2016</code>,中文操作系统中为<code>25-九月-2019</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">rule &quot;rule-02&quot;</div><div class="line">    salience 2</div><div class="line">    date-effective &quot;25-十二月-2016&quot;  // dd-MMM-yyyy</div><div class="line">//    date-effective &quot;25-Sep-2016&quot;  // dd-MMM-yyyy</div><div class="line">    when</div><div class="line">        $messageFact : Message($status : status == Message.HELLO, $newMessage : message);</div><div class="line">    then</div><div class="line">        System.out.println(&quot;rule-02, Begin to chagne message of fact&quot;);</div><div class="line">        $messageFact.setMessage(&quot;New message&quot;);</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<h4 id="date-expires"><a href="#date-expires" class="headerlink" title="date-expires"></a>date-expires</h4><p>规则的实效时间，和<code>date-effective</code>属性的意思相反。如果<code>系统时间</code> &gt;= date-expires设置的时间，那么规则无效，不被执行。</p>
-<h4 id="enabled"><a href="#enabled" class="headerlink" title="enabled"></a>enabled</h4><p>设置该规则是否启用，布尔类型，可选值为false|true。</p>
-<h4 id="dialect"><a href="#dialect" class="headerlink" title="dialect"></a>dialect</h4><p>定义规则文件中使用的语言，可选值有<code>java</code>和<code>mvel</code>,缺省值是<code>java</code>。</p>
-<h4 id="duration"><a href="#duration" class="headerlink" title="duration"></a>duration</h4><p>该属性值为长整型，单位为毫秒。如果设置了该属性，那么该规则在实行的时候，会在<code>duration</code>设置的毫秒数后，在另外一个线程中执行该规则。</p>
-<h4 id="lock-on-active"><a href="#lock-on-active" class="headerlink" title="lock-on-active"></a>lock-on-active</h4><p><code>no-loop</code> 的加强版。</p>
-<h4 id="activation-group、"><a href="#activation-group、" class="headerlink" title="activation-group、"></a>activation-group、</h4><p>规则组属性，如果多个规则具有相同<code>activation-group</code>属性值，那么表示这些规则属于同一个规则组中，同一规则组中的规则，当以有一个规则执行了，其余规则就不在执行了。规则组中的规则优先级还是通过<code>salience</code>来控制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">rule &quot;rule-01&quot;</div><div class="line">    salience 1</div><div class="line">    activation-group &quot;group-01&quot;</div><div class="line">    when</div><div class="line">        $messageFact : Message($status : status == Message.HELLO, $newMessage : message);</div><div class="line">    then</div><div class="line">        System.out.println(&quot;rule-01. Begin to chagne message of fact&quot;);</div><div class="line">        $messageFact.setMessage(&quot;New message&quot;);</div><div class="line">end</div><div class="line"></div><div class="line">rule &quot;rule-02&quot;</div><div class="line">    salience 2</div><div class="line">    activation-group &quot;group-01&quot;</div><div class="line">    when</div><div class="line">        $messageFact : Message($status : status == Message.HELLO, $newMessage : message);</div><div class="line">    then</div><div class="line">        System.out.println(&quot;rule-02, Begin to chagne message of fact&quot;);</div><div class="line">        $messageFact.setMessage(&quot;New message&quot;);</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<p>如上述的两个规则，会优先执行规则组<code>group-01</code>中的<code>rule-02</code>规则，而<code>rule-01</code>规则不会在执行了。</p>
-<h4 id="agenda-group"><a href="#agenda-group" class="headerlink" title="agenda-group"></a>agenda-group</h4><p>议程组属性，如果规则中设置了该属性，要使得议程组中的规则生效并正常执行，那么必须要给该规则再设置<code>auto-focus</code>属性。如果多个规则设置了该属性，组中的执行顺序由<code>salience</code>属性决定。如果有多个议程组规则，议程组的执行顺序由组中规则优先级最高的规则决定个，并且当一个议程组中的规则全部执行完成后(即使后面议程组的中的某些规则优先级比当前正在执行的议程组中的规则的优先级高，那么也得等当前议程组中的规则完了，才会执行下一个议程组中的规则)，才会执行下一个议程组中的规则，议程组的优先级，比普通规则优先级高，即使普通规则的<code>salience</code>最大，也还是会先执行议程组中的规则，而普通规则和<code>activation-group</code>的执行顺序则是由<code>salience</code>决定。</p>
-<h4 id="auto-focus"><a href="#auto-focus" class="headerlink" title="auto-focus"></a>auto-focus</h4><p>该属性的作用是用来在已设置了<code>agenda-group</code>的规则上设置该规则是否可以自动独取Focus，如果该属性设置为true，那么在引擎执行时就会执行该 议程组，否则不会。</p>
-<h4 id="ruleflow-group"><a href="#ruleflow-group" class="headerlink" title="ruleflow-group"></a>ruleflow-group</h4><p>在使用规则流的时候要用到ruleflow-group 属性，该属性的值为一个字符串，作用是用来将规则划分为一个个的组，然后在规则流当中通过使用ruleflow-group 属性的值，从而使用对应的规则。后面在讨论规则流的时候还要对该属性进行详细介绍。</p>
-<p>到此，<code>drl</code>规则文件在中的属性已介绍完了，如果有写得不对的地方，请指正，谢谢。同时，通过自己写作记录，提升了自己对drools的先关认知，也希望帮助有所需要的朋友。</p>
+        <p>本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。<br><a id="more"></a></p>
+<h3 id="开始说明"><a href="#开始说明" class="headerlink" title="开始说明"></a>开始说明</h3><p>本文默认所在linux环境已经安装好了docker。</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>首先介绍下本文是要的jdk和tomcat版本。</p>
+<ol>
+<li>jdk-8u131-linux-x64.tar.gz</li>
+<li>apache-tomcat-8.5.14.tar.gz</li>
+</ol>
+<h3 id="文件准备"><a href="#文件准备" class="headerlink" title="文件准备"></a>文件准备</h3><p>将jdk和tomcat上传到指定的linux路径下并解压。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# ls</div><div class="line">apache-tomcat-8.5.14  jdk1.8.0_131</div></pre></td></tr></table></figure></p>
+<h3 id="准备基础镜像文件"><a href="#准备基础镜像文件" class="headerlink" title="准备基础镜像文件"></a>准备基础镜像文件</h3><p>从<code>Docker Hub</code>拉去基础镜像文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# docker pull centos</div></pre></td></tr></table></figure></p>
+<p>默认拉去的是tag为latest的centos镜像，镜像拉取成功后，我们可以使用<code>docker images</code>命令查看本地镜像文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# docker images</div><div class="line">REPOSITORY                        TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">docker.io/centos                  latest              a8493f5f50ff        4 weeks ago         192.5 MB</div></pre></td></tr></table></figure></p>
+<p>此时<code>docker.io/centos</code>就是从<code>Docker Hub</code>拉取下来的基础镜像文件。</p>
+<h3 id="编写Dockerfile文件"><a href="#编写Dockerfile文件" class="headerlink" title="编写Dockerfile文件"></a>编写Dockerfile文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">FROM docker.io/centos:latest</div><div class="line"></div><div class="line">MAINTAINER liang.chen &quot;229408705@qq.com&quot;</div><div class="line"></div><div class="line">RUN mkdir -p /opt/java/jdk1.8.0_131</div><div class="line">RUN mkdir -p /opt/tomcat/apache-tomcat-8.5.14</div><div class="line"></div><div class="line">ADD ./jdk1.8.0_131/ /opt/java/jdk1.8.0_131/</div><div class="line">ADD ./apache-tomcat-8.5.14/ /opt/tomcat/apache-tomcat-8.5.14/</div><div class="line"></div><div class="line">ENV JAVA_HOME /opt/java/jdk1.8.0_131</div><div class="line">ENV JRE_HOME $JAVA_HOME/jre</div><div class="line">ENV CLASSPATH .:$JAVA_HOME/lib:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div><div class="line">ENV CATALINA_HOME /opt/tomcat/apache-tomcat-8.5.14</div><div class="line">ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin</div><div class="line"></div><div class="line">EXPOSE 8080</div><div class="line"></div><div class="line">CMD [&quot;/opt/tomcat/apache-tomcat-8.5.14/bin/catalina.sh&quot;,&quot;run&quot;]</div></pre></td></tr></table></figure>
+<h3 id="编写构建脚本"><a href="#编写构建脚本" class="headerlink" title="编写构建脚本"></a>编写构建脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">docker build --no-cache=true -t &quot;repos_local/centos-jdk8-tomcat8:0.0.1&quot; .</div></pre></td></tr></table></figure>
+<p>注意：此处的构建脚本只有一句简单的docker构建的命令，实际工作中，docker的构建脚本可能会涉及到其他很多逻辑。例如，在构建前拉去项目应用包，项目配置文件等。</p>
+<h3 id="开始构建镜像"><a href="#开始构建镜像" class="headerlink" title="开始构建镜像"></a>开始构建镜像</h3><p>执行构建脚本，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# ./build.sh </div><div class="line">Sending build context to Docker daemon 586.2 MB</div><div class="line">Step 1 : FROM docker.io/centos:latest</div><div class="line"> ---&gt; a8493f5f50ff</div><div class="line">Step 2 : MAINTAINER liang.chen &quot;229408705@qq.com&quot;</div><div class="line"> ---&gt; Running in 601bdbffbde4</div><div class="line"> ---&gt; 26e8cdd86433</div><div class="line">Removing intermediate container 601bdbffbde4</div><div class="line">Step 3 : RUN mkdir -p /opt/java/jdk1.8.0_131</div><div class="line"> ---&gt; Running in 4baabb3936b6</div><div class="line"> ---&gt; 7b1738e4e96c</div><div class="line">Removing intermediate container 4baabb3936b6</div><div class="line">Step 4 : RUN mkdir -p /opt/tomcat/apache-tomcat-8.5.14</div><div class="line"> ---&gt; Running in d0afc9b3cd18</div><div class="line"> ---&gt; 298988f65c6a</div><div class="line">Removing intermediate container d0afc9b3cd18</div><div class="line">Step 5 : ADD ./jdk1.8.0_131/ /opt/java/jdk1.8.0_131/</div><div class="line"> ---&gt; 8f4398e2ac65</div><div class="line">Removing intermediate container 532486b90ea9</div><div class="line">Step 6 : ADD ./apache-tomcat-8.5.14/ /opt/tomcat/apache-tomcat-8.5.14/</div><div class="line"> ---&gt; 913dd4b486bf</div><div class="line">Removing intermediate container 9d6e553ba0aa</div><div class="line">Step 7 : ENV JAVA_HOME /opt/java/jdk1.8.0_131</div><div class="line"> ---&gt; Running in 19ae93f7e0dd</div><div class="line"> ---&gt; 01c2503c567e</div><div class="line">Removing intermediate container 19ae93f7e0dd</div><div class="line">Step 8 : ENV JRE_HOME $JAVA_HOME/jre</div><div class="line"> ---&gt; Running in 11689dfd11ec</div><div class="line"> ---&gt; c40790cf116b</div><div class="line">Removing intermediate container 11689dfd11ec</div><div class="line">Step 9 : ENV CLASSPATH .:$JAVA_HOME/lib:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div><div class="line"> ---&gt; Running in 02576f380d9b</div><div class="line"> ---&gt; f64f603a91e3</div><div class="line">Removing intermediate container 02576f380d9b</div><div class="line">Step 10 : ENV CATALINA_HOME /opt/tomcat/apache-tomcat-8.5.14</div><div class="line"> ---&gt; Running in 09c7f880a31a</div><div class="line"> ---&gt; 8aac237520a3</div><div class="line">Removing intermediate container 09c7f880a31a</div><div class="line">Step 11 : ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin</div><div class="line"> ---&gt; Running in 9540a4f48a1c</div><div class="line"> ---&gt; f4718ff45225</div><div class="line">Removing intermediate container 9540a4f48a1c</div><div class="line">Step 12 : EXPOSE 8080</div><div class="line"> ---&gt; Running in 27a8ec657673</div><div class="line"> ---&gt; 7b80cd06456a</div><div class="line">Removing intermediate container 27a8ec657673</div><div class="line">Step 13 : CMD /opt/tomcat/apache-tomcat-8.5.14/bin/catalina.sh run</div><div class="line"> ---&gt; Running in 51365559218c</div><div class="line"> ---&gt; 8b730c606224</div><div class="line">Removing intermediate container 51365559218c</div><div class="line">Successfully built 8b730c606224</div></pre></td></tr></table></figure></p>
+<p>如此表示镜像已经构建成功，<code>jdk1.8.0_131</code>和<code>apache-tomcat-8.5.14</code>也已经成功的打进到我们新构建的镜像文件中了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# docker images</div><div class="line">REPOSITORY                        TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">repos_local/centos-jdk8-tomcat8   0.0.1               8b730c606224        1 hours ago         581.9 MB</div><div class="line">docker.io/centos                  latest              a8493f5f50ff        4 weeks ago         192.5 MB</div></pre></td></tr></table></figure>
+<p>现在可以看到，除了基础镜像文件外，多了一个<code>repos_local/centos-jdk8-tomcat8</code>镜像文件，该文件就是我们上面构建的<code>centos+jdk+tomcat</code>的镜像文件了。</p>
+<h3 id="运行一个docker容器"><a href="#运行一个docker容器" class="headerlink" title="运行一个docker容器"></a>运行一个docker容器</h3><p>最后，我们来根据新构建的镜像文件，运行一个容器，该容器会启动tomcat。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -p 8081:8080 --name test-jdk8-tomcat8 repos_local/centos-jdk8-tomcat8:0.0.1</div></pre></td></tr></table></figure></p>
+<p>注意：<br><code>-d</code>：后台运行docker容器。<br><code>-p</code>：端口映射。宿主机port:容器port，如此在访问宿主机的ip+port时，就能访问到docker容器中的 应用端口。<br><code>--name</code>：容器名称, 容器id难以记忆，因此可以通过容器名称对容器操作。</p>
+<h3 id="查看tomcat启动情况"><a href="#查看tomcat启动情况" class="headerlink" title="查看tomcat启动情况"></a>查看tomcat启动情况</h3><p>由于启动docker容器时没有将tomcat的日志文件映射出来，因此可以直接进入容器中查看启动日志。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# docker exec -it test-jdk8-tomcat8 /bin/bash</div><div class="line">[root@8cb542667072 /]#</div></pre></td></tr></table></figure></p>
+<p>此时用户名已将切换，证明已经进入到运行中的docker容器中了。<br>注意:<br>    <code>-i</code>：捕获标准输入输出。<br>    <code>-t</code>：分配一个终端或控制台。</p>
+<p>最后在浏览器中测试下能否访问tomcat，如：<a href="http://192.168.244.128:8081" target="_blank" rel="external">http://192.168.244.128:8081</a></p>
+<p><img src="http://i4.buimg.com/1949/3cf760a6f497891b.png" alt="Markdown"></p>
+<p>OK,汤猫也成功起来了，证明我们docker镜像构建成功，docker容器启动成功，容器中的应用也正常启动了。</p>
+<h3 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h3><h4 id="开放指定端口"><a href="#开放指定端口" class="headerlink" title="开放指定端口"></a>开放指定端口</h4><p>开始时，就算tomcat正常启动了，外面也无法正常访问tomcat主界面，因为有可能端口号没有开放出来，外部不能直接访问。</p>
+<p>永久开放指定端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 开放8081端口  permanent为永久开放</div><div class="line">firewall-cmd --zone=public --add-port=8081/tcp --permanent</div><div class="line"></div><div class="line"># 重新读取配置</div><div class="line">firewall-cmd --reload</div><div class="line"></div><div class="line"># 查看已经开放的端口</div><div class="line">firewall-cmd --list-all</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -489,7 +501,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/drools/" rel="tag"># drools</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -502,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/05/drools-kmodule/" rel="next" title="drools中kmodule.xml文件介绍">
-                <i class="fa fa-chevron-left"></i> drools中kmodule.xml文件介绍
+              <a href="/2017/04/22/docker-install-guide/" rel="next" title="docker安装指南">
+                <i class="fa fa-chevron-left"></i> docker安装指南
               </a>
             
           </div>
@@ -511,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/11/springboot-learn-introduction/" rel="prev" title="spring-boot 快速入门">
-                spring-boot 快速入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,10 +537,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/06/drools-rule-file-attribute/"
-     data-title="drools drl 规则文件属性介绍"
+        <div class="ds-share flat" data-thread-key="2017/04/23/docker-build-image-with-centos-jdk-tomcat/"
+     data-title="从零开始构建 centos+jdk8+tomcat8 Docker镜像"
      data-content=""
-     data-url="/2017/03/06/drools-rule-file-attribute/">
+     data-url="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -559,8 +567,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/06/drools-rule-file-attribute/"
-           data-title="drools drl 规则文件属性介绍" data-url="/2017/03/06/drools-rule-file-attribute/">
+      <div class="ds-thread" data-thread-key="2017/04/23/docker-build-image-with-centos-jdk-tomcat/"
+           data-title="从零开始构建 centos+jdk8+tomcat8 Docker镜像" data-url="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/">
       </div>
     
   </div>
@@ -689,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性概要介绍"><span class="nav-number">1.</span> <span class="nav-text">属性概要介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性详细介绍"><span class="nav-number">2.</span> <span class="nav-text">属性详细介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#salience"><span class="nav-number">2.1.</span> <span class="nav-text">salience</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#no-loop"><span class="nav-number">2.2.</span> <span class="nav-text">no-loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#date-effective"><span class="nav-number">2.3.</span> <span class="nav-text">date-effective</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#date-expires"><span class="nav-number">2.4.</span> <span class="nav-text">date-expires</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#enabled"><span class="nav-number">2.5.</span> <span class="nav-text">enabled</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dialect"><span class="nav-number">2.6.</span> <span class="nav-text">dialect</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#duration"><span class="nav-number">2.7.</span> <span class="nav-text">duration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lock-on-active"><span class="nav-number">2.8.</span> <span class="nav-text">lock-on-active</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#activation-group、"><span class="nav-number">2.9.</span> <span class="nav-text">activation-group、</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#agenda-group"><span class="nav-number">2.10.</span> <span class="nav-text">agenda-group</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#auto-focus"><span class="nav-number">2.11.</span> <span class="nav-text">auto-focus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ruleflow-group"><span class="nav-number">2.12.</span> <span class="nav-text">ruleflow-group</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始说明"><span class="nav-number">1.</span> <span class="nav-text">开始说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件准备"><span class="nav-number">3.</span> <span class="nav-text">文件准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备基础镜像文件"><span class="nav-number">4.</span> <span class="nav-text">准备基础镜像文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写Dockerfile文件"><span class="nav-number">5.</span> <span class="nav-text">编写Dockerfile文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写构建脚本"><span class="nav-number">6.</span> <span class="nav-text">编写构建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始构建镜像"><span class="nav-number">7.</span> <span class="nav-text">开始构建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行一个docker容器"><span class="nav-number">8.</span> <span class="nav-text">运行一个docker容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看tomcat启动情况"><span class="nav-number">9.</span> <span class="nav-text">查看tomcat启动情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题总结"><span class="nav-number">10.</span> <span class="nav-text">问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开放指定端口"><span class="nav-number">10.1.</span> <span class="nav-text">开放指定端口</span></a></li></ol></li></ol></div>
             
 
           </div>

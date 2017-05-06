@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-05-06T14:06:01.722Z</updated>
+  <updated>2017-05-06T15:03:03.925Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零开始构建 centos+jdk8+tomcat8 Docker镜像</title>
+    <link href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/"/>
+    <id>/2017/04/23/docker-build-image-with-centos-jdk-tomcat/</id>
+    <published>2017-04-23T11:20:14.000Z</published>
+    <updated>2017-05-06T15:03:03.925Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="docker" scheme="/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>docker安装指南</title>
