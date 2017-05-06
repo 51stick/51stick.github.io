@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-03-30T11:59:29.281Z</updated>
+  <updated>2017-05-06T14:06:01.722Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker安装指南</title>
+    <link href="/2017/04/22/docker-install-guide/"/>
+    <id>/2017/04/22/docker-install-guide/</id>
+    <published>2017-04-22T12:00:14.000Z</published>
+    <updated>2017-05-06T14:06:01.722Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="docker" scheme="/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>git服务迁移</title>
