@@ -84,6 +84,30 @@
     </entry>
     
     <entry>
+      <title><![CDATA[如何在linux上开放指定端口号?]]></title>
+      <url>/2017/04/14/linux-open-port/</url>
+      <content type="html"><![CDATA[<p>有时候，在linux上访问一个应用程序时，明明已将正常启动，但就是无法访问，此时可能的原因之一是程序的访问端口号没有对外开放，导致无法正确访问，本文将介绍如何在linux上开放指定端口号。<br><a id="more"></a></p>
+<h3 id="方法一：开放指定端口"><a href="#方法一：开放指定端口" class="headerlink" title="方法一：开放指定端口"></a>方法一：开放指定端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 开放8081端口  permanent为永久开放</div><div class="line">firewall-cmd --zone=public --add-port=8081/tcp --permanent</div><div class="line"></div><div class="line"># 重新读取配置</div><div class="line">firewall-cmd --reload</div><div class="line"></div><div class="line"># 查看已经开放的端口</div><div class="line">firewall-cmd --list-all</div></pre></td></tr></table></figure>
+<h3 id="方法二：开放指定端口"><a href="#方法二：开放指定端口" class="headerlink" title="方法二：开放指定端口"></a>方法二：开放指定端口</h3><p><code>注意</code>：这种开放端口号的方式重启后设置可能会失效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -ptcp --dport 8081 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<h3 id="方法三：开放指定端口"><a href="#方法三：开放指定端口" class="headerlink" title="方法三：开放指定端口"></a>方法三：开放指定端口</h3><h4 id="修改iptables文件"><a href="#修改iptables文件" class="headerlink" title="修改iptables文件"></a>修改iptables文件</h4><p><code>注意</code>：这种开放端口的修改方式重启后不会失效。<br>编辑<code>/etc/sysconfig/iptables</code>文件插入以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8081 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<h4 id="重启服务iptables服务"><a href="#重启服务iptables服务" class="headerlink" title="重启服务iptables服务"></a>重启服务iptables服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables restart</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[git服务迁移]]></title>
       <url>/2017/03/29/git-server-transfer/</url>
       <content type="html"><![CDATA[<p>本文要讲的是一个git的小知识点，即git服务迁移的问题。在遇到原有远程服务迁移时，正确的做法是，先移除本地与之前远程git服务的管理关系，然后重新关联新的git服务地址，最后将本地代码推送至远端。这里说的迁移是指重新搭建一个新的git服务，代码需要重新上传，这也是我最近工作中遇到的一个小问题，在此也做一个小的总结。<br><a id="more"></a></p>

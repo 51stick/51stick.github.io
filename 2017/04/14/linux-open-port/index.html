@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="springboot," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -108,16 +108,16 @@
 
 
 
-<meta name="description" content="本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。">
+<meta name="description" content="有时候，在linux上访问一个应用程序时，明明已将正常启动，但就是无法访问，此时可能的原因之一是程序的访问端口号没有对外开放，导致无法正确访问，本文将介绍如何在linux上开放指定端口号。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot的日志配置">
-<meta property="og:url" content="/2017/03/19/springboot-log/index.html">
+<meta property="og:title" content="如何在linux上开放指定端口号?">
+<meta property="og:url" content="/2017/04/14/linux-open-port/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。">
-<meta property="og:updated_time" content="2017-03-19T06:21:20.325Z">
+<meta property="og:description" content="有时候，在linux上访问一个应用程序时，明明已将正常启动，但就是无法访问，此时可能的原因之一是程序的访问端口号没有对外开放，导致无法正确访问，本文将介绍如何在linux上开放指定端口号。">
+<meta property="og:updated_time" content="2017-05-06T15:14:06.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot的日志配置">
-<meta name="twitter:description" content="本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。">
+<meta name="twitter:title" content="如何在linux上开放指定端口号?">
+<meta name="twitter:description" content="有时候，在linux上访问一个应用程序时，明明已将正常启动，但就是无法访问，此时可能的原因之一是程序的访问端口号没有对外开放，导致无法正确访问，本文将介绍如何在linux上开放指定端口号。">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="/2017/03/19/springboot-log/"/>
+  <link rel="canonical" href="/2017/04/14/linux-open-port/"/>
 
 
 
 
 
-  <title> springboot的日志配置 | 小猪突然地 </title>
+  <title> 如何在linux上开放指定端口号? | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -331,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/03/19/springboot-log/">
+  <link itemprop="mainEntityOfPage" href="/2017/04/14/linux-open-port/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -355,7 +355,7 @@
             
             
               
-                springboot的日志配置
+                如何在linux上开放指定端口号?
               
             
           </h1>
@@ -370,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T13:24:28+08:00">
-                2017-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T19:20:14+08:00">
+                2017-04-14
               </time>
             
 
@@ -393,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/springboot/" itemprop="url" rel="index">
-                    <span itemprop="name">springboot</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -411,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/19/springboot-log/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/19/springboot-log/" itemprop="commentCount"></span>
+                <a href="/2017/04/14/linux-open-port/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/14/linux-open-port/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -420,7 +420,7 @@
 
           
           
-             <span id="/2017/03/19/springboot-log/" class="leancloud_visitors" data-flag-title="springboot的日志配置">
+             <span id="/2017/04/14/linux-open-port/" class="leancloud_visitors" data-flag-title="如何在linux上开放指定端口号?">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,34 +449,11 @@
       
 
       
-        <p>本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。<br><a id="more"></a></p>
-<h3 id="springboot默认日志框架是logback"><a href="#springboot默认日志框架是logback" class="headerlink" title="springboot默认日志框架是logback"></a>springboot默认日志框架是logback</h3><p>正如文章开头所说，springboot中默认使用的日志组件为<code>logback</code>，那么它是怎样引入的logback呢?</p>
-<p>在使用springboot时，我们会引入如下的maven配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>在<code>spring-boot-starter</code>中又引入了如下的日志配置组件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	......</div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	......</div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>而在<code>spring-boot-starter-logging</code>中，正式引入了<code>logback</code>的配置，如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jcl-over-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jul-to-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-over-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>然后根据maven的配置依赖关系我们可以知道，springboot在引入启动的基础依赖包中就导入了logbak的组件。</p>
-<h3 id="logbak的配置方式"><a href="#logbak的配置方式" class="headerlink" title="logbak的配置方式"></a>logbak的配置方式</h3><h4 id="在application-properties中配置"><a href="#在application-properties中配置" class="headerlink" title="在application.properties中配置"></a>在application.properties中配置</h4><p>在springboot中，我们可以直接在<code>application.properties</code>配置文件中配置<code>logback</code>日志组件的相关属性，这种方式简单粗暴，但是实践中不会这么干。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">logging.level.com.springboot.learn.service=debug</div><div class="line"></div><div class="line">logging.file=e:/tmp/my.log</div><div class="line"></div><div class="line">logging.pattern.console=%-20(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread]) %-5level %logger&#123;80&#125; - %msg%n</div><div class="line"></div><div class="line">logging.file.console=%-20(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread]) %-5level %logger&#123;80&#125; - %msg%n</div></pre></td></tr></table></figure>
-<p><code>说明：</code><br>1.logging.level.xxx：该配置项指定日志的输出级别。如果xxx=root，表示所有日志的输出级别；如果xxx=package|class，表示指定该package或则class日志级别，日志级别有：<code>TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF</code>。</p>
-<p>2.logging.file:指定日志文件输出的路径和文件名。</p>
-<p>3.logging.pattern.console：表示控制台日志文件的输出格式。</p>
-<p>4.logging.file.console：表示日志文件输出的日志格式。</p>
-<h4 id="在日志配置文件中配置日志"><a href="#在日志配置文件中配置日志" class="headerlink" title="在日志配置文件中配置日志"></a>在日志配置文件中配置日志</h4><p>默认情况下，springboot加载classpath下的<code>logback.xml</code>或<code>logback-spring.xml</code>文件。但是官方推荐使用<code>logback-spring.xml</code>命名<code>logback</code>的日志配置文件名，下面我们简单看看看如何配置。</p>
-<p>在classpath下添加如下<code>logback-spring.xml</code>配置文件，内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"consoleLog"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%-20(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread]) %-5level %logger&#123;80&#125; - %msg%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"INFO"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"consoleLog"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>如上，在<code>logback-spring.xml</code>简单的配置了控制台的日志输入格式。</p>
-<h3 id="使用其他日志组件"><a href="#使用其他日志组件" class="headerlink" title="使用其他日志组件"></a>使用其他日志组件</h3><p>如果不想用默认的logback日志组件，我们也可以使用其他的日志组件，配置步骤如下：</p>
-<h4 id="排除默认日志依赖组件"><a href="#排除默认日志依赖组件" class="headerlink" title="排除默认日志依赖组件"></a>排除默认日志依赖组件</h4><p>从<code>spring-boot-starter</code>中排除默认加载的日志组件<code>spring-boot-starter-logging</code>，如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="引入需要的日志依赖"><a href="#引入需要的日志依赖" class="headerlink" title="引入需要的日志依赖"></a>引入需要的日志依赖</h4><p>在排除默认日志依赖后，需要重新加入将要使用的日志依赖，此处加入的<code>log4j2</code>的依赖，重新引入依赖后的pom配置如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-log4j2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="在classpath下加入相应的配置文件"><a href="#在classpath下加入相应的配置文件" class="headerlink" title="在classpath下加入相应的配置文件"></a>在classpath下加入相应的配置文件</h4><p>在完成了上述两个步骤后，最后我们需要在classpath下加入相应的配置文件。<br>这里我们加入一个简单的log4j2的日志配置文件<code>log4j2-spring.xml</code>,内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">appenders</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">Console</span> <span class="attr">name</span>=<span class="string">"console"</span> <span class="attr">target</span>=<span class="string">"SYSTEM_OUT"</span> <span class="attr">follow</span>=<span class="string">"true"</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">"%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;80&#125; - %msg%n"</span>/&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">Console</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">appenders</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">loggers</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"DEBUG"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"console"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">root</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">loggers</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>到此，springboot中关于日志的使用部分就介绍完了。</p>
-
+        <p>有时候，在linux上访问一个应用程序时，明明已将正常启动，但就是无法访问，此时可能的原因之一是程序的访问端口号没有对外开放，导致无法正确访问，本文将介绍如何在linux上开放指定端口号。<br><a id="more"></a></p>
+<h3 id="方法一：开放指定端口"><a href="#方法一：开放指定端口" class="headerlink" title="方法一：开放指定端口"></a>方法一：开放指定端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 开放8081端口  permanent为永久开放</div><div class="line">firewall-cmd --zone=public --add-port=8081/tcp --permanent</div><div class="line"></div><div class="line"># 重新读取配置</div><div class="line">firewall-cmd --reload</div><div class="line"></div><div class="line"># 查看已经开放的端口</div><div class="line">firewall-cmd --list-all</div></pre></td></tr></table></figure>
+<h3 id="方法二：开放指定端口"><a href="#方法二：开放指定端口" class="headerlink" title="方法二：开放指定端口"></a>方法二：开放指定端口</h3><p><code>注意</code>：这种开放端口号的方式重启后设置可能会失效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -ptcp --dport 8081 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<h3 id="方法三：开放指定端口"><a href="#方法三：开放指定端口" class="headerlink" title="方法三：开放指定端口"></a>方法三：开放指定端口</h3><h4 id="修改iptables文件"><a href="#修改iptables文件" class="headerlink" title="修改iptables文件"></a>修改iptables文件</h4><p><code>注意</code>：这种开放端口的修改方式重启后不会失效。<br>编辑<code>/etc/sysconfig/iptables</code>文件插入以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8081 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<h4 id="重启服务iptables服务"><a href="#重启服务iptables服务" class="headerlink" title="重启服务iptables服务"></a>重启服务iptables服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables restart</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -499,7 +476,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/springboot/" rel="tag"># springboot</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -512,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/17/springboot-configruation-profiles/" rel="next" title="springboot中profiles配置及使用">
-                <i class="fa fa-chevron-left"></i> springboot中profiles配置及使用
+              <a href="/2017/03/29/git-server-transfer/" rel="next" title="git服务迁移">
+                <i class="fa fa-chevron-left"></i> git服务迁移
               </a>
             
           </div>
@@ -522,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/25/springboot-auto-configuration-principle/" rel="prev" title="springboot自动配置原理">
-                springboot自动配置原理 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/22/docker-install-guide/" rel="prev" title="docker安装指南">
+                docker安装指南 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,10 +516,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/19/springboot-log/"
-     data-title="springboot的日志配置"
+        <div class="ds-share flat" data-thread-key="2017/04/14/linux-open-port/"
+     data-title="如何在linux上开放指定端口号?"
      data-content=""
-     data-url="/2017/03/19/springboot-log/">
+     data-url="/2017/04/14/linux-open-port/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -569,8 +546,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/19/springboot-log/"
-           data-title="springboot的日志配置" data-url="/2017/03/19/springboot-log/">
+      <div class="ds-thread" data-thread-key="2017/04/14/linux-open-port/"
+           data-title="如何在linux上开放指定端口号?" data-url="/2017/04/14/linux-open-port/">
       </div>
     
   </div>
@@ -699,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#springboot默认日志框架是logback"><span class="nav-number">1.</span> <span class="nav-text">springboot默认日志框架是logback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logbak的配置方式"><span class="nav-number">2.</span> <span class="nav-text">logbak的配置方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在application-properties中配置"><span class="nav-number">2.1.</span> <span class="nav-text">在application.properties中配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在日志配置文件中配置日志"><span class="nav-number">2.2.</span> <span class="nav-text">在日志配置文件中配置日志</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用其他日志组件"><span class="nav-number">3.</span> <span class="nav-text">使用其他日志组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#排除默认日志依赖组件"><span class="nav-number">3.1.</span> <span class="nav-text">排除默认日志依赖组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引入需要的日志依赖"><span class="nav-number">3.2.</span> <span class="nav-text">引入需要的日志依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在classpath下加入相应的配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">在classpath下加入相应的配置文件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：开放指定端口"><span class="nav-number">1.</span> <span class="nav-text">方法一：开放指定端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二：开放指定端口"><span class="nav-number">2.</span> <span class="nav-text">方法二：开放指定端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三：开放指定端口"><span class="nav-number">3.</span> <span class="nav-text">方法三：开放指定端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改iptables文件"><span class="nav-number">3.1.</span> <span class="nav-text">修改iptables文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启服务iptables服务"><span class="nav-number">3.2.</span> <span class="nav-text">重启服务iptables服务</span></a></li></ol></li></ol></div>
             
 
           </div>
