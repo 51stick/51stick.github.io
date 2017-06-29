@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-06-29T15:18:46.686Z</updated>
+  <updated>2017-06-29T15:27:49.996Z</updated>
   <id>/</id>
   
   <author>
@@ -16,11 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Guava Collections Cookbook</title>
+    <title>Partition a List in Java</title>
+    <link href="/2017/05/13/google-guava-partition-a-list/"/>
+    <id>/2017/05/13/google-guava-partition-a-list/</id>
+    <published>2017-05-13T11:20:14.000Z</published>
+    <updated>2017-06-29T15:27:49.996Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this tutorial I will illustrate how to split a List into several sublists of a given size.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="guava" scheme="/categories/guava/"/>
+    
+    
+      <category term="guava" scheme="/tags/guava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guava Function Cookbook</title>
     <link href="/2017/05/08/google-guava-functional-cookbook/"/>
     <id>/2017/05/08/google-guava-functional-cookbook/</id>
     <published>2017-05-08T11:20:14.000Z</published>
-    <updated>2017-06-29T15:18:46.686Z</updated>
+    <updated>2017-06-29T15:20:49.060Z</updated>
     
     <summary type="html">
     
@@ -395,26 +415,6 @@
     
     
       <category term="git" scheme="/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo配置ssh key配置</title>
-    <link href="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/"/>
-    <id>/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/</id>
-    <published>2016-10-06T12:46:44.000Z</published>
-    <updated>2017-02-25T12:12:52.720Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在使用hexo地&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件进行发布&lt;code&gt;hexo blog&lt;/code&gt;时， 有时会提醒没无正确的提交权限的错误，到导致无法提交博文到网上上。本文主要讲解如何设置github的ssh key以及免ssh key提交博文。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="hexo" scheme="/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="/tags/hexo/"/>
     
   </entry>
   

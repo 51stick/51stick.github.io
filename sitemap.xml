@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/2017/05/13/google-guava-partition-a-list/</loc>
+    
+    <lastmod>2017-06-29T15:27:49.996Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>/2017/05/08/google-guava-functional-cookbook/</loc>
     
-    <lastmod>2017-06-29T15:18:46.686Z</lastmod>
+    <lastmod>2017-06-29T15:20:49.060Z</lastmod>
     
   </url>
   

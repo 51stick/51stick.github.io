@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="guava," />
 
 
 
@@ -108,16 +108,16 @@
 
 
 
-<meta name="description" content="本文主要讲述怎样在windows环境下安装并初始化hexo博客站点，涉及了hexo的基本安装。详细的配置请参考文所指的官网的指导。其中，文章中会使用到git工具，在此也默认读者会使用该工具，如果不熟悉的，请百度一下参考并学会使用。">
+<meta name="description" content="In this tutorial I will illustrate how to split a List into several sublists of a given size.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo环境安装与初始化指南">
-<meta property="og:url" content="/2016/10/05/hexo-install-init-guide/index.html">
+<meta property="og:title" content="Partition a List in Java">
+<meta property="og:url" content="/2017/05/13/google-guava-partition-a-list/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="本文主要讲述怎样在windows环境下安装并初始化hexo博客站点，涉及了hexo的基本安装。详细的配置请参考文所指的官网的指导。其中，文章中会使用到git工具，在此也默认读者会使用该工具，如果不熟悉的，请百度一下参考并学会使用。">
-<meta property="og:updated_time" content="2017-03-10T13:42:00.143Z">
+<meta property="og:description" content="In this tutorial I will illustrate how to split a List into several sublists of a given size.">
+<meta property="og:updated_time" content="2017-06-29T15:27:49.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo环境安装与初始化指南">
-<meta name="twitter:description" content="本文主要讲述怎样在windows环境下安装并初始化hexo博客站点，涉及了hexo的基本安装。详细的配置请参考文所指的官网的指导。其中，文章中会使用到git工具，在此也默认读者会使用该工具，如果不熟悉的，请百度一下参考并学会使用。">
+<meta name="twitter:title" content="Partition a List in Java">
+<meta name="twitter:description" content="In this tutorial I will illustrate how to split a List into several sublists of a given size.">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="/2016/10/05/hexo-install-init-guide/"/>
+  <link rel="canonical" href="/2017/05/13/google-guava-partition-a-list/"/>
 
 
 
 
 
-  <title> hexo环境安装与初始化指南 | 小猪突然地 </title>
+  <title> Partition a List in Java | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -331,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2016/10/05/hexo-install-init-guide/">
+  <link itemprop="mainEntityOfPage" href="/2017/05/13/google-guava-partition-a-list/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -355,7 +355,7 @@
             
             
               
-                hexo环境安装与初始化指南
+                Partition a List in Java
               
             
           </h1>
@@ -370,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-05T23:50:54+08:00">
-                2016-10-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-13T19:20:14+08:00">
+                2017-05-13
               </time>
             
 
@@ -393,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/guava/" itemprop="url" rel="index">
+                    <span itemprop="name">guava</span>
                   </a>
                 </span>
 
@@ -411,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/05/hexo-install-init-guide/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/hexo-install-init-guide/" itemprop="commentCount"></span>
+                <a href="/2017/05/13/google-guava-partition-a-list/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/13/google-guava-partition-a-list/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -420,7 +420,7 @@
 
           
           
-             <span id="/2016/10/05/hexo-install-init-guide/" class="leancloud_visitors" data-flag-title="hexo环境安装与初始化指南">
+             <span id="/2017/05/13/google-guava-partition-a-list/" class="leancloud_visitors" data-flag-title="Partition a List in Java">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,36 +449,24 @@
       
 
       
-        <p>本文主要讲述怎样在windows环境下安装并初始化hexo博客站点，涉及了hexo的基本安装。详细的配置请参考文所指的官网的指导。其中，文章中会使用到git工具，在此也默认读者会使用该工具，如果不熟悉的，请百度一下参考并学会使用。</p>
-<a id="more"></a>
-<h3 id="准备Hexo环境所需软件"><a href="#准备Hexo环境所需软件" class="headerlink" title="准备Hexo环境所需软件"></a>准备Hexo环境所需软件</h3><ol>
-<li><a href="https://git-scm.com/" target="_blank" rel="external">下载 Git</a></li>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="external">下载 node.js</a></li>
-</ol>
-<h3 id="安装Hexo使用环境"><a href="#安装Hexo使用环境" class="headerlink" title="安装Hexo使用环境"></a>安装Hexo使用环境</h3><ol>
-<li>安装 Git</li>
-<li>安装 node.js</li>
-<li>设置npm淘宝镜像站，原因是在国内使用npm下载速度慢。配置方式如下：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<h3 id="检查Hexo环境是否安装成功"><a href="#检查Hexo环境是否安装成功" class="headerlink" title="检查Hexo环境是否安装成功"></a>检查Hexo环境是否安装成功</h3><p>打卡git客户端，以此输入如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git --version</div><div class="line">node -v</div><div class="line">npm -v</div></pre></td></tr></table></figure></p>
-<p>如果能查看到相关软件的版本信息，则证明安装成功。</p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>以此在git客户端中执行如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cnpm install -g hexo-cli</div><div class="line">cnpm install hexo --save</div></pre></td></tr></table></figure></p>
-<p>以上两个命令就是安装hexo，安装完成后，输入如下命令来验证hexo是否安装成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure></p>
-<p>如何hexo安装成功，输入上述命令则会看到类似以下的信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">hexo: 3.2.2</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Windows_NT 6.1.7601 win32 x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.9.2</div><div class="line">v8: 5.1.281.88</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.8</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 57.1</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2j</div></pre></td></tr></table></figure></p>
-<h3 id="初始化Hexo静态站点"><a href="#初始化Hexo静态站点" class="headerlink" title="初始化Hexo静态站点"></a>初始化Hexo静态站点</h3><p>按顺序执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder&gt;</div><div class="line">cd &lt;folder&gt;</div><div class="line">cnpm install</div></pre></td></tr></table></figure></p>
-<p>至此，会在指定文件夹下生成相应的站点文件。详细可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">hexo指导文档</a>。</p>
-<h3 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cnpm install hexo-server --save</div><div class="line">cnpm install hexo-admin --save</div><div class="line">cnpm install hexo-generator-archive --save</div><div class="line">cnpm install hexo-generator-feed --save</div><div class="line">cnpm install hexo-generator-search --save</div><div class="line">cnpm install hexo-generator-tag --save</div><div class="line">cnpm install hexo-deployer-git --save</div><div class="line">cnpm install hexo-generator-sitemap --save</div><div class="line">cnpm install hexo-renderer-jade --save</div><div class="line">cnpm install hexo-renderer-sass --save</div></pre></td></tr></table></figure>
-<p>在使用其他的一些功能时，需要插件的支持，因此可以选择性的安装所需插件。</p>
-<h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>下载主题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd your-hexo-site</div><div class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
-<p>主题安装完成后，主题的名字就是主题所在文件夹的名字，要启用新的主题，只需要修改站点根目录的<code>_config.yml</code>文件的<code>theme</code>配置项，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure></p>
-<h3 id="运行Hexo静态站点"><a href="#运行Hexo静态站点" class="headerlink" title="运行Hexo静态站点"></a>运行Hexo静态站点</h3><p>Hexo安装完成后，在初始化站点下使用如下命令集合运行起来：</p>
-<ol>
-<li>hexo g：编译生成静态资源文件</li>
-<li>hexo s：运行hexo</li>
-<li>hexo new  post postName：该命令会在your-hexo-site\source_posts文件夹下生成一个叫postName的博客文件。</li>
-</ol>
-<h3 id="更多参考"><a href="#更多参考" class="headerlink" title="更多参考"></a>更多参考</h3><p>更多关于Hexo请查询考<a href="https://hexo.io/" target="_blank" rel="external">hexo官方指南</a><br>更多关于<code>next</code>主题请参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">hexo-theme-next官方指南</a></p>
+        <p>In this tutorial I will illustrate how to split a List into several sublists of a given size.<br><a id="more"></a></p>
+<h3 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1. Overview"></a>1. Overview</h3><p>In this tutorial I will illustrate how to split a List into several sublists of a given size.</p>
+<p>For a relatively simple operation, there is surprisingly no support in the standard Java collection APIs. Luckily, both Guava and the Apache Commons Collections have implemented the operation in a similar way.</p>
+<p>This article is part of the �Java � Back to Basic� series here on Baeldung.</p>
+<h3 id="2-Use-Guava-to-partition-the-List"><a href="#2-Use-Guava-to-partition-the-List" class="headerlink" title="2. Use Guava to partition the List"></a>2. Use Guava to partition the List</h3><p>Guava facilitates partitioning the List into sublists of a specified size � via the Lists.partition operation:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenList_whenParitioningIntoNSublists_thenCorrect</span><span class="params">()</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; intList = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; subSets = Lists.partition(intList, <span class="number">3</span>);</div><div class="line"> </div><div class="line">    List&lt;Integer&gt; lastPartition = subSets.get(<span class="number">2</span>);</div><div class="line">    List&lt;Integer&gt; expectedLastPartition = Lists.&lt;Integer&gt; newArrayList(<span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    assertThat(subSets.size(), equalTo(<span class="number">3</span>));</div><div class="line">    assertThat(lastPartition, equalTo(expectedLastPartition));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-1-Use-Guava-to-partition-a-Collection"><a href="#2-1-Use-Guava-to-partition-a-Collection" class="headerlink" title="2.1 Use Guava to partition a Collection"></a>2.1 Use Guava to partition a Collection</h4><p>Partitioning a Collection is also possible with Guava:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenCollection_whenParitioningIntoNSublists_thenCorrect</span><span class="params">()</span> </span>&#123;</div><div class="line">    Collection&lt;Integer&gt; intCollection = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>);</div><div class="line"> </div><div class="line">    Iterable&lt;List&lt;Integer&gt;&gt; subSets = Iterables.partition(intCollection, <span class="number">3</span>);</div><div class="line"> </div><div class="line">    List&lt;Integer&gt; firstPartition = subSets.iterator().next();</div><div class="line">    List&lt;Integer&gt; expectedLastPartition = Lists.&lt;Integer&gt; newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line">    assertThat(firstPartition, equalTo(expectedLastPartition));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Keep in mind that the partitions are sublist views of the original collection � which means that changes in the original collection will be reflected in the partitions:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenListPartitioned_whenOriginalListIsModified_thenPartitionsChangeAsWell</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// Given</span></div><div class="line">    List&lt;Integer&gt; intList = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; subSets = Lists.partition(intList, <span class="number">3</span>);</div><div class="line"> </div><div class="line">    <span class="comment">// When</span></div><div class="line">    intList.add(<span class="number">9</span>);</div><div class="line"> </div><div class="line">    <span class="comment">// Then</span></div><div class="line">    List&lt;Integer&gt; lastPartition = subSets.get(<span class="number">2</span>);</div><div class="line">    List&lt;Integer&gt; expectedLastPartition = Lists.&lt;Integer&gt; newArrayList(<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</div><div class="line">    assertThat(lastPartition, equalTo(expectedLastPartition));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-Use-Apache-Commons-Collections-to-partition-the-List"><a href="#3-Use-Apache-Commons-Collections-to-partition-the-List" class="headerlink" title="3. Use Apache Commons Collections to partition the List"></a>3. Use Apache Commons Collections to partition the List</h3><p>The latest releases of Apache Commons Collections have recently added support for partitioning a List as well:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenList_whenParitioningIntoNSublists_thenCorrect</span><span class="params">()</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; intList = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; subSets = ListUtils.partition(intList, <span class="number">3</span>);</div><div class="line"> </div><div class="line">    List&lt;Integer&gt; lastPartition = subSets.get(<span class="number">2</span>);</div><div class="line">    List&lt;Integer&gt; expectedLastPartition = Lists.&lt;Integer&gt; newArrayList(<span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    assertThat(subSets.size(), equalTo(<span class="number">3</span>));</div><div class="line">    assertThat(lastPartition, equalTo(expectedLastPartition));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>There is no corresponding option to partition a raw Collection � similar to the Guava Iterables.partition in Commons Collections.</p>
+<p>Finally, the same caveat applies here as well � the resulting partition are views of the original List.</p>
+<h3 id="3-Use-Java8-to-partition-the-List"><a href="#3-Use-Java8-to-partition-the-List" class="headerlink" title="3. Use Java8 to partition the List"></a>3. Use Java8 to partition the List</h3><h3 id="3-1-Collectors-partitioningBy"><a href="#3-1-Collectors-partitioningBy" class="headerlink" title="3.1 Collectors partitioningBy"></a>3.1 Collectors partitioningBy</h3><p>We can use Collectors.partitioningBy() to split the list into 2 sublists � as follows:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenList_whenParitioningIntoSublistsUsingPartitionBy_thenCorrect</span><span class="params">()</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; intList = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>);</div><div class="line"> </div><div class="line">    Map&lt;Boolean, List&lt;Integer&gt;&gt; groups = </div><div class="line">      intList.stream().collect(Collectors.partitioningBy(s -&gt; s &gt; <span class="number">6</span>));</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; subSets = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;(groups.values());</div><div class="line"> </div><div class="line">    List&lt;Integer&gt; lastPartition = subSets.get(<span class="number">1</span>);</div><div class="line">    List&lt;Integer&gt; expectedLastPartition = Lists.&lt;Integer&gt; newArrayList(<span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    assertThat(subSets.size(), equalTo(<span class="number">2</span>));</div><div class="line">    assertThat(lastPartition, equalTo(expectedLastPartition));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Note: The resulting partitions are not a view of the main List, so any changes happen to the main List won�t affect the partitions.</p>
+<h4 id="3-2-Collectors-groupingBy"><a href="#3-2-Collectors-groupingBy" class="headerlink" title="3.2 Collectors groupingBy"></a>3.2 Collectors groupingBy</h4><p>We also can use Collectors.groupingBy() to split our list to multiple partitions:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">givenList_whenParitioningIntoNSublistsUsingGroupingBy_thenCorrect</span><span class="params">()</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; intList = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>);</div><div class="line"> </div><div class="line">    Map&lt;Integer, List&lt;Integer&gt;&gt; groups = </div><div class="line">      intList.stream().collect(Collectors.groupingBy(s -&gt; (s - <span class="number">1</span>) / <span class="number">3</span>));</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; subSets = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;(groups.values());</div><div class="line"> </div><div class="line">    List&lt;Integer&gt; lastPartition = subSets.get(<span class="number">2</span>);</div><div class="line">    List&lt;Integer&gt; expectedLastPartition = Lists.&lt;Integer&gt; newArrayList(<span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    assertThat(subSets.size(), equalTo(<span class="number">3</span>));</div><div class="line">    assertThat(lastPartition, equalTo(expectedLastPartition));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Note: Just as Collectors.partitioningBy() � the resulting partitions won�t be affected by changes in main List.</p>
+<p>####3.3  Split the List by separator<br>We can also use Java8 to split our List by separator:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenList_whenSplittingBySeparator_thenCorrect</span><span class="params">()</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; intList = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">8</span>);</div><div class="line"> </div><div class="line">    <span class="keyword">int</span>[] indexes = </div><div class="line">      Stream.of(IntStream.of(-<span class="number">1</span>), IntStream.range(<span class="number">0</span>, intList.size())</div><div class="line">      .filter(i -&gt; intList.get(i) == <span class="number">0</span>), IntStream.of(intList.size()))</div><div class="line">      .flatMapToInt(s -&gt; s).toArray();</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; subSets = </div><div class="line">      IntStream.range(<span class="number">0</span>, indexes.length - <span class="number">1</span>)</div><div class="line">               .mapToObj(i -&gt; intList.subList(indexes[i] + <span class="number">1</span>, indexes[i + <span class="number">1</span>]))</div><div class="line">               .collect(Collectors.toList());</div><div class="line"> </div><div class="line">    List&lt;Integer&gt; lastPartition = subSets.get(<span class="number">2</span>);</div><div class="line">    List&lt;Integer&gt; expectedLastPartition = Lists.&lt;Integer&gt; newArrayList(<span class="number">7</span>, <span class="number">8</span>);</div><div class="line">    assertThat(subSets.size(), equalTo(<span class="number">3</span>));</div><div class="line">    assertThat(lastPartition, equalTo(expectedLastPartition));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Note: We used �0� as separator � we first obtained the indices of all �0� elements in the List, then we split the List on these indices.</p>
+<p>###4. Conclusion<br>The solutions presented here makes use of additional libraries � Guava or the Apache Commons Collections library. Both of these are very lightweight and extremely useful overall, so it makes perfect sense to have one of them on the classpath; however, if that is not an option � a Java only solution is shown here.</p>
+<p>The implementation of all these examples and code snippets can be found in my github project � this is an Eclipse based project, so it should be easy to import and run as it is.</p>
 
       
     </div>
@@ -502,7 +490,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/guava/" rel="tag"># guava</a>
           
         </div>
       
@@ -515,15 +503,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/08/google-guava-functional-cookbook/" rel="next" title="Guava Function Cookbook">
+                <i class="fa fa-chevron-left"></i> Guava Function Cookbook
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/" rel="prev" title="Hexo配置ssh key配置">
-                Hexo配置ssh key配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,10 +526,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/05/hexo-install-init-guide/"
-     data-title="hexo环境安装与初始化指南"
+        <div class="ds-share flat" data-thread-key="2017/05/13/google-guava-partition-a-list/"
+     data-title="Partition a List in Java"
      data-content=""
-     data-url="/2016/10/05/hexo-install-init-guide/">
+     data-url="/2017/05/13/google-guava-partition-a-list/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -568,8 +556,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/05/hexo-install-init-guide/"
-           data-title="hexo环境安装与初始化指南" data-url="/2016/10/05/hexo-install-init-guide/">
+      <div class="ds-thread" data-thread-key="2017/05/13/google-guava-partition-a-list/"
+           data-title="Partition a List in Java" data-url="/2017/05/13/google-guava-partition-a-list/">
       </div>
     
   </div>
@@ -698,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备Hexo环境所需软件"><span class="nav-number">1.</span> <span class="nav-text">准备Hexo环境所需软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo使用环境"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo使用环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查Hexo环境是否安装成功"><span class="nav-number">3.</span> <span class="nav-text">检查Hexo环境是否安装成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Hexo静态站点"><span class="nav-number">5.</span> <span class="nav-text">初始化Hexo静态站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件安装"><span class="nav-number">6.</span> <span class="nav-text">插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题安装"><span class="nav-number">7.</span> <span class="nav-text">主题安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行Hexo静态站点"><span class="nav-number">8.</span> <span class="nav-text">运行Hexo静态站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更多参考"><span class="nav-number">9.</span> <span class="nav-text">更多参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Overview"><span class="nav-number">1.</span> <span class="nav-text">1. Overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Use-Guava-to-partition-the-List"><span class="nav-number">2.</span> <span class="nav-text">2. Use Guava to partition the List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Use-Guava-to-partition-a-Collection"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Use Guava to partition a Collection</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Use-Apache-Commons-Collections-to-partition-the-List"><span class="nav-number">3.</span> <span class="nav-text">3. Use Apache Commons Collections to partition the List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Use-Java8-to-partition-the-List"><span class="nav-number">4.</span> <span class="nav-text">3. Use Java8 to partition the List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Collectors-partitioningBy"><span class="nav-number">5.</span> <span class="nav-text">3.1 Collectors partitioningBy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-Collectors-groupingBy"><span class="nav-number">5.1.</span> <span class="nav-text">3.2 Collectors groupingBy</span></a></li></ol></li></ol></div>
             
 
           </div>
