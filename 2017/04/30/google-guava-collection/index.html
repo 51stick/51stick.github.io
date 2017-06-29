@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="springboot," />
+  <meta name="keywords" content="guava," />
 
 
 
@@ -108,16 +108,16 @@
 
 
 
-<meta name="description" content="本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。">
+<meta name="description" content="This cookbook article is organized into small and focused recipes and code snippets for using Guava style collections.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot的日志配置">
-<meta property="og:url" content="/2017/03/19/springboot-log/index.html">
+<meta property="og:title" content="Guava Collections Cookbook">
+<meta property="og:url" content="/2017/04/30/google-guava-collection/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。">
-<meta property="og:updated_time" content="2017-03-19T06:21:20.325Z">
+<meta property="og:description" content="This cookbook article is organized into small and focused recipes and code snippets for using Guava style collections.">
+<meta property="og:updated_time" content="2017-06-29T14:46:30.130Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot的日志配置">
-<meta name="twitter:description" content="本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。">
+<meta name="twitter:title" content="Guava Collections Cookbook">
+<meta name="twitter:description" content="This cookbook article is organized into small and focused recipes and code snippets for using Guava style collections.">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="/2017/03/19/springboot-log/"/>
+  <link rel="canonical" href="/2017/04/30/google-guava-collection/"/>
 
 
 
 
 
-  <title> springboot的日志配置 | 小猪突然地 </title>
+  <title> Guava Collections Cookbook | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -331,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/03/19/springboot-log/">
+  <link itemprop="mainEntityOfPage" href="/2017/04/30/google-guava-collection/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -355,7 +355,7 @@
             
             
               
-                springboot的日志配置
+                Guava Collections Cookbook
               
             
           </h1>
@@ -370,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T13:24:28+08:00">
-                2017-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-30T19:20:14+08:00">
+                2017-04-30
               </time>
             
 
@@ -393,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/springboot/" itemprop="url" rel="index">
-                    <span itemprop="name">springboot</span>
+                  <a href="/categories/guava/" itemprop="url" rel="index">
+                    <span itemprop="name">guava</span>
                   </a>
                 </span>
 
@@ -411,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/19/springboot-log/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/19/springboot-log/" itemprop="commentCount"></span>
+                <a href="/2017/04/30/google-guava-collection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/30/google-guava-collection/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -420,7 +420,7 @@
 
           
           
-             <span id="/2017/03/19/springboot-log/" class="leancloud_visitors" data-flag-title="springboot的日志配置">
+             <span id="/2017/04/30/google-guava-collection/" class="leancloud_visitors" data-flag-title="Guava Collections Cookbook">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,34 +449,26 @@
       
 
       
-        <p>本文将要介绍的是springboot中日志组件的相关配置，springboot默认使用的是logback日志框架，同时本文也会简单介绍在springboot如何配置并使用其他的日志框架，log4j2。<br><a id="more"></a></p>
-<h3 id="springboot默认日志框架是logback"><a href="#springboot默认日志框架是logback" class="headerlink" title="springboot默认日志框架是logback"></a>springboot默认日志框架是logback</h3><p>正如文章开头所说，springboot中默认使用的日志组件为<code>logback</code>，那么它是怎样引入的logback呢?</p>
-<p>在使用springboot时，我们会引入如下的maven配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>在<code>spring-boot-starter</code>中又引入了如下的日志配置组件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	......</div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	......</div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>而在<code>spring-boot-starter-logging</code>中，正式引入了<code>logback</code>的配置，如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jcl-over-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jul-to-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-over-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>然后根据maven的配置依赖关系我们可以知道，springboot在引入启动的基础依赖包中就导入了logbak的组件。</p>
-<h3 id="logbak的配置方式"><a href="#logbak的配置方式" class="headerlink" title="logbak的配置方式"></a>logbak的配置方式</h3><h4 id="在application-properties中配置"><a href="#在application-properties中配置" class="headerlink" title="在application.properties中配置"></a>在application.properties中配置</h4><p>在springboot中，我们可以直接在<code>application.properties</code>配置文件中配置<code>logback</code>日志组件的相关属性，这种方式简单粗暴，但是实践中不会这么干。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">logging.level.com.springboot.learn.service=debug</div><div class="line"></div><div class="line">logging.file=e:/tmp/my.log</div><div class="line"></div><div class="line">logging.pattern.console=%-20(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread]) %-5level %logger&#123;80&#125; - %msg%n</div><div class="line"></div><div class="line">logging.file.console=%-20(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread]) %-5level %logger&#123;80&#125; - %msg%n</div></pre></td></tr></table></figure>
-<p><code>说明：</code><br>1.logging.level.xxx：该配置项指定日志的输出级别。如果xxx=root，表示所有日志的输出级别；如果xxx=package|class，表示指定该package或则class日志级别，日志级别有：<code>TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF</code>。</p>
-<p>2.logging.file:指定日志文件输出的路径和文件名。</p>
-<p>3.logging.pattern.console：表示控制台日志文件的输出格式。</p>
-<p>4.logging.file.console：表示日志文件输出的日志格式。</p>
-<h4 id="在日志配置文件中配置日志"><a href="#在日志配置文件中配置日志" class="headerlink" title="在日志配置文件中配置日志"></a>在日志配置文件中配置日志</h4><p>默认情况下，springboot加载classpath下的<code>logback.xml</code>或<code>logback-spring.xml</code>文件。但是官方推荐使用<code>logback-spring.xml</code>命名<code>logback</code>的日志配置文件名，下面我们简单看看看如何配置。</p>
-<p>在classpath下添加如下<code>logback-spring.xml</code>配置文件，内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"consoleLog"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%-20(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread]) %-5level %logger&#123;80&#125; - %msg%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"INFO"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"consoleLog"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>如上，在<code>logback-spring.xml</code>简单的配置了控制台的日志输入格式。</p>
-<h3 id="使用其他日志组件"><a href="#使用其他日志组件" class="headerlink" title="使用其他日志组件"></a>使用其他日志组件</h3><p>如果不想用默认的logback日志组件，我们也可以使用其他的日志组件，配置步骤如下：</p>
-<h4 id="排除默认日志依赖组件"><a href="#排除默认日志依赖组件" class="headerlink" title="排除默认日志依赖组件"></a>排除默认日志依赖组件</h4><p>从<code>spring-boot-starter</code>中排除默认加载的日志组件<code>spring-boot-starter-logging</code>，如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="引入需要的日志依赖"><a href="#引入需要的日志依赖" class="headerlink" title="引入需要的日志依赖"></a>引入需要的日志依赖</h4><p>在排除默认日志依赖后，需要重新加入将要使用的日志依赖，此处加入的<code>log4j2</code>的依赖，重新引入依赖后的pom配置如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-log4j2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="在classpath下加入相应的配置文件"><a href="#在classpath下加入相应的配置文件" class="headerlink" title="在classpath下加入相应的配置文件"></a>在classpath下加入相应的配置文件</h4><p>在完成了上述两个步骤后，最后我们需要在classpath下加入相应的配置文件。<br>这里我们加入一个简单的log4j2的日志配置文件<code>log4j2-spring.xml</code>,内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">appenders</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">Console</span> <span class="attr">name</span>=<span class="string">"console"</span> <span class="attr">target</span>=<span class="string">"SYSTEM_OUT"</span> <span class="attr">follow</span>=<span class="string">"true"</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">"%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;80&#125; - %msg%n"</span>/&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">Console</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">appenders</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">loggers</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"DEBUG"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"console"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">root</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">loggers</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>到此，springboot中关于日志的使用部分就介绍完了。</p>
-
+        <p>This cookbook article is organized into small and focused recipes and code snippets for using Guava style collections.<br><a id="more"></a></p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>This cookbook article is organized into small and focused recipes and code snippets for using Guava style collections.</p>
+<p>The format is that of a growing list of code examples with no additional explanation necessary – it is meant to keep common usages of the API easy to access during development.</p>
+<h3 id="2-The-Recipes"><a href="#2-The-Recipes" class="headerlink" title="2. The Recipes"></a>2. The Recipes</h3><h4 id="2-1-downcast-a-List-to-a-List"><a href="#2-1-downcast-a-List-to-a-List" class="headerlink" title="2.1 downcast a List to a List"></a>2.1 downcast a List<parent> to a List<child></child></parent></h4><blockquote>
+<p>note: this is a workaround for non-covariant generified collections in Java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CastFunction</span>&lt;<span class="title">F</span>, <span class="title">T</span> <span class="keyword">extends</span> <span class="title">F</span>&gt; <span class="keyword">implements</span> <span class="title">Function</span>&lt;<span class="title">F</span>, <span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title">apply</span><span class="params">(<span class="keyword">final</span> F from)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (T) from;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">List&lt;TypeParent&gt; originalList = Lists.newArrayList();</div><div class="line">List&lt;TypeChild&gt; theList = Lists.transform(originalList, </div><div class="line">    <span class="keyword">new</span> CastFunction&lt;TypeParent, TypeChild&gt;());</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>simpler alternative without Guava – involving 2 cast operations<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;Number&gt; originalList = Lists.newArrayList();</div><div class="line">List&lt;Integer&gt; theList = (List&lt;Integer&gt;) (List&lt;? extends Number&gt;) originalList;</div></pre></td></tr></table></figure></p>
+<h4 id="2-2-adding-an-iterable-to-a-collection"><a href="#2-2-adding-an-iterable-to-a-collection" class="headerlink" title="2.2 adding an iterable to a collection"></a>2.2 adding an iterable to a collection</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Iterable&lt;String&gt; iter = Lists.newArrayList();</div><div class="line">Collection&lt;String&gt; collector = Lists.newArrayList();</div><div class="line">Iterables.addAll(collector, iter);</div></pre></td></tr></table></figure>
+<h4 id="2-3-check-if-collection-contains-element-s-according-to-a-custom-matching-rule"><a href="#2-3-check-if-collection-contains-element-s-according-to-a-custom-matching-rule" class="headerlink" title="2.3 check if collection contains element(s) according to a custom matching rule"></a>2.3 check if collection contains element(s) according to a custom matching rule</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Iterable&lt;String&gt; theCollection = Lists.newArrayList(<span class="string">"a"</span>, <span class="string">"bc"</span>, <span class="string">"def"</span>);</div><div class="line">    <span class="keyword">boolean</span> contains = Iterables.any(theCollection, <span class="keyword">new</span> Predicate&lt;String&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(<span class="keyword">final</span> String input)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> input.length() == <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">assertTrue(contains);</div></pre></td></tr></table></figure>
+<h4 id="2-4-alternative-solution-using-search"><a href="#2-4-alternative-solution-using-search" class="headerlink" title="2.4 alternative solution using search"></a>2.4 alternative solution using search</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Iterable&lt;String&gt; theCollection = Sets.newHashSet(<span class="string">"a"</span>, <span class="string">"bc"</span>, <span class="string">"def"</span>);</div><div class="line"><span class="keyword">boolean</span> contains = Iterables.find(theCollection, <span class="keyword">new</span> Predicate&lt;String&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(<span class="keyword">final</span> String input)</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> input.length() == <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;) != <span class="keyword">null</span>;</div><div class="line">assertTrue(contains);</div></pre></td></tr></table></figure>
+<h4 id="2-5-alternative-solution-only-applicable-to-Sets"><a href="#2-5-alternative-solution-only-applicable-to-Sets" class="headerlink" title="2.5 alternative solution only applicable to Sets"></a>2.5 alternative solution only applicable to Sets</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Set&lt;String&gt; theCollection = Sets.newHashSet(<span class="string">"a"</span>, <span class="string">"bc"</span>, <span class="string">"def"</span>);</div><div class="line"><span class="keyword">boolean</span> contains = !Sets.filter(theCollection, <span class="keyword">new</span> Predicate&lt;String&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(<span class="keyword">final</span> String input)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> input.length() == <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;).isEmpty();</div><div class="line">assertTrue(contains);</div></pre></td></tr></table></figure>
+<p><code>NoSuchElementException</code> on Iterables.find when nothing is found<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Iterable&lt;String&gt; theCollection = Sets.newHashSet(<span class="string">"abcd"</span>, <span class="string">"efgh"</span>, <span class="string">"ijkl"</span>);</div><div class="line">Predicate&lt;String&gt; inputOfLengthOne = <span class="keyword">new</span> Predicate&lt;String&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(<span class="keyword">final</span> String input)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> input.length() == <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">String found = Iterables.find(theCollection, inputOfLengthOne);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>this will throw the NoSuchElementException exception:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">java.util.NoSuchElementException</div><div class="line">    at com.google.common.collect.AbstractIterator.next(AbstractIterator.java:<span class="number">154</span>)</div><div class="line">    at com.google.common.collect.Iterators.find(Iterators.java:<span class="number">712</span>)</div><div class="line">    at com.google.common.collect.Iterables.find(Iterables.java:<span class="number">643</span>)</div></pre></td></tr></table></figure></p>
+<p>solution: there is an overloaded find method that takes the default return value as an argument and can be called with null for the desired behavior:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String found = Iterables.find(theCollection, inputOfLengthOne, <span class="keyword">null</span>);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="2-6-remove-all-null-values-from-a-collection"><a href="#2-6-remove-all-null-values-from-a-collection" class="headerlink" title="2.6 remove all null values from a collection"></a>2.6 remove all null values from a collection</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; values = Lists.newArrayList(<span class="string">"a"</span>, <span class="keyword">null</span>, <span class="string">"b"</span>, <span class="string">"c"</span>);</div><div class="line">Iterable&lt;String&gt; withoutNulls = Iterables.filter(values, Predicates.notNull());</div></pre></td></tr></table></figure>
+<h4 id="2-7-create-immutable-List-Set-Map-directly"><a href="#2-7-create-immutable-List-Set-Map-directly" class="headerlink" title="2.7 create immutable List/Set/Map directly"></a>2.7 create immutable List/Set/Map directly</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ImmutableList&lt;String&gt; immutableList = ImmutableList.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>);</div><div class="line">ImmutableSet&lt;String&gt; immutableSet = ImmutableSet.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>);</div><div class="line">ImmutableMap&lt;String, String&gt; imuttableMap = </div><div class="line">    ImmutableMap.of(<span class="string">"k1"</span>, <span class="string">"v1"</span>, <span class="string">"k2"</span>, <span class="string">"v2"</span>, <span class="string">"k3"</span>, <span class="string">"v3"</span>);</div></pre></td></tr></table></figure>
+<h4 id="2-8-create-immutable-List-Set-Map-from-a-standard-collection"><a href="#2-8-create-immutable-List-Set-Map-from-a-standard-collection" class="headerlink" title="2.8 create immutable List/Set/Map from a standard collection"></a>2.8 create immutable List/Set/Map from a standard collection</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; muttableList = Lists.newArrayList();</div><div class="line">ImmutableList&lt;String&gt; immutableList = ImmutableList.copyOf(muttableList);</div><div class="line"> </div><div class="line">Set&lt;String&gt; muttableSet = Sets.newHashSet();</div><div class="line">ImmutableSet&lt;String&gt; immutableSet = ImmutableSet.copyOf(muttableSet);</div><div class="line"> </div><div class="line">Map&lt;String, String&gt; muttableMap = Maps.newHashMap();</div><div class="line">ImmutableMap&lt;String, String&gt; imuttableMap = ImmutableMap.copyOf(muttableMap);</div></pre></td></tr></table></figure>
+<h4 id="2-10-alternative-solution-using-builders"><a href="#2-10-alternative-solution-using-builders" class="headerlink" title="2.10 alternative solution using builders"></a>2.10 alternative solution using builders</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; muttableList = Lists.newArrayList();</div><div class="line">ImmutableList&lt;String&gt; immutableList = </div><div class="line">    ImmutableList.&lt;String&gt; builder().addAll(muttableList).build();</div><div class="line"> </div><div class="line">Set&lt;String&gt; muttableSet = Sets.newHashSet();</div><div class="line">ImmutableSet&lt;String&gt; immutableSet = </div><div class="line">    ImmutableSet.&lt;String&gt; builder().addAll(muttableSet).build();</div><div class="line"> </div><div class="line">Map&lt;String, String&gt; muttableMap = Maps.newHashMap();</div><div class="line">ImmutableMap&lt;String, String&gt; imuttableMap = </div><div class="line">    ImmutableMap.&lt;String, String&gt; builder().putAll(muttableMap).build();</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -499,7 +491,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/springboot/" rel="tag"># springboot</a>
+            <a href="/tags/guava/" rel="tag"># guava</a>
           
         </div>
       
@@ -512,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/17/springboot-configruation-profiles/" rel="next" title="springboot中profiles配置及使用">
-                <i class="fa fa-chevron-left"></i> springboot中profiles配置及使用
+              <a href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/" rel="next" title="从零开始构建 centos+jdk8+tomcat8 Docker镜像">
+                <i class="fa fa-chevron-left"></i> 从零开始构建 centos+jdk8+tomcat8 Docker镜像
               </a>
             
           </div>
@@ -521,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/25/springboot-auto-configuration-principle/" rel="prev" title="springboot自动配置原理">
-                springboot自动配置原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,10 +527,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/19/springboot-log/"
-     data-title="springboot的日志配置"
+        <div class="ds-share flat" data-thread-key="2017/04/30/google-guava-collection/"
+     data-title="Guava Collections Cookbook"
      data-content=""
-     data-url="/2017/03/19/springboot-log/">
+     data-url="/2017/04/30/google-guava-collection/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -569,8 +557,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/19/springboot-log/"
-           data-title="springboot的日志配置" data-url="/2017/03/19/springboot-log/">
+      <div class="ds-thread" data-thread-key="2017/04/30/google-guava-collection/"
+           data-title="Guava Collections Cookbook" data-url="/2017/04/30/google-guava-collection/">
       </div>
     
   </div>
@@ -699,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#springboot默认日志框架是logback"><span class="nav-number">1.</span> <span class="nav-text">springboot默认日志框架是logback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logbak的配置方式"><span class="nav-number">2.</span> <span class="nav-text">logbak的配置方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在application-properties中配置"><span class="nav-number">2.1.</span> <span class="nav-text">在application.properties中配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在日志配置文件中配置日志"><span class="nav-number">2.2.</span> <span class="nav-text">在日志配置文件中配置日志</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用其他日志组件"><span class="nav-number">3.</span> <span class="nav-text">使用其他日志组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#排除默认日志依赖组件"><span class="nav-number">3.1.</span> <span class="nav-text">排除默认日志依赖组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引入需要的日志依赖"><span class="nav-number">3.2.</span> <span class="nav-text">引入需要的日志依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在classpath下加入相应的配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">在classpath下加入相应的配置文件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-The-Recipes"><span class="nav-number">2.</span> <span class="nav-text">2. The Recipes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-downcast-a-List-to-a-List"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 downcast a List to a List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-adding-an-iterable-to-a-collection"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 adding an iterable to a collection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-check-if-collection-contains-element-s-according-to-a-custom-matching-rule"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 check if collection contains element(s) according to a custom matching rule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-alternative-solution-using-search"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 alternative solution using search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-alternative-solution-only-applicable-to-Sets"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 alternative solution only applicable to Sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-remove-all-null-values-from-a-collection"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 remove all null values from a collection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-create-immutable-List-Set-Map-directly"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 create immutable List/Set/Map directly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-create-immutable-List-Set-Map-from-a-standard-collection"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 create immutable List/Set/Map from a standard collection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-10-alternative-solution-using-builders"><span class="nav-number">2.9.</span> <span class="nav-text">2.10 alternative solution using builders</span></a></li></ol></li></ol></div>
             
 
           </div>

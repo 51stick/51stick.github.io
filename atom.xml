@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-05-06T15:03:03.925Z</updated>
+  <updated>2017-06-29T14:46:30.130Z</updated>
   <id>/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Guava Collections Cookbook</title>
+    <link href="/2017/04/30/google-guava-collection/"/>
+    <id>/2017/04/30/google-guava-collection/</id>
+    <published>2017-04-30T11:20:14.000Z</published>
+    <updated>2017-06-29T14:46:30.130Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This cookbook article is organized into small and focused recipes and code snippets for using Guava style collections.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="guava" scheme="/categories/guava/"/>
+    
+    
+      <category term="guava" scheme="/tags/guava/"/>
+    
+  </entry>
   
   <entry>
     <title>从零开始构建 centos+jdk8+tomcat8 Docker镜像</title>
