@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/2017/04/30/google-guava-collection/</loc>
+    <loc>/2017/05/08/google-guava-functional-cookbook/</loc>
     
-    <lastmod>2017-06-29T14:46:30.130Z</lastmod>
+    <lastmod>2017-06-29T15:18:46.686Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/2017/04/30/google-guava-collections-cookbook/</loc>
+    
+    <lastmod>2017-06-29T15:18:21.992Z</lastmod>
     
   </url>
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-06-29T14:46:30.130Z</updated>
+  <updated>2017-06-29T15:18:46.686Z</updated>
   <id>/</id>
   
   <author>
@@ -17,10 +17,30 @@
   
   <entry>
     <title>Guava Collections Cookbook</title>
-    <link href="/2017/04/30/google-guava-collection/"/>
-    <id>/2017/04/30/google-guava-collection/</id>
+    <link href="/2017/05/08/google-guava-functional-cookbook/"/>
+    <id>/2017/05/08/google-guava-functional-cookbook/</id>
+    <published>2017-05-08T11:20:14.000Z</published>
+    <updated>2017-06-29T15:18:46.686Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This cookbook is organized into small and focused recipes and code snippets for using the Guava functional-style elements � Predicates and Functions.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="guava" scheme="/categories/guava/"/>
+    
+    
+      <category term="guava" scheme="/tags/guava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guava Collections Cookbook</title>
+    <link href="/2017/04/30/google-guava-collections-cookbook/"/>
+    <id>/2017/04/30/google-guava-collections-cookbook/</id>
     <published>2017-04-30T11:20:14.000Z</published>
-    <updated>2017-06-29T14:46:30.130Z</updated>
+    <updated>2017-06-29T15:18:21.992Z</updated>
     
     <summary type="html">
     
@@ -388,26 +408,6 @@
     <summary type="html">
     
       &lt;p&gt;在使用hexo地&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件进行发布&lt;code&gt;hexo blog&lt;/code&gt;时， 有时会提醒没无正确的提交权限的错误，到导致无法提交博文到网上上。本文主要讲解如何设置github的ssh key以及免ssh key提交博文。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="hexo" scheme="/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo环境安装与初始化指南</title>
-    <link href="/2016/10/05/hexo-install-init-guide/"/>
-    <id>/2016/10/05/hexo-install-init-guide/</id>
-    <published>2016-10-05T15:50:54.000Z</published>
-    <updated>2017-03-10T13:42:00.143Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要讲述怎样在windows环境下安装并初始化hexo博客站点，涉及了hexo的基本安装。详细的配置请参考文所指的官网的指导。其中，文章中会使用到git工具，在此也默认读者会使用该工具，如果不熟悉的，请百度一下参考并学会使用。&lt;/p&gt;
     
     </summary>
     

@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="guava," />
 
 
 
@@ -108,18 +108,16 @@
 
 
 
-<meta name="description" content="在使用hexo地hexo-deployer-git插件进行发布hexo blog时， 有时会提醒没无正确的提交权限的错误，到导致无法提交博文到网上上。本文主要讲解如何设置github的ssh key以及免ssh key提交博文。">
+<meta name="description" content="This cookbook is organized into small and focused recipes and code snippets for using the Guava functional-style elements � Predicates and Functions.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo配置ssh key配置">
-<meta property="og:url" content="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/index.html">
+<meta property="og:title" content="Guava Collections Cookbook">
+<meta property="og:url" content="/2017/05/08/google-guava-functional-cookbook/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="在使用hexo地hexo-deployer-git插件进行发布hexo blog时， 有时会提醒没无正确的提交权限的错误，到导致无法提交博文到网上上。本文主要讲解如何设置github的ssh key以及免ssh key提交博文。">
-<meta property="og:image" content="http://p1.bpimg.com/1949/35d3a74df95a3b0e.png">
-<meta property="og:updated_time" content="2017-02-25T12:12:52.720Z">
+<meta property="og:description" content="This cookbook is organized into small and focused recipes and code snippets for using the Guava functional-style elements � Predicates and Functions.">
+<meta property="og:updated_time" content="2017-06-29T15:18:46.686Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo配置ssh key配置">
-<meta name="twitter:description" content="在使用hexo地hexo-deployer-git插件进行发布hexo blog时， 有时会提醒没无正确的提交权限的错误，到导致无法提交博文到网上上。本文主要讲解如何设置github的ssh key以及免ssh key提交博文。">
-<meta name="twitter:image" content="http://p1.bpimg.com/1949/35d3a74df95a3b0e.png">
+<meta name="twitter:title" content="Guava Collections Cookbook">
+<meta name="twitter:description" content="This cookbook is organized into small and focused recipes and code snippets for using the Guava functional-style elements � Predicates and Functions.">
 
 
 
@@ -147,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/"/>
+  <link rel="canonical" href="/2017/05/08/google-guava-functional-cookbook/"/>
 
 
 
 
 
-  <title> Hexo配置ssh key配置 | 小猪突然地 </title>
+  <title> Guava Collections Cookbook | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -333,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/">
+  <link itemprop="mainEntityOfPage" href="/2017/05/08/google-guava-functional-cookbook/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -357,7 +355,7 @@
             
             
               
-                Hexo配置ssh key配置
+                Guava Collections Cookbook
               
             
           </h1>
@@ -372,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-06T20:46:44+08:00">
-                2016-10-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T19:20:14+08:00">
+                2017-05-08
               </time>
             
 
@@ -395,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/guava/" itemprop="url" rel="index">
+                    <span itemprop="name">guava</span>
                   </a>
                 </span>
 
@@ -413,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/hexo-deploy-blog-to-github-whit-no-password/" itemprop="commentCount"></span>
+                <a href="/2017/05/08/google-guava-functional-cookbook/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/08/google-guava-functional-cookbook/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +420,7 @@
 
           
           
-             <span id="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/" class="leancloud_visitors" data-flag-title="Hexo配置ssh key配置">
+             <span id="/2017/05/08/google-guava-functional-cookbook/" class="leancloud_visitors" data-flag-title="Guava Collections Cookbook">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -451,20 +449,18 @@
       
 
       
-        <p>在使用hexo地<code>hexo-deployer-git</code>插件进行发布<code>hexo blog</code>时， 有时会提醒没无正确的提交权限的错误，到导致无法提交博文到网上上。本文主要讲解如何设置github的ssh key以及免ssh key提交博文。<br><a id="more"></a></p>
-<h3 id="前置说明"><a href="#前置说明" class="headerlink" title="前置说明"></a>前置说明</h3><p>本文使用的是<code>windows系统</code>，所以后续讲述的处理方案均指的是在windows系统下的操作。</p>
-<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在利用hexo写好博文，使用<code>hexo d</code>命令发布时，有时会遇到如下问题:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Permission denied (publickey).</div><div class="line">fatal: Could not read from remote repository.</div><div class="line">Please make sure you have the correct access rights</div><div class="line">and the repository exists.</div><div class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</div><div class="line">Error: Permission denied (publickey).</div><div class="line">fatal: Could not read from remote repository.</div><div class="line">Please make sure you have the correct access rights</div><div class="line">and the repository exists.</div></pre></td></tr></table></figure></p>
-<p>该问题明确说明，没有许可的提交权限。解决该问题的办法是配置<code>github</code>的<code>ssh key</code>, 下面来看看具体的配置过程是怎样的。</p>
-<h3 id="利用git生成ssh-key"><a href="#利用git生成ssh-key" class="headerlink" title="利用git生成ssh key"></a>利用git生成ssh key</h3><p>1.查看<code>ssh key</code>文件是否已存在。如果有经了，可以直接跳过该步骤：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ls -al ~/.ssh</div><div class="line">total 14</div><div class="line">drwxr-xr-x 1 Administrator None    0 Feb 18 11:38 ./</div><div class="line">drwxr-xr-x 1 Administrator None    0 Feb 18 11:33 ../</div><div class="line">-rw-r--r-- 1 Administrator None 1679 Feb 18 11:33 id_rsa</div><div class="line">-rw-r--r-- 1 Administrator None  410 Feb 18 11:33 id_rsa.pub</div><div class="line">-rw-r--r-- 1 Administrator None  407 Feb 18 11:38 known_hosts</div></pre></td></tr></table></figure></p>
-<p>该机器上已经存在<code>ssh key</code>文件，所以为了后续讲解，就先删除然后再生成，windows系统中，默认生成的路径为<code>~/.ssh/</code>。</p>
-<p>2.生成<code>ssh key</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your email&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa):</div><div class="line">Enter passphrase (empty for no passphrase):</div><div class="line">Enter same passphrase again:</div><div class="line">Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa.</div><div class="line">Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub.</div><div class="line">The key fingerprint is:</div><div class="line">SHA256:FRFyN04Om1vZmjlT1vkrcygf2CK6CtDHgux5MPrhygE chenliang901114@sina.com</div><div class="line">The key&apos;s randomart image is:</div><div class="line">+---[RSA 2048]----+</div><div class="line">|        . *o+    |</div><div class="line">|         o X + ..|</div><div class="line">|          + = +..|</div><div class="line">|. o .    . o *  .|</div><div class="line">|E* o o  S . *   .|</div><div class="line">|+ = o       oo. .|</div><div class="line">|.+.o     . + * o |</div><div class="line">|.oo..   . . + =  |</div><div class="line">|.oo  ..o.    .   |</div><div class="line">+----[SHA256]-----+</div></pre></td></tr></table></figure></p>
-<p><code>注意</code>：<br>1.讲<code>ssh-keygen -t rsa -C &quot;your email&quot;</code>换成你的github的email即可。<br>2.<code>Enter file in which to save the key</code>：指定<code>ssh key</code>的生成路径。不用输入，默认是<code>~/.ssh/</code>路劲，即<code>/c/Users/Administrator/.ssh/id_rsa</code>。<br>3.<code>Enter passphrase (empty for no passphrase)</code>：这个推荐不输入，直接回车，原因是如果输入了，那么以后每次提交github时，都要输入这个密码来验证权限。在提交时比较麻烦费事。如果不输入，那么提交github时则不用验证在输入验证了，一步到位，直接提交。</p>
-<h3 id="在github上配置ssh-key"><a href="#在github上配置ssh-key" class="headerlink" title="在github上配置ssh key"></a>在github上配置ssh key</h3><p>找到刚才生成ssh key文件中的<code>id_rsa.pub</code>的文件，打开，粘贴出来配置到github上，具体步骤如下：<br>1.登录github点击又上交的下拉按钮(View profile and more)。<br>2.选择<code>Settings</code>选项。<br>3.进入<code>Personal settings</code>界面，选择左边菜单中的<code>SSH and GPG keys</code>项。<br>4.点击右上角的<code>New SSH key</code>按钮，将<code>id_rsa.pub</code>的内容粘贴至Key中，Title此时可以随便输入。<br>5.最后点击<code>Add SSH key</code>，OK，至此，github ssh key 配置完成。<br><img src="http://p1.bpimg.com/1949/35d3a74df95a3b0e.png" alt="示例图"></p>
-<h3 id="验证ssh-key-配置"><a href="#验证ssh-key-配置" class="headerlink" title="验证ssh key 配置"></a>验证ssh key 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div><div class="line">The authenticity of host &apos;github.com (192.30.253.113)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</div><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div><div class="line">Warning: Permanently added &apos;github.com,192.30.253.113&apos; (RSA) to the list of known hosts.</div><div class="line">Hi 51stick! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
-<p>到此，说明github提交权限已经配置ok了。</p>
-<h3 id="验证Hexo发布到github"><a href="#验证Hexo发布到github" class="headerlink" title="验证Hexo发布到github"></a>验证Hexo发布到github</h3><p>输入hexo发布命令，发布的最后将看到如下结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Warning: Permanently added the RSA host key for IP address &apos;192.30.253.112&apos; to the list of known hosts.</div><div class="line">Branch master set up to track remote branch master from git@github.com:51stick/51stick.github.io.git.</div><div class="line">To github.com:51stick/51stick.github.io.git</div><div class="line">   c22fcb4..b9077d8  HEAD -&gt; master</div><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
-<p>完美，到此，一件发布hexo博文到github配置完成。</p>
-
+        <p>This cookbook is organized into small and focused recipes and code snippets for using the Guava functional-style elements � Predicates and Functions.<br><a id="more"></a></p>
+<h3 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1. Overview"></a>1. Overview</h3><p>This cookbook is organized into small and focused recipes and code snippets for using the Guava functional-style elements � Predicates and Functions.</p>
+<p>The cookbook format is focused and practical � no extraneous details and explanations necessary.</p>
+<h3 id="2-The-Cookbook"><a href="#2-The-Cookbook" class="headerlink" title="2. The Cookbook"></a>2. The Cookbook</h3><h4 id="2-1-filter-a-collection-by-a-condition-custom-Predicate"><a href="#2-1-filter-a-collection-by-a-condition-custom-Predicate" class="headerlink" title="2.1 filter a collection by a condition (custom Predicate)"></a>2.1 filter a collection by a condition (custom Predicate)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">10</span>, <span class="number">34</span>, <span class="number">57</span>, <span class="number">89</span>);</div><div class="line">Predicate&lt;Integer&gt; acceptEven = <span class="keyword">new</span> Predicate&lt;Integer&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Integer number)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (number % <span class="number">2</span>) == <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">List&lt;Integer&gt; evenNumbers = Lists.newArrayList(Collections2.filter(numbers, acceptEven));</div><div class="line">Integer found = Collections.binarySearch(evenNumbers, <span class="number">57</span>);</div><div class="line">assertThat(found, lessThan(<span class="number">0</span>));</div></pre></td></tr></table></figure>
+<h4 id="2-2-filter-out-nulls-from-a-collection"><a href="#2-2-filter-out-nulls-from-a-collection" class="headerlink" title="2.2 filter out nulls from a collection"></a>2.2 filter out nulls from a collection</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; withNulls = Lists.newArrayList(<span class="string">"a"</span>, <span class="string">"bc"</span>, <span class="keyword">null</span>, <span class="string">"def"</span>);</div><div class="line">Iterable&lt;String&gt; withoutNuls = Iterables.filter(withNulls, Predicates.notNull());</div><div class="line">assertTrue(Iterables.all(withoutNuls, Predicates.notNull()));</div></pre></td></tr></table></figure>
+<h4 id="2-3-check-condition-for-all-elements-of-a-collection"><a href="#2-3-check-condition-for-all-elements-of-a-collection" class="headerlink" title="2.3 check condition for all elements of a collection"></a>2.3 check condition for all elements of a collection</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; evenNumbers = Lists.newArrayList(<span class="number">2</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">34</span>, <span class="number">90</span>);</div><div class="line">Predicate&lt;Integer&gt; acceptEven = <span class="keyword">new</span> Predicate&lt;Integer&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Integer number)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (number % <span class="number">2</span>) == <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">boolean</span> result = Iterables.all(evenNumbers, acceptEven);</div></pre></td></tr></table></figure>
+<h4 id="2-4-negate-a-predicate"><a href="#2-4-negate-a-predicate" class="headerlink" title="2.4 negate a predicate"></a>2.4 negate a predicate</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; evenNumbers = Lists.newArrayList(<span class="number">2</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">34</span>, <span class="number">90</span>);</div><div class="line">Predicate&lt;Integer&gt; acceptOdd = <span class="keyword">new</span> Predicate&lt;Integer&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Integer number)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (number % <span class="number">2</span>) != <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">assertTrue(Iterables.all(evenNumbers, Predicates.not(acceptOdd)));</div></pre></td></tr></table></figure>
+<h4 id="2-5-apply-a-simple-function"><a href="#2-5-apply-a-simple-function" class="headerlink" title="2.5 apply a simple function"></a>2.5 apply a simple function</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line">List&lt;String&gt; asStrings = Lists.transform(numbers, Functions.toStringFunction());</div><div class="line">assertThat(asStrings, contains(<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>));</div></pre></td></tr></table></figure>
+<h4 id="2-6-sort-collection-by-first-applying-an-intermediary-function"><a href="#2-6-sort-collection-by-first-applying-an-intermediary-function" class="headerlink" title="2.6 sort collection by first applying an intermediary function"></a>2.6 sort collection by first applying an intermediary function</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">2</span>, <span class="number">1</span>, <span class="number">11</span>, <span class="number">100</span>, <span class="number">8</span>, <span class="number">14</span>);</div><div class="line">Ordering&lt;Object&gt; ordering = Ordering.natural().onResultOf(Functions.toStringFunction());</div><div class="line">List&lt;Integer&gt; inAlphabeticalOrder = ordering.sortedCopy(numbers);</div><div class="line">List&lt;Integer&gt; correctAlphabeticalOrder = Lists.newArrayList(<span class="number">1</span>, <span class="number">100</span>, <span class="number">11</span>, <span class="number">14</span>, <span class="number">2</span>, <span class="number">8</span>);</div><div class="line">assertThat(correctAlphabeticalOrder, equalTo(inAlphabeticalOrder));</div></pre></td></tr></table></figure>
+<h4 id="2-7-complex-example-�-chaining-predicates-and-functions"><a href="#2-7-complex-example-�-chaining-predicates-and-functions" class="headerlink" title="2.7 complex example � chaining predicates and functions"></a>2.7 complex example � chaining predicates and functions</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">2</span>, <span class="number">1</span>, <span class="number">11</span>, <span class="number">100</span>, <span class="number">8</span>, <span class="number">14</span>);</div><div class="line">Predicate&lt;Integer&gt; acceptEvenNumber = <span class="keyword">new</span> Predicate&lt;Integer&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Integer number)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (number % <span class="number">2</span>) == <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">Function&lt;Integer, Integer&gt; powerOfTwo = <span class="keyword">new</span> Function&lt;Integer, Integer&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">apply</span><span class="params">(Integer input)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) Math.pow(input, <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">FluentIterable&lt;Integer&gt; powerOfTwoOnlyForEvenNumbers = </div><div class="line">FluentIterable.from(numbers).filter(acceptEvenNumber).transform(powerOfTwo);</div><div class="line">assertThat(powerOfTwoOnlyForEvenNumbers, contains(<span class="number">4</span>, <span class="number">10000</span>, <span class="number">64</span>, <span class="number">196</span>));</div></pre></td></tr></table></figure>
+<h4 id="2-8-compose-two-functions"><a href="#2-8-compose-two-functions" class="headerlink" title="2.8 compose two functions"></a>2.8 compose two functions</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">2</span>, <span class="number">3</span>);</div><div class="line">Function&lt;Integer, Integer&gt; powerOfTwo = <span class="keyword">new</span> Function&lt;Integer, Integer&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">apply</span><span class="params">(Integer input)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) Math.pow(input, <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">List&lt;Integer&gt; result = Lists.transform(numbers, </div><div class="line">    Functions.compose(powerOfTwo, powerOfTwo));</div><div class="line">assertThat(result, contains(<span class="number">16</span>, <span class="number">81</span>));</div></pre></td></tr></table></figure>
+<h4 id="2-9-create-a-Map-backed-by-a-Set-and-a-Function"><a href="#2-9-create-a-Map-backed-by-a-Set-and-a-Function" class="headerlink" title="2.9 create a Map backed by a Set and a Function"></a>2.9 create a Map backed by a Set and a Function</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Function&lt;Integer, Integer&gt; powerOfTwo = <span class="keyword">new</span> Function&lt;Integer, Integer&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">apply</span><span class="params">(Integer input)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) Math.pow(input, <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">Set&lt;Integer&gt; lowNumbers = Sets.newHashSet(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</div><div class="line"> </div><div class="line">Map&lt;Integer, Integer&gt; numberToPowerOfTwoMuttable = Maps.asMap(lowNumbers, powerOfTwo);</div><div class="line">Map&lt;Integer, Integer&gt; numberToPowerOfTwoImuttable = Maps.toMap(lowNumbers, powerOfTwo);</div><div class="line">assertThat(numberToPowerOfTwoMuttable.get(<span class="number">2</span>), equalTo(<span class="number">4</span>));</div><div class="line">assertThat(numberToPowerOfTwoImuttable.get(<span class="number">2</span>), equalTo(<span class="number">4</span>));</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -487,7 +483,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/guava/" rel="tag"># guava</a>
           
         </div>
       
@@ -500,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/05/hexo-install-init-guide/" rel="next" title="hexo环境安装与初始化指南">
-                <i class="fa fa-chevron-left"></i> hexo环境安装与初始化指南
+              <a href="/2017/04/30/google-guava-collections-cookbook/" rel="next" title="Guava Collections Cookbook">
+                <i class="fa fa-chevron-left"></i> Guava Collections Cookbook
               </a>
             
           </div>
@@ -509,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/15/git-branch-common-command/" rel="prev" title="git branch 常用命令">
-                git branch 常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -527,10 +519,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/06/hexo-deploy-blog-to-github-whit-no-password/"
-     data-title="Hexo配置ssh key配置"
+        <div class="ds-share flat" data-thread-key="2017/05/08/google-guava-functional-cookbook/"
+     data-title="Guava Collections Cookbook"
      data-content=""
-     data-url="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/">
+     data-url="/2017/05/08/google-guava-functional-cookbook/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -557,8 +549,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/06/hexo-deploy-blog-to-github-whit-no-password/"
-           data-title="Hexo配置ssh key配置" data-url="/2016/10/06/hexo-deploy-blog-to-github-whit-no-password/">
+      <div class="ds-thread" data-thread-key="2017/05/08/google-guava-functional-cookbook/"
+           data-title="Guava Collections Cookbook" data-url="/2017/05/08/google-guava-functional-cookbook/">
       </div>
     
   </div>
@@ -687,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前置说明"><span class="nav-number">1.</span> <span class="nav-text">前置说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">2.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用git生成ssh-key"><span class="nav-number">3.</span> <span class="nav-text">利用git生成ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在github上配置ssh-key"><span class="nav-number">4.</span> <span class="nav-text">在github上配置ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证ssh-key-配置"><span class="nav-number">5.</span> <span class="nav-text">验证ssh key 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证Hexo发布到github"><span class="nav-number">6.</span> <span class="nav-text">验证Hexo发布到github</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Overview"><span class="nav-number">1.</span> <span class="nav-text">1. Overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-The-Cookbook"><span class="nav-number">2.</span> <span class="nav-text">2. The Cookbook</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-filter-a-collection-by-a-condition-custom-Predicate"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 filter a collection by a condition (custom Predicate)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-filter-out-nulls-from-a-collection"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 filter out nulls from a collection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-check-condition-for-all-elements-of-a-collection"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 check condition for all elements of a collection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-negate-a-predicate"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 negate a predicate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-apply-a-simple-function"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 apply a simple function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-sort-collection-by-first-applying-an-intermediary-function"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 sort collection by first applying an intermediary function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-complex-example-�-chaining-predicates-and-functions"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 complex example � chaining predicates and functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-compose-two-functions"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 compose two functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-9-create-a-Map-backed-by-a-Set-and-a-Function"><span class="nav-number">2.9.</span> <span class="nav-text">2.9 create a Map backed by a Set and a Function</span></a></li></ol></li></ol></div>
             
 
           </div>
