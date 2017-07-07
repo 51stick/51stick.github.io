@@ -56,6 +56,26 @@
   </entry>
   
   <entry>
+    <title>Drools加载StatefulKnowledgeSession的三种方法</title>
+    <link href="/2017/04/30/drools-ksession-load/"/>
+    <id>/2017/04/30/drools-ksession-load/</id>
+    <published>2017-04-30T11:20:14.000Z</published>
+    <updated>2017-07-07T14:09:44.119Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍drools中加载StatefulKnowledgeSessionde的方式&lt;br&gt;
+    
+    </summary>
+    
+      <category term="guava" scheme="/categories/guava/"/>
+    
+    
+      <category term="guava" scheme="/tags/guava/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Guava Collections Cookbook</title>
     <link href="/2017/04/30/google-guava-collections-cookbook/"/>
     <id>/2017/04/30/google-guava-collections-cookbook/</id>
@@ -395,26 +415,6 @@
     
     
       <category term="zookeeper" scheme="/tags/zookeeper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git branch 常用命令</title>
-    <link href="/2016/10/15/git-branch-common-command/"/>
-    <id>/2016/10/15/git-branch-common-command/</id>
-    <published>2016-10-15T06:01:55.000Z</published>
-    <updated>2017-03-30T11:41:25.620Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;众所周知，git是现在主流的版本控制软件，工作中使用的也是比较多，本文列出了本人工作中用得比较多的几个命令，一方面作为笔记查看，其次也是个人的一个小小汇总。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="git" scheme="/categories/git/"/>
-    
-    
-      <category term="git" scheme="/tags/git/"/>
     
   </entry>
   
