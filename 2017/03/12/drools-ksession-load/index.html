@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="drools," />
 
 
 
@@ -108,18 +108,16 @@
 
 
 
-<meta name="description" content="本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。">
+<meta name="description" content="本文主要介绍drools中加载StatefulKnowledgeSessionde的方式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从零开始构建 centos+jdk8+tomcat8 Docker镜像">
-<meta property="og:url" content="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/index.html">
+<meta property="og:title" content="Drools加载StatefulKnowledgeSession的三种方法">
+<meta property="og:url" content="/2017/03/12/drools-ksession-load/index.html">
 <meta property="og:site_name" content="小猪突然地">
-<meta property="og:description" content="本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。">
-<meta property="og:image" content="http://i4.buimg.com/1949/3cf760a6f497891b.png">
-<meta property="og:updated_time" content="2017-05-06T15:03:03.925Z">
+<meta property="og:description" content="本文主要介绍drools中加载StatefulKnowledgeSessionde的方式">
+<meta property="og:updated_time" content="2017-07-07T14:17:30.198Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从零开始构建 centos+jdk8+tomcat8 Docker镜像">
-<meta name="twitter:description" content="本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。">
-<meta name="twitter:image" content="http://i4.buimg.com/1949/3cf760a6f497891b.png">
+<meta name="twitter:title" content="Drools加载StatefulKnowledgeSession的三种方法">
+<meta name="twitter:description" content="本文主要介绍drools中加载StatefulKnowledgeSessionde的方式">
 
 
 
@@ -147,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/"/>
+  <link rel="canonical" href="/2017/03/12/drools-ksession-load/"/>
 
 
 
 
 
-  <title> 从零开始构建 centos+jdk8+tomcat8 Docker镜像 | 小猪突然地 </title>
+  <title> Drools加载StatefulKnowledgeSession的三种方法 | 小猪突然地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -333,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/">
+  <link itemprop="mainEntityOfPage" href="/2017/03/12/drools-ksession-load/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小猪突然地">
@@ -357,7 +355,7 @@
             
             
               
-                从零开始构建 centos+jdk8+tomcat8 Docker镜像
+                Drools加载StatefulKnowledgeSession的三种方法
               
             
           </h1>
@@ -372,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-23T19:20:14+08:00">
-                2017-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T19:20:14+08:00">
+                2017-03-12
               </time>
             
 
@@ -395,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/drools/" itemprop="url" rel="index">
+                    <span itemprop="name">drools</span>
                   </a>
                 </span>
 
@@ -413,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/23/docker-build-image-with-centos-jdk-tomcat/" itemprop="commentCount"></span>
+                <a href="/2017/03/12/drools-ksession-load/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/12/drools-ksession-load/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +420,7 @@
 
           
           
-             <span id="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/" class="leancloud_visitors" data-flag-title="从零开始构建 centos+jdk8+tomcat8 Docker镜像">
+             <span id="/2017/03/12/drools-ksession-load/" class="leancloud_visitors" data-flag-title="Drools加载StatefulKnowledgeSession的三种方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -451,33 +449,21 @@
       
 
       
-        <p>本文主要介绍从零开始构建一个基于centos环境，具有jdk，tomcat的docker镜像。展示了怎样从一个基础镜像构建一个自己需要的镜像。下面具体来看看如何操作。<br><a id="more"></a></p>
-<h3 id="开始说明"><a href="#开始说明" class="headerlink" title="开始说明"></a>开始说明</h3><p>本文默认所在linux环境已经安装好了docker。</p>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>首先介绍下本文是要的jdk和tomcat版本。</p>
-<ol>
-<li>jdk-8u131-linux-x64.tar.gz</li>
-<li>apache-tomcat-8.5.14.tar.gz</li>
-</ol>
-<h3 id="文件准备"><a href="#文件准备" class="headerlink" title="文件准备"></a>文件准备</h3><p>将jdk和tomcat上传到指定的linux路径下并解压。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# ls</div><div class="line">apache-tomcat-8.5.14  jdk1.8.0_131</div></pre></td></tr></table></figure></p>
-<h3 id="准备基础镜像文件"><a href="#准备基础镜像文件" class="headerlink" title="准备基础镜像文件"></a>准备基础镜像文件</h3><p>从<code>Docker Hub</code>拉去基础镜像文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# docker pull centos</div></pre></td></tr></table></figure></p>
-<p>默认拉去的是tag为latest的centos镜像，镜像拉取成功后，我们可以使用<code>docker images</code>命令查看本地镜像文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# docker images</div><div class="line">REPOSITORY                        TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">docker.io/centos                  latest              a8493f5f50ff        4 weeks ago         192.5 MB</div></pre></td></tr></table></figure></p>
-<p>此时<code>docker.io/centos</code>就是从<code>Docker Hub</code>拉取下来的基础镜像文件。</p>
-<h3 id="编写Dockerfile文件"><a href="#编写Dockerfile文件" class="headerlink" title="编写Dockerfile文件"></a>编写Dockerfile文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">FROM docker.io/centos:latest</div><div class="line"></div><div class="line">MAINTAINER liang.chen &quot;229408705@qq.com&quot;</div><div class="line"></div><div class="line">RUN mkdir -p /opt/java/jdk1.8.0_131</div><div class="line">RUN mkdir -p /opt/tomcat/apache-tomcat-8.5.14</div><div class="line"></div><div class="line">ADD ./jdk1.8.0_131/ /opt/java/jdk1.8.0_131/</div><div class="line">ADD ./apache-tomcat-8.5.14/ /opt/tomcat/apache-tomcat-8.5.14/</div><div class="line"></div><div class="line">ENV JAVA_HOME /opt/java/jdk1.8.0_131</div><div class="line">ENV JRE_HOME $JAVA_HOME/jre</div><div class="line">ENV CLASSPATH .:$JAVA_HOME/lib:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div><div class="line">ENV CATALINA_HOME /opt/tomcat/apache-tomcat-8.5.14</div><div class="line">ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin</div><div class="line"></div><div class="line">EXPOSE 8080</div><div class="line"></div><div class="line">CMD [&quot;/opt/tomcat/apache-tomcat-8.5.14/bin/catalina.sh&quot;,&quot;run&quot;]</div></pre></td></tr></table></figure>
-<h3 id="编写构建脚本"><a href="#编写构建脚本" class="headerlink" title="编写构建脚本"></a>编写构建脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">docker build --no-cache=true -t &quot;repos_local/centos-jdk8-tomcat8:0.0.1&quot; .</div></pre></td></tr></table></figure>
-<p>注意：此处的构建脚本只有一句简单的docker构建的命令，实际工作中，docker的构建脚本可能会涉及到其他很多逻辑。例如，在构建前拉去项目应用包，项目配置文件等。</p>
-<h3 id="开始构建镜像"><a href="#开始构建镜像" class="headerlink" title="开始构建镜像"></a>开始构建镜像</h3><p>执行构建脚本，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# ./build.sh </div><div class="line">Sending build context to Docker daemon 586.2 MB</div><div class="line">Step 1 : FROM docker.io/centos:latest</div><div class="line"> ---&gt; a8493f5f50ff</div><div class="line">Step 2 : MAINTAINER liang.chen &quot;229408705@qq.com&quot;</div><div class="line"> ---&gt; Running in 601bdbffbde4</div><div class="line"> ---&gt; 26e8cdd86433</div><div class="line">Removing intermediate container 601bdbffbde4</div><div class="line">Step 3 : RUN mkdir -p /opt/java/jdk1.8.0_131</div><div class="line"> ---&gt; Running in 4baabb3936b6</div><div class="line"> ---&gt; 7b1738e4e96c</div><div class="line">Removing intermediate container 4baabb3936b6</div><div class="line">Step 4 : RUN mkdir -p /opt/tomcat/apache-tomcat-8.5.14</div><div class="line"> ---&gt; Running in d0afc9b3cd18</div><div class="line"> ---&gt; 298988f65c6a</div><div class="line">Removing intermediate container d0afc9b3cd18</div><div class="line">Step 5 : ADD ./jdk1.8.0_131/ /opt/java/jdk1.8.0_131/</div><div class="line"> ---&gt; 8f4398e2ac65</div><div class="line">Removing intermediate container 532486b90ea9</div><div class="line">Step 6 : ADD ./apache-tomcat-8.5.14/ /opt/tomcat/apache-tomcat-8.5.14/</div><div class="line"> ---&gt; 913dd4b486bf</div><div class="line">Removing intermediate container 9d6e553ba0aa</div><div class="line">Step 7 : ENV JAVA_HOME /opt/java/jdk1.8.0_131</div><div class="line"> ---&gt; Running in 19ae93f7e0dd</div><div class="line"> ---&gt; 01c2503c567e</div><div class="line">Removing intermediate container 19ae93f7e0dd</div><div class="line">Step 8 : ENV JRE_HOME $JAVA_HOME/jre</div><div class="line"> ---&gt; Running in 11689dfd11ec</div><div class="line"> ---&gt; c40790cf116b</div><div class="line">Removing intermediate container 11689dfd11ec</div><div class="line">Step 9 : ENV CLASSPATH .:$JAVA_HOME/lib:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div><div class="line"> ---&gt; Running in 02576f380d9b</div><div class="line"> ---&gt; f64f603a91e3</div><div class="line">Removing intermediate container 02576f380d9b</div><div class="line">Step 10 : ENV CATALINA_HOME /opt/tomcat/apache-tomcat-8.5.14</div><div class="line"> ---&gt; Running in 09c7f880a31a</div><div class="line"> ---&gt; 8aac237520a3</div><div class="line">Removing intermediate container 09c7f880a31a</div><div class="line">Step 11 : ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin</div><div class="line"> ---&gt; Running in 9540a4f48a1c</div><div class="line"> ---&gt; f4718ff45225</div><div class="line">Removing intermediate container 9540a4f48a1c</div><div class="line">Step 12 : EXPOSE 8080</div><div class="line"> ---&gt; Running in 27a8ec657673</div><div class="line"> ---&gt; 7b80cd06456a</div><div class="line">Removing intermediate container 27a8ec657673</div><div class="line">Step 13 : CMD /opt/tomcat/apache-tomcat-8.5.14/bin/catalina.sh run</div><div class="line"> ---&gt; Running in 51365559218c</div><div class="line"> ---&gt; 8b730c606224</div><div class="line">Removing intermediate container 51365559218c</div><div class="line">Successfully built 8b730c606224</div></pre></td></tr></table></figure></p>
-<p>如此表示镜像已经构建成功，<code>jdk1.8.0_131</code>和<code>apache-tomcat-8.5.14</code>也已经成功的打进到我们新构建的镜像文件中了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# docker images</div><div class="line">REPOSITORY                        TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">repos_local/centos-jdk8-tomcat8   0.0.1               8b730c606224        1 hours ago         581.9 MB</div><div class="line">docker.io/centos                  latest              a8493f5f50ff        4 weeks ago         192.5 MB</div></pre></td></tr></table></figure>
-<p>现在可以看到，除了基础镜像文件外，多了一个<code>repos_local/centos-jdk8-tomcat8</code>镜像文件，该文件就是我们上面构建的<code>centos+jdk+tomcat</code>的镜像文件了。</p>
-<h3 id="运行一个docker容器"><a href="#运行一个docker容器" class="headerlink" title="运行一个docker容器"></a>运行一个docker容器</h3><p>最后，我们来根据新构建的镜像文件，运行一个容器，该容器会启动tomcat。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -p 8081:8080 --name test-jdk8-tomcat8 repos_local/centos-jdk8-tomcat8:0.0.1</div></pre></td></tr></table></figure></p>
-<p>注意：<br><code>-d</code>：后台运行docker容器。<br><code>-p</code>：端口映射。宿主机port:容器port，如此在访问宿主机的ip+port时，就能访问到docker容器中的 应用端口。<br><code>--name</code>：容器名称, 容器id难以记忆，因此可以通过容器名称对容器操作。</p>
-<h3 id="查看tomcat启动情况"><a href="#查看tomcat启动情况" class="headerlink" title="查看tomcat启动情况"></a>查看tomcat启动情况</h3><p>由于启动docker容器时没有将tomcat的日志文件映射出来，因此可以直接进入容器中查看启动日志。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost docker]# docker exec -it test-jdk8-tomcat8 /bin/bash</div><div class="line">[root@8cb542667072 /]#</div></pre></td></tr></table></figure></p>
-<p>此时用户名已将切换，证明已经进入到运行中的docker容器中了。<br>注意:<br>    <code>-i</code>：捕获标准输入输出。<br>    <code>-t</code>：分配一个终端或控制台。</p>
-<p>最后在浏览器中测试下能否访问tomcat，如：<a href="http://192.168.244.128:8081" target="_blank" rel="external">http://192.168.244.128:8081</a></p>
-<p><img src="http://i4.buimg.com/1949/3cf760a6f497891b.png" alt="Markdown"></p>
-<p>OK,汤猫也成功起来了，证明我们docker镜像构建成功，docker容器启动成功，容器中的应用也正常启动了。</p>
-<h3 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h3><h4 id="开放指定端口"><a href="#开放指定端口" class="headerlink" title="开放指定端口"></a>开放指定端口</h4><p>开始时，就算tomcat正常启动了，外面也无法正常访问tomcat主界面，因为有可能端口号没有开放出来，外部不能直接访问。</p>
-<p>永久开放指定端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 开放8081端口  permanent为永久开放</div><div class="line">firewall-cmd --zone=public --add-port=8081/tcp --permanent</div><div class="line"></div><div class="line"># 重新读取配置</div><div class="line">firewall-cmd --reload</div><div class="line"></div><div class="line"># 查看已经开放的端口</div><div class="line">firewall-cmd --list-all</div></pre></td></tr></table></figure></p>
+        <p>本文主要介绍drools中加载StatefulKnowledgeSessionde的方式<br><a id="more"></a></p>
+<p>注意：本文主要摘抄与官方文档翻译。</p>
+<h3 id="What’s-this"><a href="#What’s-this" class="headerlink" title="What’s this"></a>What’s this</h3><p>本文主要介绍drools中三种加载StatefulKnowledgeSession的方法，分别如下：</p>
+<ul>
+<li><p>从本地加载StatefulKnowledgeSession</p>
+</li>
+<li><p>从KnowledgeAgent加载StatefulKnowledgeSession</p>
+</li>
+<li><p>从远程URL加载StatefulKnowledgeSession</p>
+</li>
+</ul>
+<pre><code>Note: The source code path: ./drools/ksession, KnowledgeAgentUsage.drl should synchronised to Guvnor and org.drools.examples build successful in Guvnor
+</code></pre><h3 id="1-从本地加载-ksession"><a href="#1-从本地加载-ksession" class="headerlink" title="1. 从本地加载 ksession"></a>1. 从本地加载 ksession</h3><p>代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> StatefulKnowledgeSession <span class="title">readKnowledgeSession</span><span class="params">(String name)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();</div><div class="line">		kbuilder.add(ResourceFactory.newClassPathResource(name),ResourceType.DRL);</div><div class="line">		KnowledgeBuilderErrors errors = kbuilder.getErrors();</div><div class="line">		KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();</div><div class="line">		kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());</div><div class="line">		<span class="keyword">return</span> kbase.newStatefulKnowledgeSession();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-从KnowledgeAgent加载StatefulKnowledgeSession"><a href="#2-从KnowledgeAgent加载StatefulKnowledgeSession" class="headerlink" title="2.从KnowledgeAgent加载StatefulKnowledgeSession"></a>2.从KnowledgeAgent加载StatefulKnowledgeSession</h3><p>代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> StatefulKnowledgeSession <span class="title">readKnowledgeSession</span><span class="params">(String changeset)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		kagent = KnowledgeAgentFactory.newKnowledgeAgent(<span class="string">"kagent"</span>);</div><div class="line">		ResourceFactory.getResourceChangeNotifierService().start();</div><div class="line">		ResourceFactory.getResourceChangeScannerService().start();</div><div class="line">		kagent.setSystemEventListener(<span class="keyword">new</span> PrintStreamSystemEventListener());</div><div class="line">		kagent.applyChangeSet(ResourceFactory.newClassPathResource(changeset));</div><div class="line">		KnowledgeBase kbase = kagent.getKnowledgeBase();</div><div class="line">		<span class="keyword">return</span> kbase.newStatefulKnowledgeSession();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-从远程URL加载StatefulKnowledgeSession"><a href="#3-从远程URL加载StatefulKnowledgeSession" class="headerlink" title="3. 从远程URL加载StatefulKnowledgeSession"></a>3. 从远程URL加载StatefulKnowledgeSession</h3><p>代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> StatefulKnowledgeSession <span class="title">newKnowledgeSession</span><span class="params">(String url)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		UrlResource resource = (UrlResource) ResourceFactory.newUrlResource(url);</div><div class="line">		resource.setBasicAuthentication(<span class="string">"enabled"</span>);</div><div class="line">        	resource.setUsername(<span class="string">"admin"</span>);</div><div class="line">        	resource.setPassword(<span class="string">"admin"</span>);</div><div class="line">       		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();</div><div class="line">       		kbuilder.add(resource, ResourceType.PKG);</div><div class="line">		KnowledgeBase kbase = kbuilder.newKnowledgeBase();</div><div class="line">		<span class="keyword">return</span> kbase.newStatefulKnowledgeSession();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -501,7 +487,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/drools/" rel="tag"># drools</a>
           
         </div>
       
@@ -514,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/22/docker-install-guide/" rel="next" title="docker安装指南">
-                <i class="fa fa-chevron-left"></i> docker安装指南
+              <a href="/2017/03/12/springboot-configuration-load/" rel="next" title="springboot 配置详解">
+                <i class="fa fa-chevron-left"></i> springboot 配置详解
               </a>
             
           </div>
@@ -524,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/30/google-guava-collections-cookbook/" rel="prev" title="Guava Collections Cookbook">
-                Guava Collections Cookbook <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/17/springboot-configruation-profiles/" rel="prev" title="springboot中profiles配置及使用">
+                springboot中profiles配置及使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,10 +527,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/04/23/docker-build-image-with-centos-jdk-tomcat/"
-     data-title="从零开始构建 centos+jdk8+tomcat8 Docker镜像"
+        <div class="ds-share flat" data-thread-key="2017/03/12/drools-ksession-load/"
+     data-title="Drools加载StatefulKnowledgeSession的三种方法"
      data-content=""
-     data-url="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/">
+     data-url="/2017/03/12/drools-ksession-load/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -571,8 +557,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/23/docker-build-image-with-centos-jdk-tomcat/"
-           data-title="从零开始构建 centos+jdk8+tomcat8 Docker镜像" data-url="/2017/04/23/docker-build-image-with-centos-jdk-tomcat/">
+      <div class="ds-thread" data-thread-key="2017/03/12/drools-ksession-load/"
+           data-title="Drools加载StatefulKnowledgeSession的三种方法" data-url="/2017/03/12/drools-ksession-load/">
       </div>
     
   </div>
@@ -701,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始说明"><span class="nav-number">1.</span> <span class="nav-text">开始说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件准备"><span class="nav-number">3.</span> <span class="nav-text">文件准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备基础镜像文件"><span class="nav-number">4.</span> <span class="nav-text">准备基础镜像文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写Dockerfile文件"><span class="nav-number">5.</span> <span class="nav-text">编写Dockerfile文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写构建脚本"><span class="nav-number">6.</span> <span class="nav-text">编写构建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始构建镜像"><span class="nav-number">7.</span> <span class="nav-text">开始构建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行一个docker容器"><span class="nav-number">8.</span> <span class="nav-text">运行一个docker容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看tomcat启动情况"><span class="nav-number">9.</span> <span class="nav-text">查看tomcat启动情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题总结"><span class="nav-number">10.</span> <span class="nav-text">问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开放指定端口"><span class="nav-number">10.1.</span> <span class="nav-text">开放指定端口</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#What’s-this"><span class="nav-number">1.</span> <span class="nav-text">What’s this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-从本地加载-ksession"><span class="nav-number">2.</span> <span class="nav-text">1. 从本地加载 ksession</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-从KnowledgeAgent加载StatefulKnowledgeSession"><span class="nav-number">3.</span> <span class="nav-text">2.从KnowledgeAgent加载StatefulKnowledgeSession</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-从远程URL加载StatefulKnowledgeSession"><span class="nav-number">4.</span> <span class="nav-text">3. 从远程URL加载StatefulKnowledgeSession</span></a></li></ol></div>
             
 
           </div>
